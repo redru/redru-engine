@@ -22,23 +22,50 @@
     <Filter Include="Archivos de origen\REDRU">
       <UniqueIdentifier>{bc46ff1e-a559-4b24-9319-8925110e7691}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\REDRU\Managers">
+      <UniqueIdentifier>{8441a903-43d9-4b4c-9ea5-a00f9721aee4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
       <Filter>Archivos de recursos</Filter>
-    </None>
-    <None Include="src\RedruEngine.cpp">
-      <Filter>Archivos de origen\REDRU</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="src\RedruEngine.cpp">
+      <Filter>Archivos de origen\REDRU</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AudioManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\RedruEngine.hpp">
       <Filter>Archivos de encabezado\REDRU</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Managers\AudioManager.hpp">
+      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Managers\StatesManager.hpp">
+      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Managers\InputManager.hpp">
+      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Managers\ConfigManager.hpp">
+      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Managers\GraphicsManager.hpp">
+      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
