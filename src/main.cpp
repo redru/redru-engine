@@ -1,24 +1,19 @@
+#include <iostream>
+#include <memory>
 #include <SFML/Graphics.hpp>
 
-int main()
-{
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+#include "REDRU/RedruEngine.hpp"
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+using namespace std;
+using namespace re;
 
-		window.clear();
-		window.draw(shape);
-		window.display();
-	}
+int main() {
+	// unique_ptr<RedruEngine> engine = make_unique<RedruEngine>(RedruEngine());
+	// unique_ptr<RedruEngine> engine;
+	// engine.reset(new RedruEngine());
+	RedruEngine engine;
 
-	return 0;
+	engine.initialize();
+
+	return engine.start();
 }

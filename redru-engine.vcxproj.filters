@@ -13,15 +13,32 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de encabezado\REDRU">
+      <UniqueIdentifier>{d4da95a1-e221-4f46-a61c-790e6cf398cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\REDRU\Managers">
+      <UniqueIdentifier>{e8c8b813-1560-411f-a793-ec67331a106b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\REDRU">
+      <UniqueIdentifier>{bc46ff1e-a559-4b24-9319-8925110e7691}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
       <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="src\RedruEngine.cpp">
+      <Filter>Archivos de origen\REDRU</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\REDRU\RedruEngine.hpp">
+      <Filter>Archivos de encabezado\REDRU</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
