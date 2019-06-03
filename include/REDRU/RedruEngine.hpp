@@ -4,6 +4,7 @@
 #include "REDRU/Managers/AudioManager.hpp"
 #include "REDRU/Managers/GraphicsManager.hpp"
 #include "REDRU/Managers/InputManager.hpp"
+#include "REDRU/Managers/StatesManager.hpp"
 
 namespace re {
 
@@ -18,6 +19,8 @@ namespace re {
 		unique_ptr<AudioManager> audioManager;
 		
 		unique_ptr<InputManager> inputManager;
+
+		unique_ptr<StatesManager> statesManager;
 
 	public:
 		
@@ -34,6 +37,8 @@ namespace re {
 		AudioManager& getAudioManager();
 
 		InputManager& getInputManager();
+
+		StatesManager& getStatesManager();
 
 	};
 

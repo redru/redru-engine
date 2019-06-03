@@ -47,6 +47,9 @@
     <ClCompile Include="src\InputManager.cpp">
       <Filter>Archivos de origen\REDRU\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="src\StatesManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\RedruEngine.hpp">

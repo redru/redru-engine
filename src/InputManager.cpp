@@ -7,6 +7,7 @@ namespace re {
 	}
 
 	void InputManager::initialize() {
+		cout << "InputManager initialized" << endl;
 	}
 
 	void InputManager::handleInput() {

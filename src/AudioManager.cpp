@@ -7,6 +7,7 @@ namespace re {
 	}
 
 	void AudioManager::initialize() {
+		cout << "AudioManager initialized" << endl;
 	}
 
 }

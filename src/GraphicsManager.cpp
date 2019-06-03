@@ -8,6 +8,7 @@ namespace re {
 
 	void GraphicsManager::initialize() {
 		window.reset(new sf::RenderWindow(sf::VideoMode(960, 540), "Redru Engine - 960 x 540"));
+		cout << "GraphicsManager initialized" << endl;
 	}
 
 	bool GraphicsManager::isWindowOpen() {

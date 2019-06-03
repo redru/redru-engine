@@ -3,15 +3,19 @@
 namespace re {
 
 	RedruEngine::RedruEngine() {
-		graphicsManager.reset(new GraphicsManager(*this));
-		audioManager.reset(new AudioManager(*this));
-		inputManager.reset(new InputManager(*this));
 	}
 
 	void RedruEngine::initialize() {
+		graphicsManager.reset(new GraphicsManager(*this));
+		audioManager.reset(new AudioManager(*this));
+		inputManager.reset(new InputManager(*this));
+		statesManager.reset(new StatesManager(*this));
+		
+
 		graphicsManager->initialize();
 		audioManager->initialize();
 		inputManager->initialize();
+		statesManager->initialize();
 	}
 
 	int RedruEngine::start() {
@@ -36,6 +40,10 @@ namespace re {
 
 	InputManager& RedruEngine::getInputManager() {
 		return *inputManager;
+	}
+
+	StatesManager& RedruEngine::getStatesManager() {
+		return *statesManager;
 	}
 
 }
