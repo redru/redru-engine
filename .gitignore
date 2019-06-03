@@ -1,0 +1,6 @@
+# IDE
+.vs/
+redru-engine.vcxproj.user
+
+# Build
+Debug/
