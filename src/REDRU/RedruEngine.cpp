@@ -23,8 +23,10 @@ namespace re {
 		clock.restart();
 
 		while ((statesManager->hasActiveState() && graphicsManager->isWindowOpen())) {
+			// Check if a new state has been requested, then change it
 			if (statesManager->hasRequestedState()) statesManager->nextState();
 
+			// Get the time from las clock reset
 			elapsed = clock.getElapsedTime().asMilliseconds();
 
 			if (elapsed < realTimeToNext) {
