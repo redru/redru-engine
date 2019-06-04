@@ -15,6 +15,8 @@ namespace re {
 
 		textureAssets->initialize();
 
+		textureAssets->registerAsset("SPLASH_IMAGE", "resources/splash_image.png");
+
 		spdlog::debug("[GraphicsManager] -- initialized --");
 	}
 

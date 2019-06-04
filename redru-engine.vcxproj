@@ -162,7 +162,7 @@
     <ClInclude Include="include\StateSplashScreen.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="resources\luca.png" />
+    <Image Include="resources\splash_image.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
