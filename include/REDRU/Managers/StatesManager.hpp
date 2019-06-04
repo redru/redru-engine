@@ -31,6 +31,10 @@ namespace re {
 
 		void initialize();
 
+		void update();
+
+		void fixedUpdate();
+
 	};
 
 }

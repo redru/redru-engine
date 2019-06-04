@@ -20,4 +20,18 @@ namespace re {
 		cout << "[StatesManager] -- initialized --" << endl;
 	}
 
+	void StatesManager::update() {
+		cout << "[RedruEngine] update" << endl;
+		cout << "[RedruEngine] elapsed time: " + to_string(engine.getElapsed()) << endl;
+
+		inputManager->handleWindowEvents();
+	}
+
+	void StatesManager::fixedUpdate() {
+		cout << "[RedruEngine] fixed update" << endl;
+		cout << "[RedruEngine] elapsed time: " + to_string(engine.getElapsed()) << endl;
+
+		graphicsManager->draw();
+	}
+
 }

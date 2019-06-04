@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include <math.h>
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include "REDRU/Managers/AudioManager.hpp"
@@ -26,6 +28,9 @@ namespace re {
 		// Engine components
 		sf::Clock clock;
 
+		// Members
+		int elapsed;
+
 	public:
 		
 		RedruEngine();
@@ -33,6 +38,10 @@ namespace re {
 		void initialize();
 
 		int start();
+
+	public:
+
+		int getElapsed();
 
 	public:
 
