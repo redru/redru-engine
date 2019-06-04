@@ -13,12 +13,14 @@ namespace re {
 	class InputManager {
 
 	private:
+
 		RedruEngine& engine;
 
 		shared_ptr<GraphicsManager> graphicsManager;
 
 
 	public:
+
 		InputManager(RedruEngine& engine);
 
 		void initialize();
