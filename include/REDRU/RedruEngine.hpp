@@ -2,7 +2,6 @@
 #include <iostream>
 #include <math.h>
 #include <memory>
-#include <SFML/Graphics.hpp>
 #include "REDRU/Managers/AudioManager.hpp"
 #include "REDRU/Managers/GraphicsManager.hpp"
 #include "REDRU/Managers/InputManager.hpp"
