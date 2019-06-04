@@ -43,7 +43,15 @@ namespace re {
 	}
 
 	void StatesManager::requestStateChange(string name) {
-		requestedState = states[name];
+		shared_ptr<State>& tmp = states[name];
+
+		if (!tmp) {
+			cout << "[StatesManager] requested state '" + name + "' does not exists" << endl;
+
+			exit(1);
+		}
+
+		requestedState = tmp;
 	}
 
 	void StatesManager::nextState() {

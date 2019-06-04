@@ -61,6 +61,8 @@ namespace re {
 
 	void RedruEngine::registerState(string name, shared_ptr<State> state) {
 		statesManager->registerState(name, state);
+
+		cout << "[RedruEngine] registered new state '" + name + "'" << endl;
 	}
 
 	void RedruEngine::changeState(string name, bool immediate) {
