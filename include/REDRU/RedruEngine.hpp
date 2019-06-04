@@ -14,13 +14,13 @@ namespace re {
 
 	private:
 		
-		unique_ptr<GraphicsManager> graphicsManager;
+		shared_ptr<GraphicsManager> graphicsManager;
 		
-		unique_ptr<AudioManager> audioManager;
+		shared_ptr<AudioManager> audioManager;
 		
-		unique_ptr<InputManager> inputManager;
+		shared_ptr<InputManager> inputManager;
 
-		unique_ptr<StatesManager> statesManager;
+		shared_ptr<StatesManager> statesManager;
 
 	public:
 		
@@ -32,13 +32,13 @@ namespace re {
 
 	public:
 
-		GraphicsManager& getGraphicsManager();
+		shared_ptr<GraphicsManager> getGraphicsManager();
 		
-		AudioManager& getAudioManager();
+		shared_ptr<AudioManager> getAudioManager();
 
-		InputManager& getInputManager();
+		shared_ptr<InputManager> getInputManager();
 
-		StatesManager& getStatesManager();
+		shared_ptr<StatesManager> getStatesManager();
 
 	};
 

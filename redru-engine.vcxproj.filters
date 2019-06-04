@@ -25,6 +25,12 @@
     <Filter Include="Archivos de origen\REDRU\Managers">
       <UniqueIdentifier>{8441a903-43d9-4b4c-9ea5-a00f9721aee4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\REDRU\Components">
+      <UniqueIdentifier>{3ac60626-6df8-4e34-b38b-2527ad21d0df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\REDRU\Assets">
+      <UniqueIdentifier>{8753395d-acae-41e1-828f-df830d71505b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
@@ -69,6 +75,21 @@
     </ClInclude>
     <ClInclude Include="include\REDRU\Managers\GraphicsManager.hpp">
       <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Components\GameObject.hpp">
+      <Filter>Archivos de encabezado\REDRU\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Components\State.hpp">
+      <Filter>Archivos de encabezado\REDRU\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Assets\MusicAssets.hpp">
+      <Filter>Archivos de encabezado\REDRU\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Assets\SoundAssets.hpp">
+      <Filter>Archivos de encabezado\REDRU\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp">
+      <Filter>Archivos de encabezado\REDRU\Assets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

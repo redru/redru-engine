@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+#include <memory>
 #include <SFML/Graphics.hpp>
+#include "GraphicsManager.hpp"
 
 namespace re {
 
@@ -13,13 +15,15 @@ namespace re {
 	private:
 		RedruEngine& engine;
 
+		shared_ptr<GraphicsManager> graphicsManager;
+
 
 	public:
 		InputManager(RedruEngine& engine);
 
 		void initialize();
 
-		void handleInput();
+		void handleWindowEvents();
 
 	};
 

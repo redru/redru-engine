@@ -22,7 +22,7 @@ namespace re {
 		while (graphicsManager->isWindowOpen()) {
 			sf::Event event;
 
-			inputManager->handleInput();
+			inputManager->handleWindowEvents();
 
 			graphicsManager->draw();
 		}
@@ -30,20 +30,20 @@ namespace re {
 		return 0;
 	}
 
-	GraphicsManager& RedruEngine::getGraphicsManager() {
-		return *graphicsManager;
+	shared_ptr<GraphicsManager> RedruEngine::getGraphicsManager() {
+		return graphicsManager;
 	}
 
-	AudioManager& RedruEngine::getAudioManager() {
-		return *audioManager;
+	shared_ptr<AudioManager> RedruEngine::getAudioManager() {
+		return audioManager;
 	}
 
-	InputManager& RedruEngine::getInputManager() {
-		return *inputManager;
+	shared_ptr<InputManager> RedruEngine::getInputManager() {
+		return inputManager;
 	}
 
-	StatesManager& RedruEngine::getStatesManager() {
-		return *statesManager;
+	shared_ptr<StatesManager> RedruEngine::getStatesManager() {
+		return statesManager;
 	}
 
 }

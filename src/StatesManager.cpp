@@ -3,10 +3,11 @@
 namespace re {
 
 	StatesManager::StatesManager(RedruEngine& engine) : engine(engine) {
+		cout << "[StatesManager] created" << endl;
 	}
 
 	void StatesManager::initialize() {
-		cout << "StatesManager initialized" << endl;
+		cout << "[StatesManager] initialized" << endl;
 	}
 
 }
