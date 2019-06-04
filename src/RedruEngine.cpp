@@ -20,6 +20,8 @@ namespace re {
 		float timeToNext = ceil(1000.f / 30.f);
 		float realTimeToNext = 0;
 
+		clock.restart();
+
 		while (graphicsManager->isWindowOpen()) {
 			elapsed = clock.getElapsedTime().asMilliseconds();
 
