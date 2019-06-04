@@ -3,7 +3,7 @@
 
 namespace re {
 
-	TextureAssets::TextureAssets(RedruEngine& engine) : engine(engine), texturesMapping() {
+	TextureAssets::TextureAssets(RedruEngine& engine) : engine(engine), texturesMapping(), loadedTextures(){
 		spdlog::debug("[TextureAssets] -- created --");
 	}
 
@@ -18,8 +18,6 @@ namespace re {
 	}
 
 	sf::Texture& TextureAssets::loadTexture(string name) {
-		sf::Texture* texture = new sf::Texture();
-
 		auto it = texturesMapping.find(name);
 
 		if (it == texturesMapping.end()) {
@@ -28,13 +26,35 @@ namespace re {
 			exit(1);
 		}
 
+		// Load from cache if present
+		auto it2 = loadedTextures.find(name);
+
+		if (it2 != loadedTextures.end()) {
+			spdlog::debug("[TexturesAsset] texture '" + name + "' was loaded from cache");
+
+			return *(it2->second);
+		}
+
+		sf::Texture* texture = new sf::Texture();
+
 		if (!texture->loadFromFile(it->second)) {
 			spdlog::error("[TexturesAsset] texture '" + name + "' was found");
 
 			exit(1);
 		}
 
+		// Put in cache
+		loadedTextures[name] = make_unique<sf::Texture>(*texture);
+
 		return *texture;
+	}
+
+	void TextureAssets::clearCache() {
+		for (Textures::iterator it = loadedTextures.begin(); it != loadedTextures.end(); it++) {
+			it->second.release();
+		}
+
+		spdlog::debug("[TextureAssets] textures cache was cleared");
 	}
 
 }

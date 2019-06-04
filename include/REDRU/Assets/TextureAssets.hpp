@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <map>
+#include <memory>
 #include <string>
 
 #include <spdlog/spdlog.h>
@@ -12,6 +13,8 @@ namespace re {
 
 	class RedruEngine;
 
+	typedef map<string, unique_ptr<sf::Texture>> Textures;
+
 	class TextureAssets {
 
 	private:
@@ -19,6 +22,8 @@ namespace re {
 		RedruEngine& engine;
 
 		map<string, string> texturesMapping;
+
+		Textures loadedTextures;
 
 	public:
 
@@ -29,6 +34,8 @@ namespace re {
 		void registerAsset(string name, string file);
 
 		sf::Texture& loadTexture(string name);
+
+		void clearCache();
 
 	};
 

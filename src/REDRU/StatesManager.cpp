@@ -57,12 +57,19 @@ namespace re {
 	}
 
 	void StatesManager::nextState() {
+		// Execute onClose() function on current state
 		if (activeState) activeState->onClose();
 
+		// Clear Textures cache
+		engine.getTextureAssets()->clearCache();
+
+		// Set new state
 		activeState = requestedState;
 
+		// Initialize new state
 		activeState->onInit();
 
+		// Reset requestedState pointer
 		requestedState.reset();
 	}
 

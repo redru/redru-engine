@@ -9,6 +9,9 @@ namespace re {
 
 	void StateSplashScreen::onInit() {
 		splashImage = make_unique<SplashImageObject>(SplashImageObject(engine, engine.getTextureAssets()->loadTexture("SPLASH_IMAGE")));
+
+		SplashImageObject o1(engine, engine.getTextureAssets()->loadTexture("SPLASH_IMAGE"));
+		SplashImageObject o2(engine, engine.getTextureAssets()->loadTexture("SPLASH_IMAGE"));
 	}
 
 	void StateSplashScreen::onClose() {
