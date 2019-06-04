@@ -2,21 +2,26 @@
 
 namespace re {
 
-	StateSplashScreen::StateSplashScreen(RedruEngine& engine) : engine(engine), shape() {
+	StateSplashScreen::StateSplashScreen(RedruEngine& engine) :
+		engine(engine),
+		splashScreenTexture(),
+		splashScren() {
 	}
 
 	void StateSplashScreen::onInit() {
-		shape.reset(new sf::RectangleShape(sf::Vector2f(60.f, 60.f)));
+		splashScreenTexture = make_unique<sf::Texture>(sf::Texture());
+		if (!splashScreenTexture->loadFromFile("resources/splash_image.png")) {
+			spdlog::error("Error loading 'resources/splash_image.png'");
 
-		shape->setFillColor(sf::Color::Blue);
-		shape->setOrigin(30.f, 30.f);
-		shape->setPosition(200.f, 200.f);
+			exit(1);
+		}
 
-		clock.restart();
+		splashScren = make_unique<sf::Sprite>(sf::Sprite(*splashScreenTexture));
 	}
 
 	void StateSplashScreen::onClose() {
-		shape.release();
+		splashScren.release();
+		splashScreenTexture.release();
 	}
 
 	void StateSplashScreen::update() {
@@ -30,7 +35,7 @@ namespace re {
 	void StateSplashScreen::draw() {
 		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
 
-		window.draw(*shape);
+		window.draw(*splashScren);
 	}
 
 }
