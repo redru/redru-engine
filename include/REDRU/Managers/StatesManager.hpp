@@ -3,6 +3,8 @@
 #include <iostream>
 #include <map>
 
+#include <spdlog/spdlog.h>
+
 #include "AudioManager.hpp"
 #include "InputManager.hpp"
 #include "GraphicsManager.hpp"

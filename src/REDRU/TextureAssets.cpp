@@ -3,11 +3,11 @@
 namespace re {
 
 	TextureAssets::TextureAssets() {
-		cout << "[TextureAssets] -- created --" << endl;
+		spdlog::debug("[TextureAssets] -- created --");
 	}
 
 	void TextureAssets::initialize() {
-		cout << "[TextureAssets] -- initialized --" << endl;
+		spdlog::debug("[TextureAssets] -- initialized --");
 	}
 
 }

@@ -5,9 +5,9 @@ namespace re {
 
 	GraphicsManager::GraphicsManager(RedruEngine& engine) : engine(engine) {
 		textureAssets.reset(new TextureAssets());
-		cout << "[GraphicsManager] => linked 'TextureAssets'" << endl;
+		spdlog::debug("[GraphicsManager] => linked 'TextureAssets'");
 
-		cout << "[GraphicsManager] -- created --" << endl;
+		spdlog::debug("[GraphicsManager] -- created --");
 	}
 
 	void GraphicsManager::initialize() {
@@ -15,7 +15,7 @@ namespace re {
 
 		textureAssets->initialize();
 
-		cout << "[GraphicsManager] -- initialized --" << endl;
+		spdlog::debug("[GraphicsManager] -- initialized --");
 	}
 
 	bool GraphicsManager::isWindowOpen() {

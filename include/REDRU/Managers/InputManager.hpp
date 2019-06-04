@@ -1,8 +1,11 @@
 #pragma once
 #include <iostream>
 #include <memory>
+
+#include <spdlog/spdlog.h>
 #include <SFML/Graphics.hpp>
-#include "GraphicsManager.hpp"
+
+#include "REDRU/Managers/GraphicsManager.hpp"
 
 namespace re {
 

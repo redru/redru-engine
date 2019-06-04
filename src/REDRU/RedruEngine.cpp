@@ -46,7 +46,7 @@ namespace re {
 			float exceded = elapsed - realTimeToNext;
 
 			if (exceded > timeToNext) { // If exceded the full frame time, skip 1
-				cout << "[RedruEngine] skipped 1 frame" << endl;
+				spdlog::debug("[RedruEngine] skipped 1 frame");
 				realTimeToNext = timeToNext;
 			}
 			else { // Substract the exceded from the full frame time
@@ -62,11 +62,11 @@ namespace re {
 	void RedruEngine::registerState(string name, shared_ptr<State> state) {
 		statesManager->registerState(name, state);
 
-		cout << "[RedruEngine] registered new state '" + name + "'" << endl;
+		spdlog::debug("[RedruEngine] registered new state '" + name + "'");
 	}
 
 	void RedruEngine::changeState(string name, bool immediate) {
-		cout << "[RedruEngine] requested state change -> '" + name + "' / immediate (" + to_string(immediate) + ")" << endl;
+		spdlog::debug("[RedruEngine] requested state change -> '" + name + "' / immediate (" + to_string(immediate) + ")");
 
 		statesManager->requestStateChange(name);
 

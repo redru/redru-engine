@@ -3,6 +3,9 @@
 #include <string>
 #include <math.h>
 #include <memory>
+
+#include <spdlog/spdlog.h>
+
 #include "REDRU/Components/State.hpp"
 #include "REDRU/Managers/AudioManager.hpp"
 #include "REDRU/Managers/GraphicsManager.hpp"

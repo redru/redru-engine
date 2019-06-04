@@ -1,5 +1,4 @@
 #include <spdlog/spdlog.h>
-#include <spdlog/sinks/basic_file_sink.h>
 #include "REDRU/RedruEngine.hpp"
 
 #include "StateSplashScreen.hpp"
@@ -9,7 +8,7 @@ using namespace std;
 using namespace re;
 
 int main() {
-	spdlog::info("Welcome to spdlog!");
+	spdlog::set_level(spdlog::level::debug);
 	RedruEngine* engine = new RedruEngine();
 
 	engine->initialize();

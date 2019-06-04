@@ -4,11 +4,11 @@
 namespace re {
 
 	AudioManager::AudioManager(RedruEngine& engine) : engine(engine) {
-		cout << "[AudioManager] -- created --" << endl;
+		spdlog::debug("[AudioManager] -- created --");
 	}
 
 	void AudioManager::initialize() {
-		cout << "[AudioManager] -- initialized --" << endl;
+		spdlog::debug("[AudioManager] -- initialized --");
 	}
 
 }

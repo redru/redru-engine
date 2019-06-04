@@ -4,20 +4,20 @@
 namespace re {
 
 	StatesManager::StatesManager(RedruEngine& engine) : engine(engine) {
-		cout << "[StatesManager] -- created --" << endl;
+		spdlog::debug("[StatesManager] -- created --");
 	}
 
 	void StatesManager::initialize() {
 		audioManager = engine.getAudioManager();
-		cout << "[StatesManager] => linked 'AudioManager'" << endl;
+		spdlog::debug("[StatesManager] => linked 'AudioManager'");
 
 		graphicsManager = engine.getGraphicsManager();
-		cout << "[StatesManager] => linked 'GraphicsManager'" << endl;
+		spdlog::debug("[StatesManager] => linked 'GraphicsManager'");
 
 		inputManager = engine.getInputManager();
-		cout << "[StatesManager] => linked 'InputManager'" << endl;
+		spdlog::debug("[StatesManager] => linked 'InputManager'");
 
-		cout << "[StatesManager] -- initialized --" << endl;
+		spdlog::debug("[StatesManager] -- initialized --");
 	}
 
 	void StatesManager::update() {
@@ -46,7 +46,7 @@ namespace re {
 		shared_ptr<State>& tmp = states[name];
 
 		if (!tmp) {
-			cout << "[StatesManager] requested state '" + name + "' does not exists" << endl;
+			spdlog::debug("[StatesManager] requested state '" + name + "' does not exists");
 
 			exit(1);
 		}
