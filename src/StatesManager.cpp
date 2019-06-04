@@ -22,10 +22,46 @@ namespace re {
 
 	void StatesManager::update() {
 		inputManager->handleWindowEvents();
+
+		activeState->update();
 	}
 
 	void StatesManager::fixedUpdate() {
-		graphicsManager->draw();
+		sf::RenderWindow& window = graphicsManager->getWindow();
+
+		activeState->fixedUpdate();
+
+		window.clear();
+
+		activeState->draw();
+
+		window.display();
+	}
+
+	void StatesManager::registerState(string name, shared_ptr<State> state) {
+		states[name] = state;
+	}
+
+	void StatesManager::requestStateChange(string name) {
+		requestedState = states[name];
+	}
+
+	void StatesManager::nextState() {
+		if (activeState) activeState->onClose();
+
+		activeState = requestedState;
+
+		activeState->onInit();
+
+		requestedState.reset();
+	}
+
+	bool StatesManager::hasActiveState() {
+		return !!activeState;
+	}
+
+	bool StatesManager::hasRequestedState() {
+		return !!requestedState;
 	}
 
 }

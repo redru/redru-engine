@@ -141,6 +141,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\RedruEngine.cpp" />
     <ClCompile Include="src\StatesManager.cpp" />
+    <ClCompile Include="src\StateSplashScreen.cpp" />
     <ClCompile Include="src\TextureAssets.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +156,7 @@
     <ClInclude Include="include\REDRU\Managers\InputManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\StatesManager.hpp" />
     <ClInclude Include="include\REDRU\RedruEngine.hpp" />
+    <ClInclude Include="include\StateSplashScreen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

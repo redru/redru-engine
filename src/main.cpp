@@ -1,12 +1,22 @@
 #include "REDRU/RedruEngine.hpp"
 
+#include "StateSplashScreen.hpp"
+
 using namespace std;
 using namespace re;
 
 int main() {
-	RedruEngine engine;
+	RedruEngine* engine = new RedruEngine();
 
-	engine.initialize();
+	engine->initialize();
 
-	return engine.start();
+	engine->registerState("SPLASH_SCREEN", make_shared<StateSplashScreen>(StateSplashScreen(*engine)));
+
+	engine->changeState("SPLASH_SCREEN", true);
+
+	int exitCode = engine->start();
+
+	delete engine;
+
+	return exitCode;
 }

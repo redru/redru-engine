@@ -34,6 +34,12 @@
     <Filter Include="Archivos de origen\REDRU\Assets">
       <UniqueIdentifier>{04d31b79-e0ed-43eb-8402-8220eb6813a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Game">
+      <UniqueIdentifier>{35336bfb-db24-49a0-9138-55d41f9a32cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Game">
+      <UniqueIdentifier>{82d883be-a7a5-4455-b617-622514dbb875}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
@@ -61,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="src\TextureAssets.cpp">
       <Filter>Archivos de origen\REDRU\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateSplashScreen.cpp">
+      <Filter>Archivos de origen\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +105,9 @@
     </ClInclude>
     <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp">
       <Filter>Archivos de encabezado\REDRU\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateSplashScreen.hpp">
+      <Filter>Archivos de encabezado\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

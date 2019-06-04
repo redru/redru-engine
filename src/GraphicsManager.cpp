@@ -30,10 +30,8 @@ namespace re {
 		window->close();
 	}
 
-	void GraphicsManager::draw() {
-		window->clear();
-
-		window->display();
+	sf::RenderWindow& GraphicsManager::getWindow() {
+		return *window;
 	}
 
 }

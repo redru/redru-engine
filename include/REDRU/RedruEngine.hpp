@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include <math.h>
 #include <memory>
+#include "REDRU/Components/State.hpp"
 #include "REDRU/Managers/AudioManager.hpp"
 #include "REDRU/Managers/GraphicsManager.hpp"
 #include "REDRU/Managers/InputManager.hpp"
@@ -37,6 +39,10 @@ namespace re {
 		void initialize();
 
 		int start();
+
+		void registerState(string name, shared_ptr<State> state);
+
+		void changeState(string name, bool immediate = false);
 
 	public:
 

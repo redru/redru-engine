@@ -22,7 +22,9 @@ namespace re {
 
 		clock.restart();
 
-		while (graphicsManager->isWindowOpen()) {
+		while ((statesManager->hasActiveState() && graphicsManager->isWindowOpen())) {
+			if (statesManager->hasRequestedState()) statesManager->nextState();
+
 			elapsed = clock.getElapsedTime().asMilliseconds();
 
 			if (elapsed < realTimeToNext) {
@@ -53,6 +55,16 @@ namespace re {
 		}
 
 		return 0;
+	}
+
+	void RedruEngine::registerState(string name, shared_ptr<State> state) {
+		statesManager->registerState(name, state);
+	}
+
+	void RedruEngine::changeState(string name, bool immediate) {
+		statesManager->requestStateChange(name);
+
+		if (immediate) statesManager->nextState();
 	}
 
 	int RedruEngine::getElapsed() {

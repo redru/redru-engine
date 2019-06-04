@@ -34,7 +34,9 @@ namespace re {
 
 		void closeWindow();
 
-		void draw();
+	public:
+
+		sf::RenderWindow& getWindow();
 
 	};
 
