@@ -1,9 +1,13 @@
 #pragma once
+#include <memory>
+
 #include <spdlog/spdlog.h>
 #include <SFML/Graphics.hpp>
 
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
+
+#include "SplashImageObject.hpp"
 
 namespace re {
 
@@ -13,8 +17,7 @@ namespace re {
 
 		RedruEngine& engine;
 
-		unique_ptr<sf::Texture> splashScreenTexture;
-		unique_ptr<sf::Sprite> splashScren;
+		unique_ptr<GameObject> splashImage;
 
 		sf::Clock clock;
 

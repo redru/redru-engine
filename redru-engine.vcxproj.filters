@@ -40,6 +40,18 @@
     <Filter Include="Archivos de origen\Game">
       <UniqueIdentifier>{82d883be-a7a5-4455-b617-622514dbb875}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Game\States">
+      <UniqueIdentifier>{cbe0b44e-3ef5-4e6c-b2bf-a7a5f54a1263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Game\Objects">
+      <UniqueIdentifier>{5a832392-9f6d-4874-be32-d27c5f433af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Game\States">
+      <UniqueIdentifier>{8a92951f-8b1d-48a1-9baa-28fca6211b54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Game\Objects">
+      <UniqueIdentifier>{adb255c9-6cf2-41fd-88bf-2a28d14a0694}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
@@ -49,9 +61,6 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StateSplashScreen.cpp">
-      <Filter>Archivos de origen\Game</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\AudioManager.cpp">
       <Filter>Archivos de origen\REDRU\Managers</Filter>
@@ -72,7 +81,13 @@
       <Filter>Archivos de origen\REDRU\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\StateMainMenu.cpp">
-      <Filter>Archivos de origen\Game</Filter>
+      <Filter>Archivos de origen\Game\States</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateSplashScreen.cpp">
+      <Filter>Archivos de origen\Game\States</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SplashImageObject.cpp">
+      <Filter>Archivos de origen\Game\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,11 +124,14 @@
     <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp">
       <Filter>Archivos de encabezado\REDRU\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="include\StateSplashScreen.hpp">
-      <Filter>Archivos de encabezado\Game</Filter>
-    </ClInclude>
     <ClInclude Include="include\StateMainMenu.hpp">
-      <Filter>Archivos de encabezado\Game</Filter>
+      <Filter>Archivos de encabezado\Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateSplashScreen.hpp">
+      <Filter>Archivos de encabezado\Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SplashImageObject.hpp">
+      <Filter>Archivos de encabezado\Game\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

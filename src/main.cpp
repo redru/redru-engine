@@ -9,6 +9,7 @@ using namespace re;
 
 int main() {
 	spdlog::set_level(spdlog::level::debug);
+
 	RedruEngine* engine = new RedruEngine();
 
 	engine->initialize();

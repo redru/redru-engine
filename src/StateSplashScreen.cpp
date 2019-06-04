@@ -4,19 +4,15 @@ namespace re {
 
 	StateSplashScreen::StateSplashScreen(RedruEngine& engine) :
 		engine(engine),
-		splashScreenTexture(),
-		splashScren() {
+		splashImage() {
 	}
 
 	void StateSplashScreen::onInit() {
-		splashScreenTexture = make_unique<sf::Texture>(engine.getTextureAssets()->loadTexture("SPLASH_IMAGE"));
-
-		splashScren = make_unique<sf::Sprite>(sf::Sprite(*splashScreenTexture));
+		splashImage = make_unique<SplashImageObject>(SplashImageObject(engine, engine.getTextureAssets()->loadTexture("SPLASH_IMAGE")));
 	}
 
 	void StateSplashScreen::onClose() {
-		splashScren.release();
-		splashScreenTexture.release();
+		splashImage.release();
 	}
 
 	void StateSplashScreen::update() {
@@ -30,7 +26,7 @@ namespace re {
 	void StateSplashScreen::draw() {
 		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
 
-		window.draw(*splashScren);
+		splashImage->draw(window);
 	}
 
 }
