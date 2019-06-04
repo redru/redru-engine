@@ -30,19 +30,17 @@ namespace re {
 
 				float exceded = elapsed - realTimeToNext;
 
-				// If we exceded the frame time, substract from next frame
+				// If we exceded the frame time
 				if (exceded != 0) {
-					if (exceded > timeToNext) {
+					if (exceded > timeToNext) { // If exceded the full frame time, skip 1
 						cout << "[RedruEngine] skipped 1 frame" << endl;
 						realTimeToNext = timeToNext;
-					} else {
+					} else { // Substract the exceded from the full frame time
 						realTimeToNext = timeToNext - exceded;
 					}
 				} else {
 					realTimeToNext = timeToNext;
 				}
-
-				cout << "[RedruEngine] real time to next: " + to_string(realTimeToNext) << endl;
 
 				clock.restart();
 			}
