@@ -4,15 +4,18 @@
 namespace re {
 
 	GraphicsManager::GraphicsManager(RedruEngine& engine) : engine(engine) {
-		cout << "[GraphicsManager]:" << endl;
 		textureAssets.reset(new TextureAssets());
-		cout << "  |- linked 'TextureAssets'" << endl;
-		cout << "[GraphicsManager] created" << endl;
+		cout << "[GraphicsManager] => linked 'TextureAssets'" << endl;
+
+		cout << "[GraphicsManager] -- created --" << endl;
 	}
 
 	void GraphicsManager::initialize() {
 		window.reset(new sf::RenderWindow(sf::VideoMode(960, 540), "Redru Engine - 960 x 540"));
-		cout << "[GraphicsManager] initialized" << endl;
+
+		textureAssets->initialize();
+
+		cout << "[GraphicsManager] -- initialized --" << endl;
 	}
 
 	bool GraphicsManager::isWindowOpen() {

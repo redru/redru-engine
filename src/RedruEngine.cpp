@@ -3,15 +3,13 @@
 namespace re {
 
 	RedruEngine::RedruEngine() {
-	}
-
-	void RedruEngine::initialize() {
 		graphicsManager.reset(new GraphicsManager(*this));
 		audioManager.reset(new AudioManager(*this));
 		inputManager.reset(new InputManager(*this));
 		statesManager.reset(new StatesManager(*this));
-		
+	}
 
+	void RedruEngine::initialize() {
 		graphicsManager->initialize();
 		audioManager->initialize();
 		inputManager->initialize();

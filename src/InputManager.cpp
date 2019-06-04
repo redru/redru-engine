@@ -4,16 +4,14 @@
 namespace re {
 
 	InputManager::InputManager(RedruEngine& engine) : engine(engine) {
-		cout << "[InputManager] created" << endl;
+		cout << "[InputManager] -- created --" << endl;
 	}
 
 	void InputManager::initialize() {
-		cout << "[InputManager]:" << endl;
-
 		graphicsManager = engine.getGraphicsManager();
-		cout << "  |- linked 'GraphicsManager'" << endl;
+		cout << "[InputManager] => linked 'GraphicsManager'" << endl;
 
-		cout << "[InputManager] initialized" << endl;
+		cout << "[InputManager] -- initialized --" << endl;
 	}
 
 	void InputManager::handleWindowEvents() {

@@ -4,22 +4,20 @@
 namespace re {
 
 	StatesManager::StatesManager(RedruEngine& engine) : engine(engine) {
-		cout << "[StatesManager] created" << endl;
+		cout << "[StatesManager] -- created --" << endl;
 	}
 
 	void StatesManager::initialize() {
-		cout << "[StatesManager]:" << endl;
-
 		audioManager = engine.getAudioManager();
-		cout << "  |- linked 'AudioManager'" << endl;
+		cout << "[StatesManager] => linked 'AudioManager'" << endl;
 
 		graphicsManager = engine.getGraphicsManager();
-		cout << "  |- linked 'GraphicsManager'" << endl;
+		cout << "[StatesManager] => linked 'GraphicsManager'" << endl;
 
 		inputManager = engine.getInputManager();
-		cout << "  |- linked 'InputManager'" << endl;
+		cout << "[StatesManager] => linked 'InputManager'" << endl;
 
-		cout << "[StatesManager] initialized" << endl;
+		cout << "[StatesManager] -- initialized --" << endl;
 	}
 
 }

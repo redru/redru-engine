@@ -14,6 +14,7 @@ namespace re {
 
 	private:
 		
+		// Managers
 		shared_ptr<GraphicsManager> graphicsManager;
 		
 		shared_ptr<AudioManager> audioManager;
@@ -21,6 +22,9 @@ namespace re {
 		shared_ptr<InputManager> inputManager;
 
 		shared_ptr<StatesManager> statesManager;
+
+		// Engine components
+		sf::Clock clock;
 
 	public:
 		
