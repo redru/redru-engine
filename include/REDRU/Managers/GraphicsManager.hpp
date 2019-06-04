@@ -21,8 +21,6 @@ namespace re {
 
 		unique_ptr<sf::RenderWindow> window;
 
-		shared_ptr<TextureAssets> textureAssets;
-
 
 	public:
 

@@ -10,21 +10,25 @@ namespace re {
 
 	using namespace std;
 
+	class RedruEngine;
+
 	class TextureAssets {
+
+	private:
+
+		RedruEngine& engine;
+
+		map<string, string> texturesMapping;
 
 	public:
 
-		TextureAssets();
+		TextureAssets(RedruEngine& engine);
 
 		void initialize();
 
 		void registerAsset(string name, string file);
 
 		sf::Texture& loadTexture(string name);
-
-	private:
-
-		map<string, string> texturesMapping;
 
 	};
 

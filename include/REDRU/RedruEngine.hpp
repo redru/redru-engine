@@ -6,6 +6,7 @@
 
 #include <spdlog/spdlog.h>
 
+#include "REDRU/Assets/TextureAssets.hpp"
 #include "REDRU/Components/State.hpp"
 #include "REDRU/Managers/AudioManager.hpp"
 #include "REDRU/Managers/GraphicsManager.hpp"
@@ -19,6 +20,9 @@ namespace re {
 	class RedruEngine {
 
 	private:
+
+		// Assets
+		shared_ptr<TextureAssets> textureAssets;
 		
 		// Managers
 		shared_ptr<GraphicsManager> graphicsManager;
@@ -47,11 +51,15 @@ namespace re {
 
 		void changeState(string name, bool immediate = false);
 
+		void registerTexture(string name, string file);
+
 	public:
 
 		int getElapsed();
 
 	public:
+
+		shared_ptr<TextureAssets> getTextureAssets();
 
 		shared_ptr<GraphicsManager> getGraphicsManager();
 		

@@ -13,6 +13,8 @@ int main() {
 
 	engine->initialize();
 
+	engine->registerTexture("SPLASH_IMAGE", "resources/splash_image.png");
+
 	engine->registerState("SPLASH_SCREEN", make_shared<StateSplashScreen>(StateSplashScreen(*engine)));
 	engine->registerState("MAIN_MENU", make_shared<StateMainMenu>(StateMainMenu(*engine)));
 

@@ -3,6 +3,7 @@
 namespace re {
 
 	RedruEngine::RedruEngine() : clock(sf::Clock()), elapsed(0) {
+		textureAssets = make_shared<TextureAssets>(TextureAssets(*this));
 		graphicsManager = make_shared<GraphicsManager>(GraphicsManager(*this));
 		audioManager = make_shared<AudioManager>(AudioManager(*this));
 		inputManager = make_shared<InputManager>(InputManager(*this));
@@ -10,6 +11,7 @@ namespace re {
 	}
 
 	void RedruEngine::initialize() {
+		textureAssets->initialize();
 		graphicsManager->initialize();
 		audioManager->initialize();
 		inputManager->initialize();
@@ -61,8 +63,6 @@ namespace re {
 
 	void RedruEngine::registerState(string name, shared_ptr<State> state) {
 		statesManager->registerState(name, state);
-
-		spdlog::debug("[RedruEngine] registered new state '" + name + "'");
 	}
 
 	void RedruEngine::changeState(string name, bool immediate) {
@@ -75,6 +75,14 @@ namespace re {
 
 	int RedruEngine::getElapsed() {
 		return elapsed;
+	}
+
+	void RedruEngine::registerTexture(string name, string file) {
+		textureAssets->registerAsset(name, file);
+	}
+
+	shared_ptr<TextureAssets> RedruEngine::getTextureAssets() {
+		return textureAssets;
 	}
 
 	shared_ptr<GraphicsManager> RedruEngine::getGraphicsManager() {

@@ -40,6 +40,8 @@ namespace re {
 
 	void StatesManager::registerState(string name, shared_ptr<State> state) {
 		states[name] = state;
+
+		spdlog::debug("[RedruEngine] registered state '" + name + "'");
 	}
 
 	void StatesManager::requestStateChange(string name) {

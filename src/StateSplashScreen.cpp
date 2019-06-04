@@ -9,12 +9,7 @@ namespace re {
 	}
 
 	void StateSplashScreen::onInit() {
-		splashScreenTexture = make_unique<sf::Texture>(sf::Texture());
-		if (!splashScreenTexture->loadFromFile("resources/splash_image.png")) {
-			spdlog::error("Error loading 'resources/splash_image.png'");
-
-			exit(1);
-		}
+		splashScreenTexture = make_unique<sf::Texture>(engine.getTextureAssets()->loadTexture("SPLASH_IMAGE"));
 
 		splashScren = make_unique<sf::Sprite>(sf::Sprite(*splashScreenTexture));
 	}

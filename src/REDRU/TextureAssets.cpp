@@ -1,8 +1,9 @@
 #include "REDRU/Assets/TextureAssets.hpp"
+#include "REDRU/RedruEngine.hpp"
 
 namespace re {
 
-	TextureAssets::TextureAssets() {
+	TextureAssets::TextureAssets(RedruEngine& engine) : engine(engine), texturesMapping() {
 		spdlog::debug("[TextureAssets] -- created --");
 	}
 
@@ -13,7 +14,7 @@ namespace re {
 	void TextureAssets::registerAsset(string name, string file) {
 		texturesMapping[name] = file;
 
-		spdlog::debug("[TextureAssets] registered asset '" + name + "' to file '" + file + "'");
+		spdlog::debug("[TextureAssets] registered texture '" + name + "' to file '" + file + "'");
 	}
 
 	sf::Texture& TextureAssets::loadTexture(string name) {
