@@ -3,6 +3,8 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 
+#include "REDRU/Assets/TextureAssets.hpp"
+
 namespace re {
 
 	using namespace std;
@@ -12,11 +14,16 @@ namespace re {
 	class GraphicsManager {
 
 	private:
+
 		RedruEngine& engine;
+
 		unique_ptr<sf::RenderWindow> window;
+
+		shared_ptr<TextureAssets> textureAssets;
 
 
 	public:
+
 		GraphicsManager(RedruEngine& engine);
 
 		void initialize();

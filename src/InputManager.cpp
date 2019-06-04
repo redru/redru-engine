@@ -9,8 +9,10 @@ namespace re {
 
 	void InputManager::initialize() {
 		cout << "[InputManager]:" << endl;
+
 		graphicsManager = engine.getGraphicsManager();
 		cout << "  |- linked 'GraphicsManager'" << endl;
+
 		cout << "[InputManager] initialized" << endl;
 	}
 

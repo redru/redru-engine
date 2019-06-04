@@ -4,6 +4,9 @@
 namespace re {
 
 	GraphicsManager::GraphicsManager(RedruEngine& engine) : engine(engine) {
+		cout << "[GraphicsManager]:" << endl;
+		textureAssets.reset(new TextureAssets());
+		cout << "  |- linked 'TextureAssets'" << endl;
 		cout << "[GraphicsManager] created" << endl;
 	}
 

@@ -31,6 +31,9 @@
     <Filter Include="Archivos de encabezado\REDRU\Assets">
       <UniqueIdentifier>{8753395d-acae-41e1-828f-df830d71505b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\REDRU\Assets">
+      <UniqueIdentifier>{04d31b79-e0ed-43eb-8402-8220eb6813a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
@@ -55,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="src\StatesManager.cpp">
       <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureAssets.cpp">
+      <Filter>Archivos de origen\REDRU\Assets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

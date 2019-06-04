@@ -141,6 +141,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\RedruEngine.cpp" />
     <ClCompile Include="src\StatesManager.cpp" />
+    <ClCompile Include="src\TextureAssets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\Assets\MusicAssets.hpp" />
