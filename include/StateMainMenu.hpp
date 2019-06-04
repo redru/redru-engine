@@ -5,7 +5,7 @@
 
 namespace re {
 
-	class StateSplashScreen : public State {
+	class StateMainMenu : public State {
 
 	private:
 
@@ -13,11 +13,9 @@ namespace re {
 
 		unique_ptr<sf::Shape> shape;
 
-		sf::Clock clock;
-
 	public:
 
-		StateSplashScreen(RedruEngine& engine);
+		StateMainMenu(RedruEngine& engine);
 
 		void onInit() override;
 

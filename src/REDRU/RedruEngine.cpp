@@ -64,6 +64,8 @@ namespace re {
 	}
 
 	void RedruEngine::changeState(string name, bool immediate) {
+		cout << "[RedruEngine] requested state change -> '" + name + "' / immediate (" + to_string(immediate) + ")" << endl;
+
 		statesManager->requestStateChange(name);
 
 		if (immediate) statesManager->nextState();

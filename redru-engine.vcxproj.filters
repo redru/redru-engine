@@ -50,25 +50,28 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\RedruEngine.cpp">
+    <ClCompile Include="src\StateSplashScreen.cpp">
+      <Filter>Archivos de origen\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\REDRU\AudioManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\REDRU\GraphicsManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\REDRU\InputManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\REDRU\StatesManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\REDRU\RedruEngine.cpp">
       <Filter>Archivos de origen\REDRU</Filter>
     </ClCompile>
-    <ClCompile Include="src\GraphicsManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\AudioManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\InputManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StatesManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TextureAssets.cpp">
+    <ClCompile Include="src\REDRU\TextureAssets.cpp">
       <Filter>Archivos de origen\REDRU\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="src\StateSplashScreen.cpp">
+    <ClCompile Include="src\StateMainMenu.cpp">
       <Filter>Archivos de origen\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,6 +110,9 @@
       <Filter>Archivos de encabezado\REDRU\Assets</Filter>
     </ClInclude>
     <ClInclude Include="include\StateSplashScreen.hpp">
+      <Filter>Archivos de encabezado\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMainMenu.hpp">
       <Filter>Archivos de encabezado\Game</Filter>
     </ClInclude>
   </ItemGroup>

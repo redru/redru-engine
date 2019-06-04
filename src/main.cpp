@@ -1,6 +1,7 @@
 #include "REDRU/RedruEngine.hpp"
 
 #include "StateSplashScreen.hpp"
+#include "StateMainMenu.hpp"
 
 using namespace std;
 using namespace re;
@@ -11,6 +12,7 @@ int main() {
 	engine->initialize();
 
 	engine->registerState("SPLASH_SCREEN", make_shared<StateSplashScreen>(StateSplashScreen(*engine)));
+	engine->registerState("MAIN_MENU", make_shared<StateMainMenu>(StateMainMenu(*engine)));
 
 	engine->changeState("SPLASH_SCREEN", true);
 

@@ -135,14 +135,15 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\AudioManager.cpp" />
-    <ClCompile Include="src\GraphicsManager.cpp" />
-    <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\RedruEngine.cpp" />
-    <ClCompile Include="src\StatesManager.cpp" />
+    <ClCompile Include="src\REDRU\AudioManager.cpp" />
+    <ClCompile Include="src\REDRU\GraphicsManager.cpp" />
+    <ClCompile Include="src\REDRU\InputManager.cpp" />
+    <ClCompile Include="src\REDRU\RedruEngine.cpp" />
+    <ClCompile Include="src\REDRU\StatesManager.cpp" />
+    <ClCompile Include="src\REDRU\TextureAssets.cpp" />
+    <ClCompile Include="src\StateMainMenu.cpp" />
     <ClCompile Include="src\StateSplashScreen.cpp" />
-    <ClCompile Include="src\TextureAssets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\Assets\MusicAssets.hpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="include\REDRU\Managers\InputManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\StatesManager.hpp" />
     <ClInclude Include="include\REDRU\RedruEngine.hpp" />
+    <ClInclude Include="include\StateMainMenu.hpp" />
     <ClInclude Include="include\StateSplashScreen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
