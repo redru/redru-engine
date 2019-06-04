@@ -3,10 +3,10 @@
 namespace re {
 
 	RedruEngine::RedruEngine() : clock(sf::Clock()), elapsed(0) {
-		graphicsManager.reset(new GraphicsManager(*this));
-		audioManager.reset(new AudioManager(*this));
-		inputManager.reset(new InputManager(*this));
-		statesManager.reset(new StatesManager(*this));
+		graphicsManager = make_shared<GraphicsManager>(GraphicsManager(*this));
+		audioManager = make_shared<AudioManager>(AudioManager(*this));
+		inputManager = make_shared<InputManager>(InputManager(*this));
+		statesManager = make_shared<StatesManager>(StatesManager(*this));
 	}
 
 	void RedruEngine::initialize() {
