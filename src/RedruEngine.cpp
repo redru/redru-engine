@@ -28,18 +28,17 @@ namespace re {
 			} else {
 				statesManager->fixedUpdate();
 
+				// Take time again after updates
+				elapsed = clock.getElapsedTime().asMilliseconds();
+
+				// Take the exceded time
 				float exceded = elapsed - realTimeToNext;
 
-				// If we exceded the frame time
-				if (exceded != 0) {
-					if (exceded > timeToNext) { // If exceded the full frame time, skip 1
-						cout << "[RedruEngine] skipped 1 frame" << endl;
-						realTimeToNext = timeToNext;
-					} else { // Substract the exceded from the full frame time
-						realTimeToNext = timeToNext - exceded;
-					}
-				} else {
+				if (exceded > timeToNext) { // If exceded the full frame time, skip 1
+					cout << "[RedruEngine] skipped 1 frame" << endl;
 					realTimeToNext = timeToNext;
+				} else { // Substract the exceded from the full frame time
+					realTimeToNext = timeToNext - exceded;
 				}
 
 				clock.restart();
