@@ -1,8 +1,9 @@
 #pragma once
+#include <math.h>
 #include <memory>
 
-#include <spdlog/spdlog.h>
 #include <SFML/Graphics.hpp>
+#include <spdlog/spdlog.h>
 
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
@@ -34,6 +35,10 @@ namespace re {
 		void fixedUpdate() override;
 
 		void draw() override;
+
+		void onInput(sf::Event event) override;
+
+		void onEvent() override;
 
 	};
 

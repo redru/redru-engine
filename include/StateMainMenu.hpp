@@ -30,6 +30,10 @@ namespace re {
 
 		void draw() override;
 
+		void onInput(sf::Event event) override;
+
+		void onEvent() override;
+
 	};
 
 }

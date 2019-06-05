@@ -9,6 +9,8 @@ namespace re {
 
 	void StateSplashScreen::onInit() {
 		splashImage = make_unique<SplashImageObject>(SplashImageObject(engine, engine.getTextureAssets()->loadTexture("TEX_SPLASH_IMAGE")));
+
+		splashImage->setColor(255, 255, 255, 0);
 	}
 
 	void StateSplashScreen::onClose() {
@@ -18,9 +20,9 @@ namespace re {
 	void StateSplashScreen::update() {
 		int elapsed = clock.getElapsedTime().asMilliseconds();
 
-		float alpha = elapsed > 1000 ? 255 : elapsed * 255 / 1000;
+		int alpha = elapsed >= 1000 ? 255 : (int) round(elapsed * 255 / 1000);
 
-		splashImage->setColor(255.f, 255.f, 255.f, alpha);
+		splashImage->setColor(255, 255, 255, alpha);
 
 		if (clock.getElapsedTime().asMilliseconds() > 3000) engine.changeState("MAIN_MENU");
 	}
@@ -33,6 +35,14 @@ namespace re {
 		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
 
 		splashImage->draw(window);
+	}
+
+	void StateSplashScreen::onInput(sf::Event event) {
+
+	}
+
+	void StateSplashScreen::onEvent() {
+
 	}
 
 }

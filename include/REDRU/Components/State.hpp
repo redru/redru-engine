@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 
 namespace re {
 
@@ -15,6 +16,10 @@ namespace re {
 		virtual void fixedUpdate() = 0;
 
 		virtual void draw() = 0;
+
+		virtual void onInput(sf::Event event) = 0;
+
+		virtual void onEvent() = 0;
 
 	};
 
