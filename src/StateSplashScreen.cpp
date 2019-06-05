@@ -37,8 +37,18 @@ namespace re {
 		splashImage->draw(window);
 	}
 
-	void StateSplashScreen::onInput(sf::Event event) {
+	void StateSplashScreen::onInput(sf::Event& event) {
+		if (event.type == sf::Event::KeyReleased) {
+			switch (event.key.code) {
+			case sf::Keyboard::Escape:
+				engine.stop();
+				break;
 
+			case sf::Keyboard::Space:
+				engine.changeState("MAIN_MENU");
+				break;
+			}
+		}
 	}
 
 	void StateSplashScreen::onEvent() {

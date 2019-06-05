@@ -21,7 +21,11 @@ namespace re {
 	}
 
 	void StatesManager::update() {
-		inputManager->handleWindowEvents();
+		sf::Event event;
+		
+		while (inputManager->handleWindowEvent(event)) {
+			activeState->onInput(event);
+		}
 
 		activeState->update();
 	}

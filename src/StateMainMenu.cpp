@@ -34,7 +34,7 @@ namespace re {
 		window.draw(*startButton);
 	}
 
-	void StateMainMenu::onInput(sf::Event event) {
+	void StateMainMenu::onInput(sf::Event& event) {
 
 	}
 

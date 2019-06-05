@@ -39,6 +39,8 @@ namespace re {
 		// Members
 		int elapsed;
 
+		bool running;
+
 	public:
 		
 		RedruEngine();
@@ -52,6 +54,8 @@ namespace re {
 		void changeState(string name, bool immediate = false);
 
 		void registerTexture(string name, string file);
+
+		void stop();
 
 	public:
 

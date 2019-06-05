@@ -14,12 +14,12 @@ namespace re {
 		spdlog::debug("[InputManager] -- initialized --");
 	}
 
-	void InputManager::handleWindowEvents() {
-		sf::Event event;
+	bool InputManager::handleWindowEvent(sf::Event& event) {
+		bool hasNext = graphicsManager->nextEvent(event);
 
-		while (graphicsManager->nextEvent(event)) {
-			if (event.type == sf::Event::Closed) graphicsManager->closeWindow();
-		}
+		if (event.type == sf::Event::Closed) graphicsManager->closeWindow();
+
+		return hasNext;
 	}
 
 }

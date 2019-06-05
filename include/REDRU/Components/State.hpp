@@ -17,7 +17,7 @@ namespace re {
 
 		virtual void draw() = 0;
 
-		virtual void onInput(sf::Event event) = 0;
+		virtual void onInput(sf::Event& event) = 0;
 
 		virtual void onEvent() = 0;
 

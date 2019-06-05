@@ -28,7 +28,7 @@ namespace re {
 
 		void initialize();
 
-		void handleWindowEvents();
+		bool handleWindowEvent(sf::Event& event);
 
 	};
 

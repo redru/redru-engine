@@ -2,7 +2,11 @@
 
 namespace re {
 
-	RedruEngine::RedruEngine() : clock(sf::Clock()), elapsed(0) {
+	RedruEngine::RedruEngine() :
+		clock(sf::Clock()),
+		elapsed(0),
+		running(true)
+	{
 		textureAssets = make_shared<TextureAssets>(TextureAssets(*this));
 		graphicsManager = make_shared<GraphicsManager>(GraphicsManager(*this));
 		audioManager = make_shared<AudioManager>(AudioManager(*this));
@@ -24,7 +28,7 @@ namespace re {
 
 		clock.restart();
 
-		while ((statesManager->hasActiveState() && graphicsManager->isWindowOpen())) {
+		while ((running && statesManager->hasActiveState() && graphicsManager->isWindowOpen())) {
 			// Check if a new state has been requested, then change it
 			if (statesManager->hasRequestedState()) statesManager->nextState();
 
@@ -79,6 +83,10 @@ namespace re {
 
 	void RedruEngine::registerTexture(string name, string file) {
 		textureAssets->registerAsset(name, file);
+	}
+
+	void RedruEngine::stop() {
+		running = false;
 	}
 
 	shared_ptr<TextureAssets> RedruEngine::getTextureAssets() {
