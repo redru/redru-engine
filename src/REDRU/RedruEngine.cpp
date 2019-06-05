@@ -8,6 +8,7 @@ namespace re {
 		running(true)
 	{
 		textureAssets = make_shared<TextureAssets>(TextureAssets(*this));
+		eventsManager = make_shared<EventsManager>(EventsManager(*this));
 		graphicsManager = make_shared<GraphicsManager>(GraphicsManager(*this));
 		audioManager = make_shared<AudioManager>(AudioManager(*this));
 		inputManager = make_shared<InputManager>(InputManager(*this));
@@ -16,6 +17,7 @@ namespace re {
 
 	void RedruEngine::initialize() {
 		textureAssets->initialize();
+		eventsManager->initialize();
 		graphicsManager->initialize();
 		audioManager->initialize();
 		inputManager->initialize();
@@ -85,6 +87,10 @@ namespace re {
 		textureAssets->registerAsset(name, file);
 	}
 
+	void RedruEngine::sendEvent(GameEvent& event) {
+		statesManager->onEvent(event);
+	}
+
 	void RedruEngine::stop() {
 		running = false;
 	}
@@ -99,6 +105,10 @@ namespace re {
 
 	shared_ptr<AudioManager> RedruEngine::getAudioManager() {
 		return audioManager;
+	}
+
+	shared_ptr<EventsManager> RedruEngine::getEventsManager() {
+		return eventsManager;
 	}
 
 	shared_ptr<InputManager> RedruEngine::getInputManager() {

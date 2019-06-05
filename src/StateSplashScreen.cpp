@@ -51,7 +51,7 @@ namespace re {
 		}
 	}
 
-	void StateSplashScreen::onEvent() {
+	void StateSplashScreen::onEvent(GameEvent& event) {
 
 	}
 

@@ -15,7 +15,9 @@ namespace re {
 		window.draw(sprite);
 	}
 
-	void GenericGameObject::onInput(sf::Event event) { }
+	void GenericGameObject::onInput(sf::Event& event) { }
+
+	void GenericGameObject::onEvent(GameEvent& event) { }
 
 	sf::FloatRect GenericGameObject::getBoundingBox() {
 		return sprite.getGlobalBounds();

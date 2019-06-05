@@ -54,7 +54,7 @@ namespace re {
 		}
 	}
 
-	void StateMainMenu::onEvent() {
+	void StateMainMenu::onEvent(GameEvent& event) {
 
 	}
 

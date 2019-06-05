@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+#include "REDRU/Managers/EventsManager.hpp"
+
 namespace re {
 
 	class State {
@@ -19,7 +21,7 @@ namespace re {
 
 		virtual void onInput(sf::Event& event) = 0;
 
-		virtual void onEvent() = 0;
+		virtual void onEvent(GameEvent& event) = 0;
 
 	};
 

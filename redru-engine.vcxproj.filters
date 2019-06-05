@@ -43,14 +43,8 @@
     <Filter Include="Archivos de origen\Game\States">
       <UniqueIdentifier>{cbe0b44e-3ef5-4e6c-b2bf-a7a5f54a1263}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\Game\Objects">
-      <UniqueIdentifier>{5a832392-9f6d-4874-be32-d27c5f433af6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Game\States">
       <UniqueIdentifier>{8a92951f-8b1d-48a1-9baa-28fca6211b54}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Game\Objects">
-      <UniqueIdentifier>{adb255c9-6cf2-41fd-88bf-2a28d14a0694}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de origen\REDRU\Components">
       <UniqueIdentifier>{533e9c11-6c3c-446e-ae9f-0c3d05ead618}</UniqueIdentifier>
@@ -94,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="src\REDRU\GenericGameObject.cpp">
       <Filter>Archivos de origen\REDRU\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\REDRU\EventsManager.cpp">
+      <Filter>Archivos de origen\REDRU\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +138,9 @@
     </ClInclude>
     <ClInclude Include="include\REDRU\Components\GenericGameObject.hpp">
       <Filter>Archivos de encabezado\REDRU\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Managers\EventsManager.hpp">
+      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

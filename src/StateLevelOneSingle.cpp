@@ -34,6 +34,8 @@ namespace re {
 		}
 	}
 
-	void StateLevelOneSingle::onEvent() { }
+	void StateLevelOneSingle::onEvent(GameEvent& event) {
+		spdlog::debug("[StateLevelOneSingle] received event '" + event.getType() + "'");
+	}
 
 }

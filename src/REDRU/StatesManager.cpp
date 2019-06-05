@@ -77,6 +77,10 @@ namespace re {
 		requestedState.reset();
 	}
 
+	void StatesManager::onEvent(GameEvent& event) {
+		activeState->onEvent(event);
+	}
+
 	bool StatesManager::hasActiveState() {
 		return !!activeState;
 	}

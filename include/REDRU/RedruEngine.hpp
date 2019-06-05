@@ -9,6 +9,7 @@
 #include "REDRU/Assets/TextureAssets.hpp"
 #include "REDRU/Components/State.hpp"
 #include "REDRU/Managers/AudioManager.hpp"
+#include "REDRU/Managers/EventsManager.hpp"
 #include "REDRU/Managers/GraphicsManager.hpp"
 #include "REDRU/Managers/InputManager.hpp"
 #include "REDRU/Managers/StatesManager.hpp"
@@ -28,6 +29,8 @@ namespace re {
 		shared_ptr<GraphicsManager> graphicsManager;
 		
 		shared_ptr<AudioManager> audioManager;
+
+		shared_ptr<EventsManager> eventsManager;
 		
 		shared_ptr<InputManager> inputManager;
 
@@ -55,6 +58,8 @@ namespace re {
 
 		void registerTexture(string name, string file);
 
+		void sendEvent(GameEvent& event);
+
 		void stop();
 
 	public:
@@ -68,6 +73,8 @@ namespace re {
 		shared_ptr<GraphicsManager> getGraphicsManager();
 		
 		shared_ptr<AudioManager> getAudioManager();
+
+		shared_ptr<EventsManager> getEventsManager();
 
 		shared_ptr<InputManager> getInputManager();
 

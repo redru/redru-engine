@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\REDRU\AudioManager.cpp" />
+    <ClCompile Include="src\REDRU\EventsManager.cpp" />
     <ClCompile Include="src\REDRU\GenericGameObject.cpp" />
     <ClCompile Include="src\REDRU\GraphicsManager.cpp" />
     <ClCompile Include="src\REDRU\InputManager.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="include\REDRU\Components\State.hpp" />
     <ClInclude Include="include\REDRU\Managers\AudioManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\ConfigManager.hpp" />
+    <ClInclude Include="include\REDRU\Managers\EventsManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\GraphicsManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\InputManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\StatesManager.hpp" />

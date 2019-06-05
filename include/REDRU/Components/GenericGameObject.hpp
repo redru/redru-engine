@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "REDRU/Components/GameObject.hpp"
+#include "REDRU/Managers/EventsManager.hpp"
 #include "REDRU/RedruEngine.hpp"
 
 namespace re {
@@ -28,7 +29,9 @@ namespace re {
 
 		void draw(sf::RenderWindow& window) override;
 
-		void onInput(sf::Event event) override;
+		void onInput(sf::Event& event) override;
+
+		void onEvent(GameEvent& event) override;
 
 		sf::FloatRect getBoundingBox() override;
 

@@ -3,6 +3,8 @@
 
 namespace re {
 
+	class GameEvent;
+
 	class GameObject {
 
 	public:
@@ -13,7 +15,9 @@ namespace re {
 
 		virtual void draw(sf::RenderWindow& window) = 0;
 
-		virtual void onInput(sf::Event event) = 0;
+		virtual void onInput(sf::Event& event) = 0;
+
+		virtual void onEvent(GameEvent& event) = 0;
 
 		virtual sf::FloatRect getBoundingBox() = 0;
 

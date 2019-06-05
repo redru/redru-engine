@@ -5,10 +5,11 @@
 
 #include <spdlog/spdlog.h>
 
-#include "AudioManager.hpp"
-#include "InputManager.hpp"
-#include "GraphicsManager.hpp"
 #include "REDRU/Components/State.hpp"
+#include "REDRU/Managers/AudioManager.hpp"
+#include "REDRU/Managers/EventsManager.hpp"
+#include "REDRU/Managers/InputManager.hpp"
+#include "REDRU/Managers/GraphicsManager.hpp"
 
 namespace re {
 
@@ -51,6 +52,8 @@ namespace re {
 		void requestStateChange(string name);
 
 		void nextState();
+
+		void onEvent(GameEvent& event);
 
 	public:
 

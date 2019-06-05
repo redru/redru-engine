@@ -35,7 +35,7 @@ namespace re {
 
 		void onInput(sf::Event& event) override;
 
-		void onEvent() override;
+		void onEvent(GameEvent& event) override;
 
 	};
 
