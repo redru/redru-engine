@@ -1,31 +1,28 @@
 #pragma once
-#include <math.h>
 #include <memory>
 
 #include <SFML/Graphics.hpp>
 #include <spdlog/spdlog.h>
 
-#include "REDRU/Components/State.hpp"
 #include "REDRU/Components/GameObject.hpp"
-#include "REDRU/Components/GenericGameObject.hpp"
+#include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
 
 namespace re {
 
-	class StateSplashScreen : public State {
+	class StateLevelOneSingle : public State {
 
 	private:
 
 		RedruEngine& engine;
 
-		unique_ptr<GameObject> splashImage;
-
-		sf::Clock clock;
-
 	public:
 
-		StateSplashScreen(RedruEngine& engine);
+		StateLevelOneSingle(RedruEngine& engine);
 
+		/////////////////////////////////////////
+		// State Overrides
+		/////////////////////////////////////////
 		void onInit() override;
 
 		void onClose() override;

@@ -44,9 +44,15 @@ namespace re {
 			case sf::Keyboard::Escape:
 				engine.stop();
 				break;
+			
+			case sf::Keyboard::Enter:
+				engine.changeState("LEVEL_ONE_SINGLE");
+				break;
 			}
 		} else if (event.type == sf::Event::MouseButtonPressed) {
-			if (exitButton->getGlobalBounds().contains((float) event.mouseButton.x, (float) event.mouseButton.y)) {
+			if (startButton->getGlobalBounds().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
+				engine.changeState("LEVEL_ONE_SINGLE");
+			} else if (exitButton->getGlobalBounds().contains((float) event.mouseButton.x, (float) event.mouseButton.y)) {
 				engine.stop();
 			}
 		}

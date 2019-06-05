@@ -3,6 +3,7 @@
 
 #include "StateSplashScreen.hpp"
 #include "StateMainMenu.hpp"
+#include "StateLevelOneSingle.hpp"
 
 using namespace std;
 using namespace re;
@@ -22,6 +23,7 @@ int main() {
 
 	engine->registerState("SPLASH_SCREEN", make_shared<StateSplashScreen>(StateSplashScreen(*engine)));
 	engine->registerState("MAIN_MENU", make_shared<StateMainMenu>(StateMainMenu(*engine)));
+	engine->registerState("LEVEL_ONE_SINGLE", make_shared<StateLevelOneSingle>(StateLevelOneSingle(*engine)));
 
 	engine->changeState("SPLASH_SCREEN", true);
 

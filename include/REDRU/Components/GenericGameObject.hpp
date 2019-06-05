@@ -3,12 +3,14 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "REDRU/RedruEngine.hpp"
 #include "REDRU/Components/GameObject.hpp"
+#include "REDRU/RedruEngine.hpp"
 
 namespace re {
 
-	class SplashImageObject : public GameObject {
+	using namespace std;
+
+	class GenericGameObject : public GameObject {
 
 	private:
 
@@ -18,7 +20,7 @@ namespace re {
 
 	public:
 
-		SplashImageObject(RedruEngine& engine, sf::Texture& texture);
+		GenericGameObject(RedruEngine& engine, sf::Texture& texture);
 
 		void update() override;
 
