@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <spdlog/spdlog.h>
 
-#include "REDRU/Components/GameObject.hpp"
+#include "REDRU/Components/GenericGameObject.hpp"
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
 
@@ -15,6 +15,8 @@ namespace re {
 	private:
 
 		RedruEngine& engine;
+
+		unique_ptr<GameObject> background;
 
 	public:
 

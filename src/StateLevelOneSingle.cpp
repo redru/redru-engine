@@ -7,23 +7,21 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onInit() {
-		
+		background = make_unique<GenericGameObject>(GenericGameObject(engine, engine.getTextureAssets()->loadTexture("TEX_CARD_TABLE")));
 	}
 
 	void StateLevelOneSingle::onClose() {
-
+		background.release();
 	}
 
-	void StateLevelOneSingle::update() {
-		
-	}
+	void StateLevelOneSingle::update() { }
 
-	void StateLevelOneSingle::fixedUpdate() {
-
-	}
+	void StateLevelOneSingle::fixedUpdate() { }
 
 	void StateLevelOneSingle::draw() {
 		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
+
+		background->draw(window);
 	}
 
 	void StateLevelOneSingle::onInput(sf::Event& event) {
@@ -36,8 +34,6 @@ namespace re {
 		}
 	}
 
-	void StateLevelOneSingle::onEvent() {
-
-	}
+	void StateLevelOneSingle::onEvent() { }
 
 }
