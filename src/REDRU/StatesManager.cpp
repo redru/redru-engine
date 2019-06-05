@@ -49,15 +49,15 @@ namespace re {
 	}
 
 	void StatesManager::requestStateChange(string name) {
-		shared_ptr<State>& tmp = states[name];
+		States::iterator it = states.find(name);
 
-		if (!tmp) {
-			spdlog::debug("[StatesManager] requested state '" + name + "' does not exists");
+		if (it == states.end()) {
+			spdlog::error("[StatesManager] requested state '" + name + "' does not exists");
 
 			exit(1);
 		}
 
-		requestedState = tmp;
+		requestedState = it->second;
 	}
 
 	void StatesManager::nextState() {
