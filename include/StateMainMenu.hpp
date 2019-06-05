@@ -3,7 +3,6 @@
 
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
-#include "Button.hpp"
 
 namespace re {
 
@@ -15,7 +14,7 @@ namespace re {
 
 		unique_ptr<sf::Sprite> mainMenuImage;
 
-		unique_ptr<Button> startButton;
+		unique_ptr<sf::Sprite> startButton;
 
 	public:
 

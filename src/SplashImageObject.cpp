@@ -19,7 +19,11 @@ namespace re {
 	}
 
 	void SplashImageObject::setPosition(float x, float y) {
+		sprite.setPosition(x, y);
+	}
 
+	void SplashImageObject::setColor(int r, int g, int b, int a) {
+		sprite.setColor(sf::Color(r, g, b, a));
 	}
 
 }

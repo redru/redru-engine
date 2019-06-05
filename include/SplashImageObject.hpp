@@ -28,6 +28,8 @@ namespace re {
 
 		void setPosition(float x, float y) override;
 
+		void setColor(int r, int g, int b, int a) override;
+
 	};
 
 }

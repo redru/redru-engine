@@ -16,6 +16,12 @@ namespace re {
 	}
 
 	void StateSplashScreen::update() {
+		int elapsed = clock.getElapsedTime().asMilliseconds();
+
+		float alpha = elapsed > 1000 ? 255 : elapsed * 255 / 1000;
+
+		splashImage->setColor(255.f, 255.f, 255.f, alpha);
+
 		if (clock.getElapsedTime().asMilliseconds() > 3000) engine.changeState("MAIN_MENU");
 	}
 

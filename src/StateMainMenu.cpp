@@ -9,7 +9,9 @@ namespace re {
 
 	void StateMainMenu::onInit() {
 		mainMenuImage = make_unique<sf::Sprite>(sf::Sprite(engine.getTextureAssets()->loadTexture("TEX_MAIN_MENU")));
-		startButton = make_unique<Button>(Button(engine.getTextureAssets()->loadTexture("TEX_START_BUTTON"), ""));
+		startButton = make_unique<sf::Sprite>(sf::Sprite(engine.getTextureAssets()->loadTexture("TEX_START_BUTTON")));
+
+		startButton->setPosition(200.f, 180.f);
 	}
 
 	void StateMainMenu::onClose() {
@@ -29,7 +31,7 @@ namespace re {
 		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
 
 		window.draw(*mainMenuImage);
-		startButton->draw(window);
+		window.draw(*startButton);
 	}
 
 }
