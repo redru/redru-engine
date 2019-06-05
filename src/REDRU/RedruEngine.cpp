@@ -48,7 +48,7 @@ namespace re {
 			float exceded = elapsed - realTimeToNext;
 
 			if (exceded > timeToNext) { // If exceded the full frame time, skip 1
-				spdlog::debug("[RedruEngine] skipped 1 frame");
+				spdlog::debug("[RedruEngine] skipped " + to_string(exceded / timeToNext) + " frame");
 				realTimeToNext = timeToNext;
 			}
 			else { // Substract the exceded from the full frame time
