@@ -30,6 +30,8 @@ namespace re {
 
 		void onInput(sf::Event event) override;
 
+		sf::FloatRect getBoundingBox() override;
+
 		void setPosition(float x, float y) override;
 
 		void setColor(int r, int g, int b, int a) override;

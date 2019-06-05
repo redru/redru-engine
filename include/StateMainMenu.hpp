@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+#include "REDRU/Components/GenericGameObject.hpp"
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
 
@@ -12,11 +13,11 @@ namespace re {
 
 		RedruEngine& engine;
 
-		unique_ptr<sf::Sprite> mainMenuImage;
+		unique_ptr<GameObject> mainMenuImage;
 
-		unique_ptr<sf::Sprite> startButton;
+		unique_ptr<GameObject> startButton;
 
-		unique_ptr<sf::Sprite> exitButton;
+		unique_ptr<GameObject> exitButton;
 
 	public:
 

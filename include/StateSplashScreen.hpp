@@ -6,7 +6,6 @@
 #include <spdlog/spdlog.h>
 
 #include "REDRU/Components/State.hpp"
-#include "REDRU/Components/GameObject.hpp"
 #include "REDRU/Components/GenericGameObject.hpp"
 #include "REDRU/RedruEngine.hpp"
 

@@ -17,6 +17,10 @@ namespace re {
 
 	void GenericGameObject::onInput(sf::Event event) { }
 
+	sf::FloatRect GenericGameObject::getBoundingBox() {
+		return sprite.getGlobalBounds();
+	}
+
 	void GenericGameObject::setPosition(float x, float y) {
 		sprite.setPosition(x, y);
 	}
