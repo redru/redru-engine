@@ -18,4 +18,8 @@ namespace re {
 		window.draw(sprite);
 	}
 
+	void SplashImageObject::setPosition(float x, float y) {
+
+	}
+
 }

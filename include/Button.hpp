@@ -1,24 +1,28 @@
 #pragma once
-#include <memory>
+#include <string>
 
 #include <SFML/Graphics.hpp>
+#include <spdlog/spdlog.h>
 
-#include "REDRU/RedruEngine.hpp"
 #include "REDRU/Components/GameObject.hpp"
 
 namespace re {
 
-	class SplashImageObject : public GameObject {
+	using namespace std;
+
+	class Button : public GameObject {
 
 	private:
 
-		RedruEngine& engine;
-
 		sf::Sprite sprite;
 
+		sf::Text textElement;
+
+		sf::Font font;
+		
 	public:
 
-		SplashImageObject(RedruEngine& engine, sf::Texture& texture);
+		Button(sf::Texture& texture, string text);
 
 		void update() override;
 

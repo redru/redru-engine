@@ -89,6 +89,9 @@
     <ClCompile Include="src\SplashImageObject.cpp">
       <Filter>Archivos de origen\Game\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\Button.cpp">
+      <Filter>Archivos de origen\Game\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\RedruEngine.hpp">
@@ -133,9 +136,21 @@
     <ClInclude Include="include\SplashImageObject.hpp">
       <Filter>Archivos de encabezado\Game\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="include\Button.hpp">
+      <Filter>Archivos de encabezado\Game\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\splash_image.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="resources\card_table_960_540.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="resources\main_menu_960_540.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="resources\start_button_100_40.png">
       <Filter>Archivos de recursos</Filter>
     </Image>
   </ItemGroup>

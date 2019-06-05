@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
+#include "Button.hpp"
 
 namespace re {
 
@@ -11,7 +13,9 @@ namespace re {
 
 		RedruEngine& engine;
 
-		unique_ptr<sf::Shape> shape;
+		unique_ptr<sf::Sprite> mainMenuImage;
+
+		unique_ptr<Button> startButton;
 
 	public:
 

@@ -136,6 +136,7 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\REDRU\AudioManager.cpp" />
     <ClCompile Include="src\REDRU\GraphicsManager.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="src\StateSplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Button.hpp" />
     <ClInclude Include="include\REDRU\Assets\MusicAssets.hpp" />
     <ClInclude Include="include\REDRU\Assets\SoundAssets.hpp" />
     <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp" />
@@ -164,7 +166,10 @@
     <ClInclude Include="include\StateSplashScreen.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\card_table_960_540.png" />
+    <Image Include="resources\main_menu_960_540.png" />
     <Image Include="resources\splash_image.png" />
+    <Image Include="resources\start_button_100_40.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

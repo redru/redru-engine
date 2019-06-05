@@ -2,19 +2,19 @@
 
 namespace re {
 
-	StateMainMenu::StateMainMenu(RedruEngine& engine) : engine(engine), shape() {
+	StateMainMenu::StateMainMenu(RedruEngine& engine) :
+		engine(engine),
+		mainMenuImage() {
 	}
 
 	void StateMainMenu::onInit() {
-		shape.reset(new sf::RectangleShape(sf::Vector2f(60.f, 60.f)));
-
-		shape->setFillColor(sf::Color::Green);
-		shape->setOrigin(30.f, 30.f);
-		shape->setPosition(400.f, 400.f);
+		mainMenuImage = make_unique<sf::Sprite>(sf::Sprite(engine.getTextureAssets()->loadTexture("TEX_MAIN_MENU")));
+		startButton = make_unique<Button>(Button(engine.getTextureAssets()->loadTexture("TEX_START_BUTTON"), ""));
 	}
 
 	void StateMainMenu::onClose() {
-		shape.release();
+		mainMenuImage.release();
+		startButton.release();
 	}
 
 	void StateMainMenu::update() {
@@ -28,7 +28,8 @@ namespace re {
 	void StateMainMenu::draw() {
 		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
 
-		window.draw(*shape);
+		window.draw(*mainMenuImage);
+		startButton->draw(window);
 	}
 
 }
