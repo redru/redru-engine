@@ -50,9 +50,7 @@ namespace re {
 	}
 
 	void TextureAssets::clearCache() {
-		for (Textures::iterator it = loadedTextures.begin(); it != loadedTextures.end(); it++) {
-			it->second.release();
-		}
+		loadedTextures.clear();
 
 		spdlog::debug("[TextureAssets] textures cache was cleared");
 	}
