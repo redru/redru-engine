@@ -18,6 +18,7 @@ int main() {
 	engine->registerTexture("TEX_CARD_TABLE", "resources/card_table_960_540.png");
 	engine->registerTexture("TEX_MAIN_MENU", "resources/main_menu_960_540.png");
 	engine->registerTexture("TEX_START_BUTTON", "resources/start_button_100_40.png");
+	engine->registerTexture("TEX_EXIT_BUTTON", "resources/exit_button_100_40.png");
 
 	engine->registerState("SPLASH_SCREEN", make_shared<StateSplashScreen>(StateSplashScreen(*engine)));
 	engine->registerState("MAIN_MENU", make_shared<StateMainMenu>(StateMainMenu(*engine)));

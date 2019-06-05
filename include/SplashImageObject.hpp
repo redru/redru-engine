@@ -26,6 +26,8 @@ namespace re {
 
 		void draw(sf::RenderWindow& window) override;
 
+		void onInput(sf::Event event) override;
+
 		void setPosition(float x, float y) override;
 
 		void setColor(int r, int g, int b, int a) override;

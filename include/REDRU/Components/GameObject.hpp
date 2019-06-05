@@ -13,6 +13,8 @@ namespace re {
 
 		virtual void draw(sf::RenderWindow& window) = 0;
 
+		virtual void onInput(sf::Event event) = 0;
+
 		virtual void setPosition(float x, float y) = 0;
 
 		virtual void setColor(int r, int g, int b, int a) = 0;

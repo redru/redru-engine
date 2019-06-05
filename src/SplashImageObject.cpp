@@ -18,6 +18,9 @@ namespace re {
 		window.draw(sprite);
 	}
 
+	void SplashImageObject::onInput(sf::Event event) {
+	}
+
 	void SplashImageObject::setPosition(float x, float y) {
 		sprite.setPosition(x, y);
 	}

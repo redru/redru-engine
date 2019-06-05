@@ -16,6 +16,8 @@ namespace re {
 
 		unique_ptr<sf::Sprite> startButton;
 
+		unique_ptr<sf::Sprite> exitButton;
+
 	public:
 
 		StateMainMenu(RedruEngine& engine);
