@@ -8,6 +8,10 @@ namespace re {
 
 	void StateLevelOneSingle::onInit() {
 		background = make_unique<GenericGameObject>(GenericGameObject(engine, engine.getTextureAssets()->loadTexture("TEX_CARD_TABLE")));
+
+		GameEvent event("FROM ON_INIT");
+
+		engine.getEventsManager()->sendEvent(event);
 	}
 
 	void StateLevelOneSingle::onClose() {

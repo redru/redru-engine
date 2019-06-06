@@ -12,6 +12,8 @@ namespace re {
 
 	class RedruEngine;
 
+	class StatesManager;
+
 	////////////////////////////////////////////////////
 	// Game Event class
 	////////////////////////////////////////////////////
@@ -45,6 +47,8 @@ namespace re {
 	private:
 
 		RedruEngine& engine;
+
+		shared_ptr<StatesManager> statesManager;
 
 	public:
 

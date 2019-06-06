@@ -1,4 +1,5 @@
 #include "REDRU/Managers/EventsManager.hpp"
+#include "REDRU/Managers/StatesManager.hpp"
 #include "REDRU/RedruEngine.hpp"
 
 namespace re {
@@ -32,11 +33,14 @@ namespace re {
 	}
 
 	void EventsManager::initialize() {
+		statesManager = engine.getStatesManager();
+		spdlog::debug("[EventsManager] => linked 'StatesManager'");
+
 		spdlog::debug("[EventsManager] -- initialized --");
 	}
 
 	void EventsManager::sendEvent(GameEvent& event) {
-		engine.sendEvent(event);
+		statesManager->onEvent(event);
 	}
 
 }

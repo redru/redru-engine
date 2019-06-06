@@ -87,10 +87,6 @@ namespace re {
 		textureAssets->registerAsset(name, file);
 	}
 
-	void RedruEngine::sendEvent(GameEvent& event) {
-		statesManager->onEvent(event);
-	}
-
 	void RedruEngine::stop() {
 		running = false;
 	}

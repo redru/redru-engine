@@ -58,8 +58,6 @@ namespace re {
 
 		void registerTexture(string name, string file);
 
-		void sendEvent(GameEvent& event);
-
 		void stop();
 
 	public:
