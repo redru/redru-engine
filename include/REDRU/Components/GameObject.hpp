@@ -1,14 +1,31 @@
 #pragma once
+#include <string>
+
 #include <SFML/Graphics.hpp>
 
 namespace re {
+
+	using namespace std;
 
 	class GameEvent;
 
 	class GameObject {
 
+	protected:
+
+		string id;
+
 	public:
 
+		GameObject(string id) : id(id) { }
+
+		void setId(string id) { this->id = id; }
+
+		string& getId() { return id; }
+
+		///////////////////////////////////////////////////////////////
+		// Abstract
+		///////////////////////////////////////////////////////////////
 		virtual void update() = 0;
 
 		virtual void fixedUpdate() = 0;

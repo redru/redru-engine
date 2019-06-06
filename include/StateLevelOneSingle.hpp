@@ -7,8 +7,11 @@
 #include "REDRU/Components/GenericGameObject.hpp"
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
+#include "CardObject.hpp"
 
 namespace re {
+
+	typedef vector<unique_ptr<GameObject>> GameObjects;
 
 	class StateLevelOneSingle : public State {
 
@@ -18,7 +21,7 @@ namespace re {
 
 		unique_ptr<GameObject> background;
 
-		vector<unique_ptr<GameObject>> gameObjects;
+		GameObjects gameObjects;
 
 	public:
 

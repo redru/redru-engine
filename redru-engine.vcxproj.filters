@@ -49,6 +49,12 @@
     <Filter Include="Archivos de origen\REDRU\Components">
       <UniqueIdentifier>{533e9c11-6c3c-446e-ae9f-0c3d05ead618}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Game\Objects">
+      <UniqueIdentifier>{39d8957e-0955-42d1-a5f6-036a0800982b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Game\Objects">
+      <UniqueIdentifier>{4a684c7f-5a6c-4906-9c28-b09e7ecf7071}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
@@ -91,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="src\REDRU\EventsManager.cpp">
       <Filter>Archivos de origen\REDRU\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CardObject.cpp">
+      <Filter>Archivos de origen\Game\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +150,9 @@
     </ClInclude>
     <ClInclude Include="include\REDRU\Managers\EventsManager.hpp">
       <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CardObject.hpp">
+      <Filter>Archivos de encabezado\Game\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

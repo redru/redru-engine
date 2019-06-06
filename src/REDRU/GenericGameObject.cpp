@@ -2,7 +2,8 @@
 
 namespace re {
 	
-	GenericGameObject::GenericGameObject(RedruEngine& engine, sf::Texture& texture) :
+	GenericGameObject::GenericGameObject(string id, RedruEngine& engine, sf::Texture& texture) :
+		GameObject(id),
 		engine(engine),
 		sprite(texture) {
 	}

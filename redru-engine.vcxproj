@@ -136,6 +136,7 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CardObject.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\REDRU\AudioManager.cpp" />
     <ClCompile Include="src\REDRU\EventsManager.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="src\StateSplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\CardObject.hpp" />
     <ClInclude Include="include\REDRU\Assets\MusicAssets.hpp" />
     <ClInclude Include="include\REDRU\Assets\SoundAssets.hpp" />
     <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp" />

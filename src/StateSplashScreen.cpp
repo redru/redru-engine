@@ -8,7 +8,7 @@ namespace re {
 	}
 
 	void StateSplashScreen::onInit() {
-		splashImage = make_unique<GenericGameObject>(GenericGameObject(engine, engine.getTextureAssets()->loadTexture("TEX_SPLASH_IMAGE")));
+		splashImage = make_unique<GenericGameObject>(GenericGameObject("SPLASH", engine, engine.getTextureAssets()->loadTexture("TEX_SPLASH_IMAGE")));
 
 		splashImage->setColor(255, 255, 255, 0);
 	}

@@ -21,7 +21,7 @@ namespace re {
 
 	public:
 
-		GenericGameObject(RedruEngine& engine, sf::Texture& texture);
+		GenericGameObject(string id, RedruEngine& engine, sf::Texture& texture);
 
 		void update() override;
 

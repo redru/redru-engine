@@ -8,9 +8,9 @@ namespace re {
 	}
 
 	void StateMainMenu::onInit() {
-		mainMenuImage = make_unique<GenericGameObject>(GenericGameObject(engine, engine.getTextureAssets()->loadTexture("TEX_MAIN_MENU")));
-		startButton = make_unique<GenericGameObject>(GenericGameObject(engine, engine.getTextureAssets()->loadTexture("TEX_START_BUTTON")));
-		exitButton = make_unique<GenericGameObject>(GenericGameObject(engine, engine.getTextureAssets()->loadTexture("TEX_EXIT_BUTTON")));
+		mainMenuImage = make_unique<GenericGameObject>(GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_MAIN_MENU")));
+		startButton = make_unique<GenericGameObject>(GenericGameObject("START_B", engine, engine.getTextureAssets()->loadTexture("TEX_START_BUTTON")));
+		exitButton = make_unique<GenericGameObject>(GenericGameObject("EXIT_B", engine, engine.getTextureAssets()->loadTexture("TEX_EXIT_BUTTON")));
 
 		startButton->setPosition(200.f, 180.f);
 		exitButton->setPosition(200.f, 240.f);
