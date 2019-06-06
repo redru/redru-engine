@@ -8,7 +8,7 @@ namespace re {
 	}
 
 	void GraphicsManager::initialize() {
-		window.reset(new sf::RenderWindow(sf::VideoMode(960, 540), "Redru Engine - 960 x 540"));
+		window.reset(new sf::RenderWindow(sf::VideoMode(1920, 1080), "Redru Engine - 1920 x 1080"));
 
 		spdlog::debug("[GraphicsManager] -- initialized --");
 	}

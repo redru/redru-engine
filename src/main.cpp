@@ -15,9 +15,9 @@ int main() {
 
 	engine->initialize();
 
-	engine->registerTexture("TEX_SPLASH_IMAGE", "resources/splash_image.png");
-	engine->registerTexture("TEX_CARD_TABLE", "resources/card_table_960_540.png");
-	engine->registerTexture("TEX_MAIN_MENU", "resources/main_menu_960_540.png");
+	engine->registerTexture("TEX_SPLASH_IMAGE", "resources/splash_image_1920_1080.png");
+	engine->registerTexture("TEX_CARD_TABLE", "resources/card_table_1920_1080.png");
+	engine->registerTexture("TEX_MAIN_MENU", "resources/main_menu_background_1920_1080.png");
 	engine->registerTexture("TEX_START_BUTTON", "resources/start_button_100_40.png");
 	engine->registerTexture("TEX_EXIT_BUTTON", "resources/exit_button_100_40.png");
 
