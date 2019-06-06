@@ -2,11 +2,12 @@
 
 namespace re {
 
-	CardObject::CardObject(string id, RedruEngine& engine, sf::Texture& frontTexture, sf::Texture& backTexture) :
+	CardObject::CardObject(string id, RedruEngine& engine, sf::Texture& frontTexture, sf::Texture& backTexture, int group) :
 		GameObject(id),
 		engine(engine),
 		frontSprite(frontTexture),
-		backSprite(backTexture) {
+		backSprite(backTexture),
+		group(group) {
 
 		const sf::IntRect& size = frontSprite.getTextureRect();
 
@@ -46,6 +47,14 @@ namespace re {
 
 	bool& CardObject::isFaceUp() {
 		return faceUp;
+	}
+
+	void CardObject::setGroup(int group) {
+		this->group = group;
+	}
+
+	int& CardObject::getGroup() {
+		return group;
 	}
 
 }

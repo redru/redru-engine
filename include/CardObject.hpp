@@ -20,6 +20,8 @@ namespace re {
 
 		sf::Sprite backSprite;
 
+		int group = 0;
+
 		bool faceUp = false;
 
 	public:
@@ -28,7 +30,7 @@ namespace re {
 		// Constructor
 		//////////////////////////////////////////////////////////////
 
-		CardObject(string id, RedruEngine& engine, sf::Texture& frontTexture, sf::Texture& backTexture);
+		CardObject(string id, RedruEngine& engine, sf::Texture& frontTexture, sf::Texture& backTexture, int group);
 
 		//////////////////////////////////////////////////////////////
 		// GameObject
@@ -57,6 +59,10 @@ namespace re {
 		void setFaceUp(bool faceUp);
 
 		bool& isFaceUp();
+
+		void setGroup(int group);
+
+		int& getGroup();
 
 	};
 
