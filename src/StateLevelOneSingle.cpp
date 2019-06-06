@@ -3,7 +3,8 @@
 namespace re {
 
 	StateLevelOneSingle::StateLevelOneSingle(RedruEngine& engine) :
-		engine(engine) {
+		engine(engine),
+		gameObjects(12) {
 	}
 
 	void StateLevelOneSingle::onInit() {

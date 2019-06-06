@@ -18,6 +18,8 @@ namespace re {
 
 		unique_ptr<GameObject> background;
 
+		vector<unique_ptr<GameObject>> gameObjects;
+
 	public:
 
 		StateLevelOneSingle(RedruEngine& engine);
