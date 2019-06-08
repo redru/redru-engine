@@ -28,18 +28,28 @@ namespace re {
 		gameObjects[10] = make_unique<CardObject>(CardObject("CARD_11", engine, tex3, tex3, 6));
 		gameObjects[11] = make_unique<CardObject>(CardObject("CARD_12", engine, tex4, tex4, 6));
 	
-		gameObjects[0]->setPosition(282.f, 360.f);
-		gameObjects[1]->setPosition(564.f, 360.f);
-		gameObjects[2]->setPosition(846.f, 360.f);
-		gameObjects[3]->setPosition(1128.f, 360.f);
-		gameObjects[4]->setPosition(1410.f, 360.f);
-		gameObjects[5]->setPosition(1692.f, 360.f);
-		gameObjects[6]->setPosition(282.f, 720.f);
-		gameObjects[7]->setPosition(564.f, 720.f);
-		gameObjects[8]->setPosition(846.f, 720.f);
-		gameObjects[9]->setPosition(1128.f, 720.f);
-		gameObjects[10]->setPosition(1410.f, 720.f);
-		gameObjects[11]->setPosition(1692.f, 720.f);
+		// gameObjects[0]->setPosition(282.f, 360.f);
+		// gameObjects[1]->setPosition(282.f * 2, 360.f);
+		// gameObjects[2]->setPosition(282.f * 3, 360.f);
+		// gameObjects[3]->setPosition(282.f * 4, 360.f);
+		// gameObjects[4]->setPosition(282.f * 5, 360.f);
+		// gameObjects[5]->setPosition(282.f * 6, 360.f);
+		// gameObjects[6]->setPosition(282.f, 360.f * 2);
+		// gameObjects[7]->setPosition(282.f * 2, 360.f * 2);
+		// gameObjects[8]->setPosition(282.f * 3, 360.f * 2);
+		// gameObjects[9]->setPosition(282.f * 4, 360.f * 2);
+		// gameObjects[10]->setPosition(282.f * 5, 360.f * 2);
+		// gameObjects[11]->setPosition(282.f * 6, 360.f * 2);
+
+		int objCount = 0;
+		const float x_OFFSET = 282.f;
+		const float Y_OFFSET = 360.f;
+
+		for (int i = 1; i < 3; i++) {
+			for (int e = 1; e < 7; e++, objCount++) {
+				gameObjects[objCount]->setPosition(x_OFFSET * e, Y_OFFSET * i);
+			}
+		}
 	}
 
 	void StateLevelOneSingle::onClose() {

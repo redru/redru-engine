@@ -169,12 +169,6 @@
     <ClInclude Include="include\StateMainMenu.hpp" />
     <ClInclude Include="include\StateSplashScreen.hpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="resources\card_table_960_540.png" />
-    <Image Include="resources\main_menu_960_540.png" />
-    <Image Include="resources\splash_image.png" />
-    <Image Include="resources\start_button_100_40.png" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -155,18 +155,4 @@
       <Filter>Archivos de encabezado\Game\Objects</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="resources\splash_image.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="resources\card_table_960_540.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="resources\main_menu_960_540.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="resources\start_button_100_40.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-  </ItemGroup>
 </Project>

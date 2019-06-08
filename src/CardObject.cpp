@@ -23,7 +23,9 @@ namespace re {
 		window.draw(faceUp ? frontSprite : backSprite);
 	}
 
-	void CardObject::onInput(sf::Event& event) { }
+	void CardObject::onInput(sf::Event& event) {
+		
+	}
 
 	void CardObject::onEvent(GameEvent& event) { }
 
