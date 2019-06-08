@@ -25,6 +25,7 @@ namespace re {
 	}
 
 	int RedruEngine::start() {
+		// 1000 ms / 30 fps
 		float timeToNext = ceil(1000.f / 30.f);
 		float realTimeToNext = 0;
 
@@ -53,11 +54,10 @@ namespace re {
 			// Take the exceded time
 			float exceded = elapsed - realTimeToNext;
 
-			if (exceded > timeToNext) { // If exceded the full frame time, skip 1
+			if (exceded > timeToNext) { // If exceded the full frame time, log it
 				spdlog::debug("[RedruEngine] skipped " + to_string(exceded / timeToNext) + " frame");
 				realTimeToNext = timeToNext;
-			}
-			else { // Substract the exceded from the full frame time
+			} else { // Substract the exceded from the full frame time
 				realTimeToNext = timeToNext - exceded;
 			}
 
