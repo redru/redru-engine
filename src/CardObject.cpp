@@ -24,7 +24,9 @@ namespace re {
 	}
 
 	void CardObject::onInput(sf::Event& event) {
-		
+		if (event.type == sf::Event::MouseButtonReleased && frontSprite.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
+			spdlog::debug("[CardObject] collision with card '" + id + "'");
+		}
 	}
 
 	void CardObject::onEvent(GameEvent& event) { }

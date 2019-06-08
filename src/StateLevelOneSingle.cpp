@@ -27,25 +27,11 @@ namespace re {
 		gameObjects[9] = make_unique<CardObject>(CardObject("CARD_10", engine, tex2, tex2, 5));
 		gameObjects[10] = make_unique<CardObject>(CardObject("CARD_11", engine, tex3, tex3, 6));
 		gameObjects[11] = make_unique<CardObject>(CardObject("CARD_12", engine, tex4, tex4, 6));
-	
-		// gameObjects[0]->setPosition(282.f, 360.f);
-		// gameObjects[1]->setPosition(282.f * 2, 360.f);
-		// gameObjects[2]->setPosition(282.f * 3, 360.f);
-		// gameObjects[3]->setPosition(282.f * 4, 360.f);
-		// gameObjects[4]->setPosition(282.f * 5, 360.f);
-		// gameObjects[5]->setPosition(282.f * 6, 360.f);
-		// gameObjects[6]->setPosition(282.f, 360.f * 2);
-		// gameObjects[7]->setPosition(282.f * 2, 360.f * 2);
-		// gameObjects[8]->setPosition(282.f * 3, 360.f * 2);
-		// gameObjects[9]->setPosition(282.f * 4, 360.f * 2);
-		// gameObjects[10]->setPosition(282.f * 5, 360.f * 2);
-		// gameObjects[11]->setPosition(282.f * 6, 360.f * 2);
 
-		int objCount = 0;
 		const float x_OFFSET = 282.f;
 		const float Y_OFFSET = 360.f;
 
-		for (int i = 1; i < 3; i++) {
+		for (int i = 1, objCount = 0; i < 3; i++) {
 			for (int e = 1; e < 7; e++, objCount++) {
 				gameObjects[objCount]->setPosition(x_OFFSET * e, Y_OFFSET * i);
 			}
@@ -77,6 +63,10 @@ namespace re {
 				engine.changeState("MAIN_MENU");
 				break;
 			}
+		}
+
+		for (GameObjects::iterator it = gameObjects.begin(); it < gameObjects.end(); it++) {
+			(*it)->onInput(event);
 		}
 	}
 
