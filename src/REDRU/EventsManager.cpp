@@ -9,8 +9,8 @@ namespace re {
 	////////////////////////////////////////////////////
 	GameEvent::GameEvent(string type) : type(type), source() { }
 
-	void GameEvent::setSource(GameObject& source) {
-		this->source = &source;
+	void GameEvent::setSource(GameObject* source) {
+		this->source = source;
 	}
 
 	GameObject& GameEvent::getSource() {

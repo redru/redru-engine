@@ -1,5 +1,8 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+
 #include "REDRU/Components/GameObject.hpp"
+#include "REDRU/Managers/EventsManager.hpp"
 #include "REDRU/RedruEngine.hpp"
 
 namespace re {

@@ -29,7 +29,7 @@ namespace re {
 
 		GameEvent(string type = "DEFAULT");
 
-		void setSource(GameObject& source);
+		void setSource(GameObject* source);
 
 		GameObject& getSource();
 

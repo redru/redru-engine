@@ -78,6 +78,7 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onEvent(GameEvent& event) {
+		spdlog::debug("[StateLevelOneSingle] received event type '" + event.getType() + "'");
 	}
 
 }
