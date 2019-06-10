@@ -33,9 +33,9 @@ namespace re {
 
 		int flippedCards;
 
-		bool showAnimation;
+		bool mustWait;
 
-		int showAnimationTime;
+		int mustWaitTime;
 
 	public:
 

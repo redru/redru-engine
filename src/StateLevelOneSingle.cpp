@@ -9,8 +9,8 @@ namespace re {
 
 	void StateLevelOneSingle::onInit() {
 		flippedCards = 0;
-		showAnimation = false;
-		showAnimationTime = 0;
+		mustWait = false;
+		mustWaitTime = 0;
 		firstFlippedCard = nullptr;
 		secondFlippedCard = nullptr;
 
@@ -67,18 +67,18 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::update() {
-		if (showAnimation) {
-			showAnimationTime += engine.getElpasedFromLast();
+		if (mustWait) {
+			mustWaitTime += engine.getElpasedFromLast();
 
-			if (showAnimationTime >= 1000) {
+			if (mustWaitTime >= 1000) {
 				firstFlippedCard->setFaceUp(false);
 				secondFlippedCard->setFaceUp(false);
 
 				firstFlippedCard = nullptr;
 				secondFlippedCard = nullptr;
 
-				showAnimation = false;
-				showAnimationTime = 0;
+				mustWait = false;
+				mustWaitTime = 0;
 			}
 
 			return;
@@ -91,7 +91,7 @@ namespace re {
 			}
 
 			if (firstFlippedCard->getGroup() != secondFlippedCard->getGroup()) {
-				showAnimation = true;
+				mustWait = true;
 				return;
 			}
 
@@ -100,12 +100,13 @@ namespace re {
 
 			flippedCards += 2;
 
+			if (flippedCards == gameObjects.size()) {
+				mustWait = true;
+				return;
+			}
+
 			firstFlippedCard = nullptr;
 			secondFlippedCard = nullptr;
-
-			if (flippedCards == gameObjects.size()) showAnimation = true;
-
-			return;
 		}
 
 		if (flippedCards == gameObjects.size()) {
@@ -126,7 +127,7 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onInput(sf::Event& event) {
-		if (showAnimation) {
+		if (mustWait) {
 			return;
 		}
 
