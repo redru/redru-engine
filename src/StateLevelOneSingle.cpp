@@ -8,6 +8,7 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onInit() {
+		// State members initialization
 		flippedCards = 0;
 		mustWait = false;
 		mustWaitTime = 0;
@@ -15,8 +16,7 @@ namespace re {
 		firstFlippedCard = nullptr;
 		secondFlippedCard = nullptr;
 
-		background = make_unique<GenericGameObject>(GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_CARD_TABLE")));
-
+		// Load resources
 		sf::Texture& tex1 = engine.getTextureAssets()->loadTexture("TEX_CARD_1");
 		sf::Texture& tex2 = engine.getTextureAssets()->loadTexture("TEX_CARD_2");
 		sf::Texture& tex3 = engine.getTextureAssets()->loadTexture("TEX_CARD_3");
@@ -28,6 +28,9 @@ namespace re {
 		sf::Texture& texFront4 = engine.getTextureAssets()->loadTexture("TEX_CARD_FRONT_4");
 		sf::Texture& texFront5 = engine.getTextureAssets()->loadTexture("TEX_CARD_FRONT_5");
 		sf::Texture& texFront6 = engine.getTextureAssets()->loadTexture("TEX_CARD_FRONT_6");
+
+		// Initialize Game Objects
+		background = make_unique<GenericGameObject>(GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_CARD_TABLE")));
 
 		gameObjects[0] = make_unique<CardObject>(CardObject("CARD_1", engine, texFront1, tex1, 1));
 		gameObjects[1] = make_unique<CardObject>(CardObject("CARD_2", engine, texFront1, tex2, 1));
@@ -42,8 +45,8 @@ namespace re {
 		gameObjects[10] = make_unique<CardObject>(CardObject("CARD_11", engine, texFront6, tex3, 6));
 		gameObjects[11] = make_unique<CardObject>(CardObject("CARD_12", engine, texFront6, tex4, 6));
 
+		// Shuffle
 		unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-
 		shuffle(begin(gameObjects), end(gameObjects), default_random_engine(seed));
 
 		dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
