@@ -27,6 +27,8 @@ namespace re {
 
 		bool faceUp = false;
 
+		bool locked = false;
+
 	public:
 
 		//////////////////////////////////////////////////////////////
@@ -66,6 +68,10 @@ namespace re {
 		void setGroup(int group);
 
 		int& getGroup();
+
+		void setLocked(bool locked);
+
+		bool& isLocked();
 
 	};
 

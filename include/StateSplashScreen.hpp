@@ -19,7 +19,7 @@ namespace re {
 
 		unique_ptr<GameObject> splashImage;
 
-		sf::Clock clock;
+		int elapsed;
 
 	public:
 

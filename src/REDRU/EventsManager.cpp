@@ -13,8 +13,8 @@ namespace re {
 		this->source = source;
 	}
 
-	GameObject& GameEvent::getSource() {
-		return *source;
+	GameObject* GameEvent::getSource() {
+		return source;
 	}
 
 	void GameEvent::setType(string type) {

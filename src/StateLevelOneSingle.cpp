@@ -8,6 +8,12 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onInit() {
+		flippedCards = 0;
+		showAnimation = false;
+		showAnimationTime = 0;
+		firstFlippedCard = nullptr;
+		secondFlippedCard = nullptr;
+
 		background = make_unique<GenericGameObject>(GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_CARD_TABLE")));
 
 		sf::Texture& tex1 = engine.getTextureAssets()->loadTexture("TEX_CARD_1");
@@ -35,6 +41,10 @@ namespace re {
 		gameObjects[10] = make_unique<CardObject>(CardObject("CARD_11", engine, texFront6, tex3, 6));
 		gameObjects[11] = make_unique<CardObject>(CardObject("CARD_12", engine, texFront6, tex4, 6));
 
+		unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+
+		shuffle(begin(gameObjects), end(gameObjects), default_random_engine(seed));
+
 		const float x_OFFSET = 282.f;
 		const float Y_OFFSET = 360.f;
 
@@ -46,10 +56,62 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onClose() {
+		firstFlippedCard = nullptr;
+		secondFlippedCard = nullptr;
+
+		for (GameObjects::iterator it = gameObjects.begin(); it != gameObjects.end(); it++) {
+			it->release();
+		}
+
 		background.release();
 	}
 
-	void StateLevelOneSingle::update() { }
+	void StateLevelOneSingle::update() {
+		if (showAnimation) {
+			showAnimationTime += engine.getElpasedFromLast();
+
+			if (showAnimationTime >= 1000) {
+				firstFlippedCard->setFaceUp(false);
+				secondFlippedCard->setFaceUp(false);
+
+				firstFlippedCard = nullptr;
+				secondFlippedCard = nullptr;
+
+				showAnimation = false;
+				showAnimationTime = 0;
+			}
+
+			return;
+		}
+
+		if (firstFlippedCard != nullptr && secondFlippedCard != nullptr) {
+			if (secondFlippedCard->getId() == firstFlippedCard->getId()) {
+				firstFlippedCard = nullptr;
+				return;
+			}
+
+			if (firstFlippedCard->getGroup() != secondFlippedCard->getGroup()) {
+				showAnimation = true;
+				return;
+			}
+
+			firstFlippedCard->setLocked(true);
+			secondFlippedCard->setLocked(true);
+
+			flippedCards += 2;
+
+			firstFlippedCard = nullptr;
+			secondFlippedCard = nullptr;
+
+			if (flippedCards == gameObjects.size()) showAnimation = true;
+
+			return;
+		}
+
+		if (flippedCards == gameObjects.size()) {
+			engine.changeState("LEVEL_ONE_SINGLE");
+		}
+	}
 
 	void StateLevelOneSingle::fixedUpdate() { }
 
@@ -64,6 +126,10 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onInput(sf::Event& event) {
+		if (showAnimation) {
+			return;
+		}
+
 		if (event.type == sf::Event::KeyReleased) {
 			switch (event.key.code) {
 			case sf::Keyboard::Escape:
@@ -78,7 +144,17 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onEvent(GameEvent& event) {
-		spdlog::debug("[StateLevelOneSingle] received event type '" + event.getType() + "'");
+		if (event.getType() == "CARD_FLIPPED") {
+			// If event was CARD_FLIPPED, we understand we can safely cast to child CardObject
+			CardObject* object = dynamic_cast<CardObject*>(event.getSource());
+			
+			// If first selection
+			if (firstFlippedCard == nullptr) {
+				firstFlippedCard = object;
+			} else {
+				secondFlippedCard = object;
+			}
+		}
 	}
 
 }

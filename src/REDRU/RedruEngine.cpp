@@ -35,8 +35,13 @@ namespace re {
 			// Check if a new state has been requested, then change it
 			if (statesManager->hasRequestedState()) statesManager->nextState();
 
-			// Get the time from las clock reset
-			elapsed = clock.getElapsedTime().asMilliseconds();
+			// Get the time from las clock reset, set the elapsed from one update to another, and assign elapsed from last frame
+			int tmpElapsed = clock.getElapsedTime().asMilliseconds();
+			elapsedFromLast = tmpElapsed - elapsed;
+			elapsed = tmpElapsed;
+
+			// The above operation can give negative numbers, so fix it
+			if (elapsedFromLast < 0) elapsedFromLast = 0;
 
 			if (elapsed < realTimeToNext) {
 				// Exceute update
@@ -81,6 +86,10 @@ namespace re {
 
 	int RedruEngine::getElapsed() {
 		return elapsed;
+	}
+
+	int RedruEngine::getElpasedFromLast() {
+		return elapsedFromLast;
 	}
 
 	void RedruEngine::registerTexture(string name, string file) {

@@ -1,5 +1,9 @@
 #pragma once
 #include <memory>
+#include <string>
+#include <algorithm>
+#include <random>
+#include <chrono>
 
 #include <SFML/Graphics.hpp>
 #include <spdlog/spdlog.h>
@@ -22,6 +26,16 @@ namespace re {
 		unique_ptr<GameObject> background;
 
 		GameObjects gameObjects;
+
+		CardObject* firstFlippedCard;
+
+		CardObject* secondFlippedCard;
+
+		int flippedCards;
+
+		bool showAnimation;
+
+		int showAnimationTime;
 
 	public:
 

@@ -11,8 +11,8 @@ namespace re {
 
 		const sf::IntRect& size = frontSprite.getTextureRect();
 
-		frontSprite.setOrigin(size.width / 2, size.height / 2);
-		backSprite.setOrigin(size.width / 2, size.height / 2);
+		frontSprite.setOrigin(size.width / 2.f, size.height / 2.f);
+		backSprite.setOrigin(size.width / 2.f, size.height / 2.f);
 	}
 
 	void CardObject::update() { }
@@ -24,7 +24,9 @@ namespace re {
 	}
 
 	void CardObject::onInput(sf::Event& event) {
-		if (event.type == sf::Event::MouseButtonReleased && frontSprite.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
+		if (event.type == sf::Event::MouseButtonReleased
+			&& frontSprite.getGlobalBounds().contains((float) event.mouseButton.x, (float) event.mouseButton.y)
+			&& !locked) {
 			faceUp = !faceUp;
 
 			GameEvent event("CARD_FLIPPED");
@@ -64,6 +66,14 @@ namespace re {
 
 	int& CardObject::getGroup() {
 		return group;
+	}
+
+	void CardObject::setLocked(bool locked) {
+		this->locked = locked;
+	}
+
+	bool& CardObject::isLocked() {
+		return locked;
 	}
 
 }

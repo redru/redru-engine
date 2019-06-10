@@ -42,6 +42,8 @@ namespace re {
 		// Members
 		int elapsed;
 
+		int elapsedFromLast;
+
 		bool running;
 
 	public:
@@ -63,6 +65,8 @@ namespace re {
 	public:
 
 		int getElapsed();
+
+		int getElpasedFromLast();
 
 	public:
 

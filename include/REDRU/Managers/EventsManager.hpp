@@ -31,7 +31,7 @@ namespace re {
 
 		void setSource(GameObject* source);
 
-		GameObject& getSource();
+		GameObject* getSource();
 
 		void setType(string type);
 
