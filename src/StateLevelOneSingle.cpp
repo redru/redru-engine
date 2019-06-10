@@ -11,6 +11,7 @@ namespace re {
 		flippedCards = 0;
 		mustWait = false;
 		mustWaitTime = 0;
+		currentSelected = 0;
 		firstFlippedCard = nullptr;
 		secondFlippedCard = nullptr;
 
@@ -45,11 +46,13 @@ namespace re {
 
 		shuffle(begin(gameObjects), end(gameObjects), default_random_engine(seed));
 
+		dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
+
 		const float x_OFFSET = 282.f;
 		const float Y_OFFSET = 360.f;
 
 		for (int i = 1, objCount = 0; i < 3; i++) {
-			for (int e = 1; e < 7; e++, objCount++) {
+			for (int e = 1; e <= 6; e++, objCount++) {
 				gameObjects[objCount]->setPosition(x_OFFSET * e, Y_OFFSET * i);
 			}
 		}
@@ -127,16 +130,64 @@ namespace re {
 	}
 
 	void StateLevelOneSingle::onInput(sf::Event& event) {
-		if (mustWait) {
-			return;
-		}
-
 		if (event.type == sf::Event::KeyReleased) {
+			GameEvent gameEvent("CARD_FLIPPED");
+			CardObject* tmp;
+
 			switch (event.key.code) {
+			case sf::Keyboard::Left:
+				dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(false);
+
+				if (currentSelected - 1 < 0) currentSelected = gameObjects.size() - 1;
+				else currentSelected--;
+
+				dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
+				break;
+			case sf::Keyboard::Up:
+				dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(false);
+
+				if (currentSelected - 6 < 0) currentSelected += 6;
+				else currentSelected -= 6;
+
+				dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
+				break;
+			case sf::Keyboard::Right:
+				dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(false);
+
+				if (currentSelected + 1 >= gameObjects.size()) currentSelected = 0;
+				else currentSelected++;
+
+				dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
+				break;
+			case sf::Keyboard::Down:
+				dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(false);
+
+				if (currentSelected + 6 >= gameObjects.size()) currentSelected -= 6;
+				else currentSelected += 6;
+
+				dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
+				break;
+			case sf::Keyboard::Enter:
+				tmp = dynamic_cast<CardObject*>(gameObjects[currentSelected].get());
+
+				if (tmp->isLocked() || mustWait) {
+					break;
+				}
+
+				tmp->flip();
+
+				gameEvent.setSource(tmp);
+
+				engine.getEventsManager()->sendEvent(gameEvent);
+				break;
 			case sf::Keyboard::Escape:
 				engine.changeState("MAIN_MENU");
 				break;
 			}
+		}
+
+		if (mustWait) {
+			return;
 		}
 
 		for (GameObjects::iterator it = gameObjects.begin(); it < gameObjects.end(); it++) {

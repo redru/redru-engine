@@ -23,11 +23,15 @@ namespace re {
 
 		sf::Sprite backSprite;
 
+		sf::RectangleShape selectionBorder;
+
 		int group = 0;
 
 		bool faceUp = false;
 
 		bool locked = false;
+
+		bool selected = false;
 
 	public:
 
@@ -61,17 +65,23 @@ namespace re {
 		// CardObject
 		///////////////////////////////////////////////////////////////
 
+		void flip();
+
 		void setFaceUp(bool faceUp);
 
-		bool& isFaceUp();
+		bool isFaceUp();
 
 		void setGroup(int group);
 
-		int& getGroup();
+		int getGroup();
 
 		void setLocked(bool locked);
 
-		bool& isLocked();
+		bool isLocked();
+
+		void setSelected(bool selected);
+
+		bool isSelected();
 
 	};
 

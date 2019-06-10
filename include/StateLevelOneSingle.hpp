@@ -31,6 +31,8 @@ namespace re {
 
 		CardObject* secondFlippedCard;
 
+		int currentSelected;
+
 		int flippedCards;
 
 		bool mustWait;

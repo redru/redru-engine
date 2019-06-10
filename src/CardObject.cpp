@@ -10,9 +10,14 @@ namespace re {
 		group(group) {
 
 		const sf::IntRect& size = frontSprite.getTextureRect();
+		const sf::Vector2f& position = frontSprite.getPosition();
 
 		frontSprite.setOrigin(size.width / 2.f, size.height / 2.f);
 		backSprite.setOrigin(size.width / 2.f, size.height / 2.f);
+
+		selectionBorder.setFillColor(sf::Color::Yellow);
+		selectionBorder.setSize(sf::Vector2f(size.width + 4, size.height + 4));
+		selectionBorder.setOrigin((size.width + 4.f) / 2.f, (size.height + 4.f) / 2.f);
 	}
 
 	void CardObject::update() { }
@@ -20,6 +25,8 @@ namespace re {
 	void CardObject::fixedUpdate() { }
 
 	void CardObject::draw(sf::RenderWindow& window) {
+		if (selected) window.draw(selectionBorder);
+
 		window.draw(faceUp ? frontSprite : backSprite);
 	}
 
@@ -45,6 +52,7 @@ namespace re {
 	void CardObject::setPosition(float x, float y) {
 		frontSprite.setPosition(x, y);
 		backSprite.setPosition(x, y);
+		selectionBorder.setPosition(x, y);
 	}
 
 	void CardObject::setColor(int r, int g, int b, int a) {
@@ -52,11 +60,15 @@ namespace re {
 		backSprite.setColor(sf::Color(r, g, b, a));
 	}
 
+	void CardObject::flip() {
+		faceUp = !faceUp;
+	}
+
 	void CardObject::setFaceUp(bool faceUp) {
 		this->faceUp = faceUp;
 	}
 
-	bool& CardObject::isFaceUp() {
+	bool CardObject::isFaceUp() {
 		return faceUp;
 	}
 
@@ -64,7 +76,7 @@ namespace re {
 		this->group = group;
 	}
 
-	int& CardObject::getGroup() {
+	int CardObject::getGroup() {
 		return group;
 	}
 
@@ -72,8 +84,16 @@ namespace re {
 		this->locked = locked;
 	}
 
-	bool& CardObject::isLocked() {
+	bool CardObject::isLocked() {
 		return locked;
+	}
+
+	void CardObject::setSelected(bool selected) {
+		this->selected = selected;
+	}
+
+	bool CardObject::isSelected() {
+		return selected;
 	}
 
 }
