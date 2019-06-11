@@ -4,7 +4,13 @@ namespace re {
 
 	StateLevelOneSingle::StateLevelOneSingle(RedruEngine& engine) :
 		engine(engine),
-		gameObjects(12) {
+		gameObjects(12),
+		flippedCards(0),
+		mustWait(false),
+		mustWaitTime(0),
+		currentSelected(0),
+		firstFlippedCard(nullptr),
+		secondFlippedCard(nullptr) {
 	}
 
 	void StateLevelOneSingle::onInit() {
@@ -59,6 +65,8 @@ namespace re {
 				gameObjects[objCount]->setPosition(x_OFFSET * e, Y_OFFSET * i);
 			}
 		}
+
+		engine.getAudioManager()->playMusic("BACKGROUND");
 	}
 
 	void StateLevelOneSingle::onClose() {

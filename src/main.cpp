@@ -33,6 +33,8 @@ int main() {
 	engine->registerTexture("TEX_CARD_FRONT_5", "resources/thrall_150_220.png");
 	engine->registerTexture("TEX_CARD_FRONT_6", "resources/troll_150_220.png");
 
+	engine->registerMusic("BACKGROUND", "resources/ffviii_shuffle_or_boogie.ogg");
+
 	engine->registerState("SPLASH_SCREEN", make_shared<StateSplashScreen>(StateSplashScreen(*engine)));
 	engine->registerState("MAIN_MENU", make_shared<StateMainMenu>(StateMainMenu(*engine)));
 	engine->registerState("LEVEL_ONE_SINGLE", make_shared<StateLevelOneSingle>(StateLevelOneSingle(*engine)));

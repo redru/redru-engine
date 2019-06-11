@@ -101,6 +101,9 @@
     <ClCompile Include="src\CardObject.cpp">
       <Filter>Archivos de origen\Game\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\REDRU\MusicAssets.cpp">
+      <Filter>Archivos de origen\REDRU\Assets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\RedruEngine.hpp">

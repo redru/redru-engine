@@ -16,7 +16,7 @@ namespace re {
 		backSprite.setOrigin(size.width / 2.f, size.height / 2.f);
 
 		selectionBorder.setFillColor(sf::Color::Yellow);
-		selectionBorder.setSize(sf::Vector2f(size.width + 4, size.height + 4));
+		selectionBorder.setSize(sf::Vector2f(size.width + 4.f, size.height + 4.f));
 		selectionBorder.setOrigin((size.width + 4.f) / 2.f, (size.height + 4.f) / 2.f);
 	}
 

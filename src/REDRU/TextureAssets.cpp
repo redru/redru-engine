@@ -38,7 +38,7 @@ namespace re {
 		sf::Texture* texture = new sf::Texture();
 
 		if (!texture->loadFromFile(it->second)) {
-			spdlog::error("[TexturesAsset] texture '" + name + "' was found");
+			spdlog::error("[TexturesAsset] texture '" + name + "' was not found");
 
 			exit(1);
 		}

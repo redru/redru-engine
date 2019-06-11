@@ -6,6 +6,7 @@
 
 #include <spdlog/spdlog.h>
 
+#include "REDRU/Assets/MusicAssets.hpp"
 #include "REDRU/Assets/TextureAssets.hpp"
 #include "REDRU/Components/State.hpp"
 #include "REDRU/Managers/AudioManager.hpp"
@@ -23,6 +24,8 @@ namespace re {
 	private:
 
 		// Assets
+		shared_ptr<MusicAssets> musicAssets;
+
 		shared_ptr<TextureAssets> textureAssets;
 		
 		// Managers
@@ -60,6 +63,8 @@ namespace re {
 
 		void registerTexture(string name, string file);
 
+		void registerMusic(string name, string file);
+
 		void stop();
 
 	public:
@@ -69,6 +74,8 @@ namespace re {
 		int getElpasedFromLast();
 
 	public:
+
+		shared_ptr<MusicAssets> getMusicAssets();
 
 		shared_ptr<TextureAssets> getTextureAssets();
 
