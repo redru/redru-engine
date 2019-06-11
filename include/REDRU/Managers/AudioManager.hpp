@@ -27,7 +27,11 @@ namespace re {
 
 		void initialize();
 
-		void playMusic(string name);
+		void playMusic(string name, bool restart = false);
+
+		void restartCurrentMusic();
+
+		void stopMusic();
 
 	};
 

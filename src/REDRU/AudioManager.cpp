@@ -14,8 +14,8 @@ namespace re {
 		spdlog::debug("[AudioManager] -- initialized --");
 	}
 
-	void AudioManager::playMusic(string name) {
-		if (currentMusic == name) return;
+	void AudioManager::playMusic(string name, bool restart) {
+		if (currentMusic == name && !restart) return;
 
 		if (currentMusic != "ANY") {
 			musicAssets->getMusic(currentMusic).stop();
@@ -24,6 +24,18 @@ namespace re {
 		musicAssets->getMusic(name).play();
 
 		currentMusic = name;
+	}
+
+	void AudioManager::restartCurrentMusic() {
+		musicAssets->getMusic(currentMusic).play();
+	}
+
+	void AudioManager::stopMusic() {
+		if (currentMusic != "ANY") {
+			musicAssets->getMusic(currentMusic).stop();
+
+			currentMusic = "ANY";
+		}
 	}
 
 }

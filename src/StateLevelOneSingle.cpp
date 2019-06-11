@@ -57,6 +57,7 @@ namespace re {
 
 		dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
 
+		// Cards positioning
 		const float x_OFFSET = 282.f;
 		const float Y_OFFSET = 360.f;
 
@@ -66,6 +67,7 @@ namespace re {
 			}
 		}
 
+		// Music
 		engine.getAudioManager()->playMusic("BACKGROUND");
 	}
 

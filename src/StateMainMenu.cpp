@@ -8,6 +8,8 @@ namespace re {
 	}
 
 	void StateMainMenu::onInit() {
+		engine.getAudioManager()->stopMusic();
+
 		mainMenuImage = make_unique<GenericGameObject>(GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_MAIN_MENU")));
 		startButton = make_unique<GenericGameObject>(GenericGameObject("START_B", engine, engine.getTextureAssets()->loadTexture("TEX_START_BUTTON")));
 		exitButton = make_unique<GenericGameObject>(GenericGameObject("EXIT_B", engine, engine.getTextureAssets()->loadTexture("TEX_EXIT_BUTTON")));
