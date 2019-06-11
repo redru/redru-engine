@@ -47,7 +47,7 @@ namespace re {
 
 		void fixedUpdate();
 
-		void registerState(string name, shared_ptr<State> state);
+		void registerState(string name, State* state);
 
 		void requestStateChange(string name);
 

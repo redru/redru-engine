@@ -60,7 +60,7 @@ namespace re {
 
 		int start();
 
-		void registerState(string name, shared_ptr<State> state);
+		void registerState(string name, State* state);
 
 		void changeState(string name, bool immediate = false);
 

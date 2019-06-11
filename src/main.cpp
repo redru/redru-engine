@@ -41,9 +41,9 @@ int main() {
 	engine->registerSound("CARD_MATCH", "resources/Coin01.ogg");
 
 	// States
-	engine->registerState("SPLASH_SCREEN", make_shared<StateSplashScreen>(StateSplashScreen(*engine)));
-	engine->registerState("MAIN_MENU", make_shared<StateMainMenu>(StateMainMenu(*engine)));
-	engine->registerState("LEVEL_ONE_SINGLE", make_shared<StateLevelOneSingle>(StateLevelOneSingle(*engine)));
+	engine->registerState("SPLASH_SCREEN", new StateSplashScreen(*engine));
+	engine->registerState("MAIN_MENU", new StateMainMenu(*engine));
+	engine->registerState("LEVEL_ONE_SINGLE", new StateLevelOneSingle(*engine));
 
 	// Initialize
 	engine->changeState("SPLASH_SCREEN", true);

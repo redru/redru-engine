@@ -42,8 +42,8 @@ namespace re {
 		window.display();
 	}
 
-	void StatesManager::registerState(string name, shared_ptr<State> state) {
-		states[name] = state;
+	void StatesManager::registerState(string name, State* state) {
+		states[name] = shared_ptr<State>(state);
 
 		spdlog::debug("[RedruEngine] registered state '" + name + "'");
 	}

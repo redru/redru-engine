@@ -76,7 +76,7 @@ namespace re {
 		return 0;
 	}
 
-	void RedruEngine::registerState(string name, shared_ptr<State> state) {
+	void RedruEngine::registerState(string name, State* state) {
 		statesManager->registerState(name, state);
 	}
 
