@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include <map>
+
+#include <SFML/Audio.hpp>
 #include <spdlog/spdlog.h>
 
 #include "REDRU/Assets/MusicAssets.hpp"
@@ -11,6 +14,8 @@ namespace re {
 
 	class RedruEngine;
 
+	typedef map<string, unique_ptr<sf::Sound>> Sounds;
+
 	class AudioManager {
 
 	private:
@@ -19,7 +24,11 @@ namespace re {
 
 		shared_ptr<MusicAssets> musicAssets;
 
+		shared_ptr<SoundAssets> soundAssets;
+
 		string currentMusic;
+
+		Sounds soundsCache;
 
 	public:
 
@@ -32,6 +41,10 @@ namespace re {
 		void restartCurrentMusic();
 
 		void stopMusic();
+
+		void playSound(string name);
+
+		void clearCache();
 
 	};
 

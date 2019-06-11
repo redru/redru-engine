@@ -101,11 +101,13 @@ namespace re {
 		}
 
 		if (firstFlippedCard != nullptr && secondFlippedCard != nullptr) {
+			// Card was the same, so it returned down
 			if (secondFlippedCard->getId() == firstFlippedCard->getId()) {
 				firstFlippedCard = nullptr;
 				return;
 			}
 
+			// If flipped cards are different
 			if (firstFlippedCard->getGroup() != secondFlippedCard->getGroup()) {
 				mustWait = true;
 				return;
@@ -113,6 +115,8 @@ namespace re {
 
 			firstFlippedCard->setLocked(true);
 			secondFlippedCard->setLocked(true);
+
+			engine.getAudioManager()->playSound("CARD_MATCH");
 
 			flippedCards += 2;
 

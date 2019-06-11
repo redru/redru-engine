@@ -15,6 +15,7 @@ int main() {
 
 	engine->initialize();
 
+	// Textures
 	engine->registerTexture("TEX_SPLASH_IMAGE", "resources/splash_image_1920_1080.png");
 	engine->registerTexture("TEX_CARD_TABLE", "resources/card_table_1920_1080.png");
 	engine->registerTexture("TEX_MAIN_MENU", "resources/main_menu_background_1920_1080.png");
@@ -33,12 +34,18 @@ int main() {
 	engine->registerTexture("TEX_CARD_FRONT_5", "resources/thrall_150_220.png");
 	engine->registerTexture("TEX_CARD_FRONT_6", "resources/troll_150_220.png");
 
+	// Musics
 	engine->registerMusic("BACKGROUND", "resources/ffviii_shuffle_or_boogie.ogg");
 
+	// Sounds
+	engine->registerSound("CARD_MATCH", "resources/Coin01.ogg");
+
+	// States
 	engine->registerState("SPLASH_SCREEN", make_shared<StateSplashScreen>(StateSplashScreen(*engine)));
 	engine->registerState("MAIN_MENU", make_shared<StateMainMenu>(StateMainMenu(*engine)));
 	engine->registerState("LEVEL_ONE_SINGLE", make_shared<StateLevelOneSingle>(StateLevelOneSingle(*engine)));
 
+	// Initialize
 	engine->changeState("SPLASH_SCREEN", true);
 
 	int exitCode = engine->start();

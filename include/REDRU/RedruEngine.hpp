@@ -7,6 +7,7 @@
 #include <spdlog/spdlog.h>
 
 #include "REDRU/Assets/MusicAssets.hpp"
+#include "REDRU/Assets/SoundAssets.hpp"
 #include "REDRU/Assets/TextureAssets.hpp"
 #include "REDRU/Components/State.hpp"
 #include "REDRU/Managers/AudioManager.hpp"
@@ -25,6 +26,8 @@ namespace re {
 
 		// Assets
 		shared_ptr<MusicAssets> musicAssets;
+
+		shared_ptr<SoundAssets> soundAssets;
 
 		shared_ptr<TextureAssets> textureAssets;
 		
@@ -65,6 +68,8 @@ namespace re {
 
 		void registerMusic(string name, string file);
 
+		void registerSound(string name, string file);
+
 		void stop();
 
 	public:
@@ -76,6 +81,8 @@ namespace re {
 	public:
 
 		shared_ptr<MusicAssets> getMusicAssets();
+
+		shared_ptr<SoundAssets> getSoundAssets();
 
 		shared_ptr<TextureAssets> getTextureAssets();
 

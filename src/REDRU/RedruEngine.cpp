@@ -8,6 +8,7 @@ namespace re {
 		running(true)
 	{
 		musicAssets = make_shared<MusicAssets>(MusicAssets(*this));
+		soundAssets = make_shared<SoundAssets>(SoundAssets(*this));
 		textureAssets = make_shared<TextureAssets>(TextureAssets(*this));
 		eventsManager = make_shared<EventsManager>(EventsManager(*this));
 		graphicsManager = make_shared<GraphicsManager>(GraphicsManager(*this));
@@ -18,6 +19,7 @@ namespace re {
 
 	void RedruEngine::initialize() {
 		musicAssets->initialize();
+		soundAssets->initialize();
 		textureAssets->initialize();
 		eventsManager->initialize();
 		graphicsManager->initialize();
@@ -102,12 +104,20 @@ namespace re {
 		musicAssets->registerAsset(name, file);
 	}
 
+	void RedruEngine::registerSound(string name, string file) {
+		soundAssets->registerAsset(name, file);
+	}
+
 	void RedruEngine::stop() {
 		running = false;
 	}
 
 	shared_ptr<MusicAssets> RedruEngine::getMusicAssets() {
 		return musicAssets;
+	}
+
+	shared_ptr<SoundAssets> RedruEngine::getSoundAssets() {
+		return soundAssets;
 	}
 
 	shared_ptr<TextureAssets> RedruEngine::getTextureAssets() {

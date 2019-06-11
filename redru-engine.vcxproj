@@ -145,6 +145,7 @@
     <ClCompile Include="src\REDRU\InputManager.cpp" />
     <ClCompile Include="src\REDRU\MusicAssets.cpp" />
     <ClCompile Include="src\REDRU\RedruEngine.cpp" />
+    <ClCompile Include="src\REDRU\SoundAssets.cpp" />
     <ClCompile Include="src\REDRU\StatesManager.cpp" />
     <ClCompile Include="src\REDRU\TextureAssets.cpp" />
     <ClCompile Include="src\StateLevelOneSingle.cpp" />

@@ -67,6 +67,9 @@ namespace re {
 		// Clear Textures cache
 		engine.getTextureAssets()->clearCache();
 
+		// Clear Audio cache
+		engine.getAudioManager()->clearCache();
+
 		// Set new state
 		activeState = requestedState;
 

@@ -104,6 +104,9 @@
     <ClCompile Include="src\REDRU\MusicAssets.cpp">
       <Filter>Archivos de origen\REDRU\Assets</Filter>
     </ClCompile>
+    <ClCompile Include="src\REDRU\SoundAssets.cpp">
+      <Filter>Archivos de origen\REDRU\Assets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\RedruEngine.hpp">
