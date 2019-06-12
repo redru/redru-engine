@@ -13,27 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Archivos de encabezado\REDRU">
-      <UniqueIdentifier>{d4da95a1-e221-4f46-a61c-790e6cf398cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\REDRU\Managers">
-      <UniqueIdentifier>{e8c8b813-1560-411f-a793-ec67331a106b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\REDRU">
-      <UniqueIdentifier>{bc46ff1e-a559-4b24-9319-8925110e7691}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\REDRU\Managers">
-      <UniqueIdentifier>{8441a903-43d9-4b4c-9ea5-a00f9721aee4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\REDRU\Components">
-      <UniqueIdentifier>{3ac60626-6df8-4e34-b38b-2527ad21d0df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\REDRU\Assets">
-      <UniqueIdentifier>{8753395d-acae-41e1-828f-df830d71505b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\REDRU\Assets">
-      <UniqueIdentifier>{04d31b79-e0ed-43eb-8402-8220eb6813a7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Game">
       <UniqueIdentifier>{35336bfb-db24-49a0-9138-55d41f9a32cd}</UniqueIdentifier>
     </Filter>
@@ -46,14 +25,35 @@
     <Filter Include="Archivos de encabezado\Game\States">
       <UniqueIdentifier>{8a92951f-8b1d-48a1-9baa-28fca6211b54}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\REDRU\Components">
-      <UniqueIdentifier>{533e9c11-6c3c-446e-ae9f-0c3d05ead618}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Game\Objects">
       <UniqueIdentifier>{39d8957e-0955-42d1-a5f6-036a0800982b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de origen\Game\Objects">
       <UniqueIdentifier>{4a684c7f-5a6c-4906-9c28-b09e7ecf7071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Engine">
+      <UniqueIdentifier>{d4da95a1-e221-4f46-a61c-790e6cf398cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Engine\Managers">
+      <UniqueIdentifier>{e8c8b813-1560-411f-a793-ec67331a106b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Engine\Components">
+      <UniqueIdentifier>{3ac60626-6df8-4e34-b38b-2527ad21d0df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Engine\Assets">
+      <UniqueIdentifier>{8753395d-acae-41e1-828f-df830d71505b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Engine">
+      <UniqueIdentifier>{bc46ff1e-a559-4b24-9319-8925110e7691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Engine\Managers">
+      <UniqueIdentifier>{8441a903-43d9-4b4c-9ea5-a00f9721aee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Engine\Assets">
+      <UniqueIdentifier>{04d31b79-e0ed-43eb-8402-8220eb6813a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Engine\Components">
+      <UniqueIdentifier>{533e9c11-6c3c-446e-ae9f-0c3d05ead618}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -66,22 +66,22 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\AudioManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
+      <Filter>Archivos de origen\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\GraphicsManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
+      <Filter>Archivos de origen\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\InputManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
+      <Filter>Archivos de origen\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\StatesManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
+      <Filter>Archivos de origen\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\RedruEngine.cpp">
-      <Filter>Archivos de origen\REDRU</Filter>
+      <Filter>Archivos de origen\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\TextureAssets.cpp">
-      <Filter>Archivos de origen\REDRU\Assets</Filter>
+      <Filter>Archivos de origen\Engine\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\StateMainMenu.cpp">
       <Filter>Archivos de origen\Game\States</Filter>
@@ -93,54 +93,57 @@
       <Filter>Archivos de origen\Game\States</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\GenericGameObject.cpp">
-      <Filter>Archivos de origen\REDRU\Components</Filter>
+      <Filter>Archivos de origen\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\EventsManager.cpp">
-      <Filter>Archivos de origen\REDRU\Managers</Filter>
+      <Filter>Archivos de origen\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="src\CardObject.cpp">
       <Filter>Archivos de origen\Game\Objects</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\MusicAssets.cpp">
-      <Filter>Archivos de origen\REDRU\Assets</Filter>
+      <Filter>Archivos de origen\Engine\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\REDRU\SoundAssets.cpp">
-      <Filter>Archivos de origen\REDRU\Assets</Filter>
+      <Filter>Archivos de origen\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateLevelOneSingleInterface.cpp">
+      <Filter>Archivos de origen\Game\States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\RedruEngine.hpp">
-      <Filter>Archivos de encabezado\REDRU</Filter>
+      <Filter>Archivos de encabezado\Engine</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Managers\AudioManager.hpp">
-      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+      <Filter>Archivos de encabezado\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Managers\StatesManager.hpp">
-      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+      <Filter>Archivos de encabezado\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Managers\InputManager.hpp">
-      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+      <Filter>Archivos de encabezado\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Managers\ConfigManager.hpp">
-      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+      <Filter>Archivos de encabezado\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Managers\GraphicsManager.hpp">
-      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+      <Filter>Archivos de encabezado\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Components\GameObject.hpp">
-      <Filter>Archivos de encabezado\REDRU\Components</Filter>
+      <Filter>Archivos de encabezado\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Components\State.hpp">
-      <Filter>Archivos de encabezado\REDRU\Components</Filter>
+      <Filter>Archivos de encabezado\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Assets\MusicAssets.hpp">
-      <Filter>Archivos de encabezado\REDRU\Assets</Filter>
+      <Filter>Archivos de encabezado\Engine\Assets</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Assets\SoundAssets.hpp">
-      <Filter>Archivos de encabezado\REDRU\Assets</Filter>
+      <Filter>Archivos de encabezado\Engine\Assets</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp">
-      <Filter>Archivos de encabezado\REDRU\Assets</Filter>
+      <Filter>Archivos de encabezado\Engine\Assets</Filter>
     </ClInclude>
     <ClInclude Include="include\StateMainMenu.hpp">
       <Filter>Archivos de encabezado\Game\States</Filter>
@@ -152,13 +155,16 @@
       <Filter>Archivos de encabezado\Game\States</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Components\GenericGameObject.hpp">
-      <Filter>Archivos de encabezado\REDRU\Components</Filter>
+      <Filter>Archivos de encabezado\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Managers\EventsManager.hpp">
-      <Filter>Archivos de encabezado\REDRU\Managers</Filter>
+      <Filter>Archivos de encabezado\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="include\CardObject.hpp">
       <Filter>Archivos de encabezado\Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\StateLevelOneSingleInterface.hpp">
+      <Filter>Archivos de encabezado\Game\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

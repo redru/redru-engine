@@ -149,6 +149,7 @@
     <ClCompile Include="src\REDRU\StatesManager.cpp" />
     <ClCompile Include="src\REDRU\TextureAssets.cpp" />
     <ClCompile Include="src\StateLevelOneSingle.cpp" />
+    <ClCompile Include="src\StateLevelOneSingleInterface.cpp" />
     <ClCompile Include="src\StateMainMenu.cpp" />
     <ClCompile Include="src\StateSplashScreen.cpp" />
   </ItemGroup>
@@ -167,6 +168,7 @@
     <ClInclude Include="include\REDRU\Managers\InputManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\StatesManager.hpp" />
     <ClInclude Include="include\REDRU\RedruEngine.hpp" />
+    <ClInclude Include="include\REDRU\StateLevelOneSingleInterface.hpp" />
     <ClInclude Include="include\StateLevelOneSingle.hpp" />
     <ClInclude Include="include\StateMainMenu.hpp" />
     <ClInclude Include="include\StateSplashScreen.hpp" />
