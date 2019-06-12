@@ -60,6 +60,15 @@ namespace re {
 
 		void onEvent(GameEvent& event) override;
 
+	private:
+
+		//////////////////////////////////////////
+		// Private functions
+		//////////////////////////////////////////
+		void shuffleCards(GameObjects& cards);
+
+		void locateStandardPosition(GameObjects& cards);
+
 	};
 
 }

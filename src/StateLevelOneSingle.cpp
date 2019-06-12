@@ -52,20 +52,12 @@ namespace re {
 		gameObjects[11] = make_unique<CardObject>(CardObject("CARD_12", engine, texFront6, tex4, 6));
 
 		// Shuffle
-		unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-		shuffle(begin(gameObjects), end(gameObjects), default_random_engine(seed));
+		shuffleCards(gameObjects);
 
 		dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
 
 		// Cards positioning
-		const float x_OFFSET = 282.f;
-		const float Y_OFFSET = 360.f;
-
-		for (int i = 1, objCount = 0; i < 3; i++) {
-			for (int e = 1; e <= 6; e++, objCount++) {
-				gameObjects[objCount]->setPosition(x_OFFSET * e, Y_OFFSET * i);
-			}
-		}
+		locateStandardPosition(gameObjects);
 
 		// Music
 		engine.getAudioManager()->playMusic("BACKGROUND");
@@ -222,6 +214,23 @@ namespace re {
 				firstFlippedCard = object;
 			} else {
 				secondFlippedCard = object;
+			}
+		}
+	}
+
+	void StateLevelOneSingle::shuffleCards(GameObjects& cards) {
+		unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+
+		shuffle(begin(cards), end(cards), default_random_engine(seed));
+	}
+
+	void StateLevelOneSingle::locateStandardPosition(GameObjects& cards) {
+		const float x_OFFSET = 282.f;
+		const float Y_OFFSET = 360.f;
+
+		for (int i = 1, objCount = 0; i < 3; i++) {
+			for (int e = 1; e <= 6; e++, objCount++) {
+				cards[objCount]->setPosition(x_OFFSET * e, Y_OFFSET * i);
 			}
 		}
 	}
