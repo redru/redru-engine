@@ -153,6 +153,7 @@
     <ClCompile Include="src\StateLevelOne.cpp" />
     <ClCompile Include="src\StateMainMenu.cpp" />
     <ClCompile Include="src\StateSplashScreen.cpp" />
+    <ClCompile Include="src\StateStatus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CardObject.hpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="include\StateLevelOne.hpp" />
     <ClInclude Include="include\StateMainMenu.hpp" />
     <ClInclude Include="include\StateSplashScreen.hpp" />
+    <ClInclude Include="include\StateStatus.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,6 +5,7 @@ namespace re {
 	StateLevelOne::StateLevelOne(RedruEngine& engine) :
 		engine(engine),
 		ui(engine, 2),
+		status(vector<string>{ "Player 1", "Player 2" }),
 		gameObjects(12),
 		flippedCards(0),
 		mustWait(false),

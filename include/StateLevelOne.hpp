@@ -13,6 +13,7 @@
 #include "REDRU/RedruEngine.hpp"
 #include "CardObject.hpp"
 #include "LevelOneInterface.hpp"
+#include "StateStatus.hpp"
 
 namespace re {
 
@@ -25,6 +26,8 @@ namespace re {
 		RedruEngine& engine;
 
 		LevelOneInterface ui;
+
+		StateStatus status;
 
 		unique_ptr<GameObject> background;
 
