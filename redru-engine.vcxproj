@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CardObject.cpp" />
+    <ClCompile Include="src\LevelOneInterface.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\REDRU\AudioManager.cpp" />
     <ClCompile Include="src\REDRU\EventsManager.cpp" />
@@ -148,13 +149,13 @@
     <ClCompile Include="src\REDRU\SoundAssets.cpp" />
     <ClCompile Include="src\REDRU\StatesManager.cpp" />
     <ClCompile Include="src\REDRU\TextureAssets.cpp" />
-    <ClCompile Include="src\StateLevelOneSingle.cpp" />
-    <ClCompile Include="src\LevelOneInterface.cpp" />
+    <ClCompile Include="src\StateLevelOne.cpp" />
     <ClCompile Include="src\StateMainMenu.cpp" />
     <ClCompile Include="src\StateSplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CardObject.hpp" />
+    <ClInclude Include="include\LevelOneInterface.hpp" />
     <ClInclude Include="include\REDRU\Assets\MusicAssets.hpp" />
     <ClInclude Include="include\REDRU\Assets\SoundAssets.hpp" />
     <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp" />
@@ -168,8 +169,7 @@
     <ClInclude Include="include\REDRU\Managers\InputManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\StatesManager.hpp" />
     <ClInclude Include="include\REDRU\RedruEngine.hpp" />
-    <ClInclude Include="include\StateLevelOneSingle.hpp" />
-    <ClInclude Include="include\LevelOneInterface.hpp" />
+    <ClInclude Include="include\StateLevelOne.hpp" />
     <ClInclude Include="include\StateMainMenu.hpp" />
     <ClInclude Include="include\StateSplashScreen.hpp" />
   </ItemGroup>

@@ -18,7 +18,7 @@ namespace re {
 
 	typedef vector<unique_ptr<GameObject>> GameObjects;
 
-	class StateLevelOneSingle : public State {
+	class StateLevelOne : public State {
 
 	private:
 
@@ -44,7 +44,7 @@ namespace re {
 
 	public:
 
-		StateLevelOneSingle(RedruEngine& engine);
+		StateLevelOne(RedruEngine& engine);
 
 		/////////////////////////////////////////
 		// State Overrides

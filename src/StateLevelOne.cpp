@@ -123,7 +123,7 @@ namespace re {
 		}
 
 		if (flippedCards == gameObjects.size()) {
-			engine.changeState("LEVEL_ONE_SINGLE");
+			engine.changeState("LEVEL_ONE");
 		}
 	}
 

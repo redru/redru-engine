@@ -44,12 +44,12 @@ namespace re {
 				break;
 			
 			case sf::Keyboard::Enter:
-				engine.changeState("LEVEL_ONE_SINGLE");
+				engine.changeState("LEVEL_ONE");
 				break;
 			}
 		} else if (event.type == sf::Event::MouseButtonPressed) {
 			if (startButton->getBoundingBox().contains((float) event.mouseButton.x, (float) event.mouseButton.y)) {
-				engine.changeState("LEVEL_ONE_SINGLE");
+				engine.changeState("LEVEL_ONE");
 			} else if (exitButton->getBoundingBox().contains((float) event.mouseButton.x, (float) event.mouseButton.y)) {
 				engine.stop();
 			}
