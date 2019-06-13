@@ -67,7 +67,7 @@ namespace re {
 		locateStandardPosition(gameObjects);
 
 		// Music
-		// engine.getAudioManager()->playMusic("BACKGROUND");
+		engine.getAudioManager()->playMusic("BACKGROUND");
 	}
 
 	void StateLevelOne::onClose() {
