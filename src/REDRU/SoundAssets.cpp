@@ -43,7 +43,7 @@ namespace re {
 		}
 
 		// Put in cache
-		loadedBuffers[name] = make_unique<sf::SoundBuffer>(*soundBuffer);
+		loadedBuffers[name] = unique_ptr<sf::SoundBuffer>(soundBuffer);
 
 		return *soundBuffer;
 	}

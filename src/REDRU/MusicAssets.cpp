@@ -20,8 +20,7 @@ namespace re {
 			exit(1);
 		}
 
-		musicStreamers[name] = make_unique<sf::Music>();
-		musicStreamers[name].reset(music);
+		musicStreamers[name] = unique_ptr<sf::Music>(music);
 
 		spdlog::debug("[MusicAssets] registered music '" + name + "' to file '" + file + "'");
 	}

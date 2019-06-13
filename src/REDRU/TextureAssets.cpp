@@ -44,7 +44,7 @@ namespace re {
 		}
 
 		// Put in cache
-		loadedTextures[name] = make_unique<sf::Texture>(*texture);
+		loadedTextures[name] = unique_ptr<sf::Texture>(texture);
 
 		return *texture;
 	}
