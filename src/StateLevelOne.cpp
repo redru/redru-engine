@@ -82,6 +82,8 @@ namespace re {
 	}
 
 	void StateLevelOne::update() {
+		ui.update();
+
 		if (mustWait) {
 			mustWaitTime += engine.getElpasedFromLast();
 

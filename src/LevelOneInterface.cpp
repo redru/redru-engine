@@ -34,25 +34,44 @@ namespace re {
 		textPlayer2Points.setPosition(1800.f, 106.f);
 		textPlayer2Points.setCharacterSize(36);
 		textPlayer2Points.setString(to_string(status->getPlayerPoints(players[1])));
+
+		selectionArrow.setFont(uiFont);
+		selectionArrow.setCharacterSize(36);
+	}
+
+	void LevelOneInterface::update() {
+		vector<string> players = status->getPlayers();
+
+		textPlayer1Points.setString(to_string(status->getPlayerPoints(players[0])));
+		textPlayer2Points.setString(to_string(status->getPlayerPoints(players[1])));
+
+		int elapsed = animationClock.getElapsedTime().asMilliseconds();
+
+		if (status->getCurrentPlayer() == "Player 1") {
+			selectionArrow.setPosition(210.f + elapsed / 20, 70.f);
+			selectionArrow.setString("<<<");
+		} else {
+			selectionArrow.setPosition(1600.f + elapsed / 20, 70.f);
+			selectionArrow.setString(">>>");
+		}
+
+		if (elapsed >= 500) animationClock.restart();
 	}
 
 	void LevelOneInterface::draw() {
 		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
-		vector<string> players = status->getPlayers();
-
-		textPlayer1Points.setString(to_string(status->getPlayerPoints(players[0])));
 
 		window.draw(textPlayer1);
 		window.draw(textPlayer1Points);
 
 		switch (status->getPlayersCount()) {
 		case DUEL:
-			textPlayer2Points.setString(to_string(status->getPlayerPoints(players[1])));
-
 			window.draw(textPlayer2);
 			window.draw(textPlayer2Points);
 			break;
 		}
+
+		window.draw(selectionArrow);
 	}
 
 	void LevelOneInterface::setStatus(shared_ptr<StateStatus> status) {

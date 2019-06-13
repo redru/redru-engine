@@ -1,4 +1,7 @@
 #pragma once
+#include <ctime>
+#include <math.h>
+
 #include <SFML/Graphics.hpp>
 
 #include "REDRU/RedruEngine.hpp"
@@ -20,6 +23,8 @@ namespace re {
 
 		shared_ptr<StateStatus> status;
 
+		sf::Clock animationClock;
+
 		sf::Font font;
 
 		sf::Text textPlayer1;
@@ -28,11 +33,15 @@ namespace re {
 		sf::Text textPlayer2;
 		sf::Text textPlayer2Points;
 
+		sf::Text selectionArrow;
+
 	public:
 
 		LevelOneInterface(RedruEngine& engine);
 
 		void initialize();
+
+		void update();
 
 		void draw();
 
