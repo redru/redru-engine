@@ -96,4 +96,8 @@ namespace re {
 		return selected;
 	}
 
+	bool CardObject::operator==(const CardObject& that) {
+		return id == that.id;
+	}
+
 }

@@ -83,6 +83,8 @@ namespace re {
 
 		bool isSelected();
 
+		bool operator==(const CardObject& that);
+
 	};
 
 }

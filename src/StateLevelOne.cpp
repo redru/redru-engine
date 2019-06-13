@@ -4,8 +4,8 @@ namespace re {
 
 	StateLevelOne::StateLevelOne(RedruEngine& engine) :
 		engine(engine),
-		ui(engine, 2),
-		status(vector<string>{ "Player 1", "Player 2" }),
+		status(new StateStatus(vector<string>{ "Player 1", "Player 2" })),
+		ui(engine),
 		gameObjects(12),
 		flippedCards(0),
 		mustWait(false),
@@ -13,6 +13,9 @@ namespace re {
 		currentSelected(0),
 		firstFlippedCard(nullptr),
 		secondFlippedCard(nullptr) {
+
+		ui.setStatus(status);
+		ui.initialize();
 	}
 
 	void StateLevelOne::onInit() {
@@ -23,6 +26,8 @@ namespace re {
 		currentSelected = 0;
 		firstFlippedCard = nullptr;
 		secondFlippedCard = nullptr;
+
+		status->setCurrentPlayer("Player 1");
 
 		// Load resources
 		sf::Texture& tex1 = engine.getTextureAssets()->loadTexture("TEX_CARD_1");
@@ -62,7 +67,7 @@ namespace re {
 		locateStandardPosition(gameObjects);
 
 		// Music
-		engine.getAudioManager()->playMusic("BACKGROUND");
+		// engine.getAudioManager()->playMusic("BACKGROUND");
 	}
 
 	void StateLevelOne::onClose() {
@@ -96,14 +101,19 @@ namespace re {
 
 		if (firstFlippedCard != nullptr && secondFlippedCard != nullptr) {
 			// Card was the same, so it returned down
-			if (secondFlippedCard->getId() == firstFlippedCard->getId()) {
+			if (*secondFlippedCard == *firstFlippedCard) {
 				firstFlippedCard = nullptr;
 				return;
 			}
 
 			// If flipped cards are different
 			if (firstFlippedCard->getGroup() != secondFlippedCard->getGroup()) {
+				// Start wait time
 				mustWait = true;
+
+				// Change player
+				status->nextPlayer();
+
 				return;
 			}
 
@@ -113,6 +123,9 @@ namespace re {
 			engine.getAudioManager()->playSound("CARD_MATCH");
 
 			flippedCards += 2;
+
+			// Add points to the game status
+			status->addPoints(status->getCurrentPlayer(), 1);
 
 			if (flippedCards == gameObjects.size()) {
 				mustWait = true;

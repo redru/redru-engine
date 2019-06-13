@@ -1,11 +1,15 @@
 #include "StateStatus.hpp"
 
-StateStatus::StateStatus(vector<string> players) : players(players), playersCount(players.size()) {
-	spdlog::debug("[StateStatus] level one initialized with " + to_string(playersCount) + " players");
+StateStatus::StateStatus(vector<string> players) : players(players), playersPoints() {
+	for (auto it = players.begin(); it != players.end(); it++) {
+		playersPoints[*it] = 0;
+	}
+
+	spdlog::debug("[StateStatus] level one initialized with " + to_string(players.size()) + " players");
 }
 
 int StateStatus::getPlayersCount() {
-	return playersCount;
+	return players.size();
 }
 
 int StateStatus::addPoints(string playerName, int pointsToAdd) {
@@ -32,4 +36,27 @@ int StateStatus::getPlayerPoints(string playerName) {
 	}
 
 	return it->second;
+}
+
+vector<string>& StateStatus::getPlayers() {
+	return players;
+}
+
+void StateStatus::nextPlayer() {
+	auto it = find(players.begin(), players.end(), currentPlayer);
+
+	it++;
+
+	if (it == players.end())
+		currentPlayer = players[0];
+	else
+		currentPlayer = *it;
+}
+
+void StateStatus::setCurrentPlayer(string currentPlayer) {
+	this->currentPlayer = currentPlayer;
+}
+
+string& StateStatus::getCurrentPlayer() {
+	return currentPlayer;
 }

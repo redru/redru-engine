@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include <map>
 #include <string>
 #include <vector>
@@ -11,11 +12,11 @@ class StateStatus {
 
 private:
 
-	int playersCount;
-
 	vector<string> players;
 
 	map<string, int> playersPoints;
+
+	string currentPlayer;
 
 public:
 
@@ -28,5 +29,13 @@ public:
 	const map<string, int>& getPoints();
 
 	int getPlayerPoints(string playerName);
+
+	vector<string>& getPlayers();
+
+	void nextPlayer();
+
+	void setCurrentPlayer(string currentPlayer);
+
+	string& getCurrentPlayer();
 
 };

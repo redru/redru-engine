@@ -27,7 +27,7 @@ namespace re {
 
 		LevelOneInterface ui;
 
-		StateStatus status;
+		shared_ptr<StateStatus> status;
 
 		unique_ptr<GameObject> background;
 
