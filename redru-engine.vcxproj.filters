@@ -55,6 +55,24 @@
     <Filter Include="Archivos de origen\Engine\Components">
       <UniqueIdentifier>{533e9c11-6c3c-446e-ae9f-0c3d05ead618}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Game\States\LevelOne">
+      <UniqueIdentifier>{d78ab5f1-5db4-484a-acc5-8d5215f7ceb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Game\States\MainMenu">
+      <UniqueIdentifier>{8e2e5f0f-acf8-4001-aef6-ae52a52c3fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Game\States\SplashScreen">
+      <UniqueIdentifier>{dea62121-e1e1-4472-bf02-c3e796e8e509}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Game\States\LevelOne">
+      <UniqueIdentifier>{f1400720-7306-47f2-b767-4a0b0f3fa469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Game\States\MainMenu">
+      <UniqueIdentifier>{3acc739a-827e-4013-a612-9aa802bfe664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Game\States\SplashScreen">
+      <UniqueIdentifier>{ce045f9d-b7e7-41c7-b483-491b1a71fe46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
@@ -83,12 +101,6 @@
     <ClCompile Include="src\REDRU\TextureAssets.cpp">
       <Filter>Archivos de origen\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="src\StateMainMenu.cpp">
-      <Filter>Archivos de origen\Game\States</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StateSplashScreen.cpp">
-      <Filter>Archivos de origen\Game\States</Filter>
-    </ClCompile>
     <ClCompile Include="src\REDRU\GenericGameObject.cpp">
       <Filter>Archivos de origen\Engine\Components</Filter>
     </ClCompile>
@@ -105,10 +117,16 @@
       <Filter>Archivos de origen\Engine\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\LevelOneInterface.cpp">
-      <Filter>Archivos de origen\Game\States</Filter>
+      <Filter>Archivos de origen\Game\States\LevelOne</Filter>
     </ClCompile>
     <ClCompile Include="src\StateLevelOne.cpp">
-      <Filter>Archivos de origen\Game\States</Filter>
+      <Filter>Archivos de origen\Game\States\LevelOne</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMainMenu.cpp">
+      <Filter>Archivos de origen\Game\States\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateSplashScreen.cpp">
+      <Filter>Archivos de origen\Game\States\SplashScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,12 +163,6 @@
     <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp">
       <Filter>Archivos de encabezado\Engine\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="include\StateMainMenu.hpp">
-      <Filter>Archivos de encabezado\Game\States</Filter>
-    </ClInclude>
-    <ClInclude Include="include\StateSplashScreen.hpp">
-      <Filter>Archivos de encabezado\Game\States</Filter>
-    </ClInclude>
     <ClInclude Include="include\REDRU\Components\GenericGameObject.hpp">
       <Filter>Archivos de encabezado\Engine\Components</Filter>
     </ClInclude>
@@ -161,10 +173,16 @@
       <Filter>Archivos de encabezado\Game\Objects</Filter>
     </ClInclude>
     <ClInclude Include="include\LevelOneInterface.hpp">
-      <Filter>Archivos de encabezado\Game\States</Filter>
+      <Filter>Archivos de encabezado\Game\States\LevelOne</Filter>
     </ClInclude>
     <ClInclude Include="include\StateLevelOne.hpp">
-      <Filter>Archivos de encabezado\Game\States</Filter>
+      <Filter>Archivos de encabezado\Game\States\LevelOne</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMainMenu.hpp">
+      <Filter>Archivos de encabezado\Game\States\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateSplashScreen.hpp">
+      <Filter>Archivos de encabezado\Game\States\SplashScreen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
