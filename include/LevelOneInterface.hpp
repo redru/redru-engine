@@ -1,4 +1,6 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+
 #include "REDRU/RedruEngine.hpp"
 
 namespace re {
@@ -10,6 +12,10 @@ namespace re {
 	private:
 
 		RedruEngine& engine;
+
+		sf::Font font;
+
+		sf::Text text;
 
 	public:
 

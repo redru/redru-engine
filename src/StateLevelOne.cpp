@@ -137,6 +137,8 @@ namespace re {
 		for (GameObjects::iterator it = gameObjects.begin(); it != gameObjects.end(); it++) {
 			(*it)->draw(window);
 		}
+
+		ui.draw();
 	}
 
 	void StateLevelOne::onInput(sf::Event& event) {
