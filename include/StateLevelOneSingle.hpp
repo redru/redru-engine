@@ -12,6 +12,7 @@
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
 #include "CardObject.hpp"
+#include "LevelOneInterface.hpp"
 
 namespace re {
 
@@ -22,6 +23,8 @@ namespace re {
 	private:
 
 		RedruEngine& engine;
+
+		LevelOneInterface ui;
 
 		unique_ptr<GameObject> background;
 

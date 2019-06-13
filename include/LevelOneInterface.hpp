@@ -5,7 +5,7 @@ namespace re {
 
 	using namespace std;
 
-	class StateLevelOneInterface {
+	class LevelOneInterface {
 
 	private:
 
@@ -13,7 +13,7 @@ namespace re {
 
 	public:
 
-		StateLevelOneInterface(RedruEngine& engine);
+		LevelOneInterface(RedruEngine& engine);
 
 		void draw();
 

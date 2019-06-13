@@ -107,7 +107,7 @@
     <ClCompile Include="src\REDRU\SoundAssets.cpp">
       <Filter>Archivos de origen\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="src\StateLevelOneSingleInterface.cpp">
+    <ClCompile Include="src\LevelOneInterface.cpp">
       <Filter>Archivos de origen\Game\States</Filter>
     </ClCompile>
   </ItemGroup>
@@ -163,7 +163,7 @@
     <ClInclude Include="include\CardObject.hpp">
       <Filter>Archivos de encabezado\Game\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="include\REDRU\StateLevelOneSingleInterface.hpp">
+    <ClInclude Include="include\LevelOneInterface.hpp">
       <Filter>Archivos de encabezado\Game\States</Filter>
     </ClInclude>
   </ItemGroup>

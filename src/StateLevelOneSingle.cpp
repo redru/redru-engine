@@ -4,6 +4,7 @@ namespace re {
 
 	StateLevelOneSingle::StateLevelOneSingle(RedruEngine& engine) :
 		engine(engine),
+		ui(engine),
 		gameObjects(12),
 		flippedCards(0),
 		mustWait(false),
