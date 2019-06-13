@@ -4,7 +4,7 @@ namespace re {
 
 	StateLevelOne::StateLevelOne(RedruEngine& engine) :
 		engine(engine),
-		ui(engine),
+		ui(engine, 2),
 		gameObjects(12),
 		flippedCards(0),
 		mustWait(false),
@@ -132,12 +132,15 @@ namespace re {
 	void StateLevelOne::draw() {
 		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
 
+		// Draw background
 		background->draw(window);
 
+		// Draw cards
 		for (GameObjects::iterator it = gameObjects.begin(); it != gameObjects.end(); it++) {
 			(*it)->draw(window);
 		}
 
+		// Draw user interface
 		ui.draw();
 	}
 

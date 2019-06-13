@@ -128,6 +128,9 @@
     <ClCompile Include="src\StateSplashScreen.cpp">
       <Filter>Archivos de origen\Game\States\SplashScreen</Filter>
     </ClCompile>
+    <ClCompile Include="src\REDRU\FontAssets.cpp">
+      <Filter>Archivos de origen\Engine\Assets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\RedruEngine.hpp">
@@ -183,6 +186,9 @@
     </ClInclude>
     <ClInclude Include="include\StateSplashScreen.hpp">
       <Filter>Archivos de encabezado\Game\States\SplashScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Assets\FontAssets.hpp">
+      <Filter>Archivos de encabezado\Engine\Assets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

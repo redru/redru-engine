@@ -15,6 +15,9 @@ int main() {
 
 	engine->initialize();
 
+	// Fonts
+	engine->registerFont("UI_FONT", "resources/Gilbert-Color_Bold_Preview5.otf");
+
 	// Textures
 	engine->registerTexture("TEX_SPLASH_IMAGE", "resources/splash_image_1920_1080.png");
 	engine->registerTexture("TEX_CARD_TABLE", "resources/card_table_1920_1080.png");

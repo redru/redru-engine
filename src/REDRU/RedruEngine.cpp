@@ -3,10 +3,11 @@
 namespace re {
 
 	RedruEngine::RedruEngine() :
-		clock(sf::Clock()),
+		clock(),
 		elapsed(0),
 		running(true)
 	{
+		fontAssets = make_shared<FontAssets>(FontAssets(*this));
 		musicAssets = make_shared<MusicAssets>(MusicAssets(*this));
 		soundAssets = make_shared<SoundAssets>(SoundAssets(*this));
 		textureAssets = make_shared<TextureAssets>(TextureAssets(*this));
@@ -18,6 +19,7 @@ namespace re {
 	}
 
 	void RedruEngine::initialize() {
+		fontAssets->initialize();
 		musicAssets->initialize();
 		soundAssets->initialize();
 		textureAssets->initialize();
@@ -108,8 +110,16 @@ namespace re {
 		soundAssets->registerAsset(name, file);
 	}
 
+	void RedruEngine::registerFont(string name, string file) {
+		fontAssets->registerAsset(name, file);
+	}
+
 	void RedruEngine::stop() {
 		running = false;
+	}
+
+	shared_ptr<FontAssets> RedruEngine::getFontAssets() {
+		return fontAssets;
 	}
 
 	shared_ptr<MusicAssets> RedruEngine::getMusicAssets() {
