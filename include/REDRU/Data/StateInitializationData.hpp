@@ -8,6 +8,8 @@ namespace re {
 
 	public:
 
+		virtual ~StateInitializationData() { }
+
 		template <class T>
 		T* getData() {
 			return dynamic_cast<T*>(this);

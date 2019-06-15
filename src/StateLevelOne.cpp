@@ -14,16 +14,13 @@ StateLevelOne::StateLevelOne(re::RedruEngine& engine) :
 }
 
 void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
-	// TODO not working - not polymorphic class
-	// LevelOneData* levelData = data->getData<LevelOneData>();
-	// status.reset(new StateStatus(levelData->getPlayerNames()));
-
-	status.reset(new StateStatus(vector<string>{ "RedrU", "AI" }));
+	LevelOneData* levelData = data->getData<LevelOneData>();
+	status.reset(new StateStatus(levelData->getPlayerNames()));
 
 	ui.setStatus(status);
 	ui.initialize();
 	// Music
-	// engine.getAudioManager()->playMusic("BACKGROUND");
+	engine.getAudioManager()->playMusic("BACKGROUND");
 
 	// Load resources
 	sf::Texture& tex1 = engine.getTextureAssets()->loadTexture("TEX_CARD_1");
