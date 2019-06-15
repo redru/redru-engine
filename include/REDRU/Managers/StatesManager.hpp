@@ -6,6 +6,7 @@
 #include <spdlog/spdlog.h>
 
 #include "REDRU/Components/State.hpp"
+#include "REDRU/Data/StateInitializationData.hpp"
 #include "REDRU/Managers/AudioManager.hpp"
 #include "REDRU/Managers/EventsManager.hpp"
 #include "REDRU/Managers/InputManager.hpp"
@@ -37,6 +38,8 @@ namespace re {
 
 		shared_ptr<State> requestedState;
 
+		shared_ptr<StateInitializationData> stateInitializationData;
+
 	public:
 
 		StatesManager(RedruEngine& engine);
@@ -49,7 +52,7 @@ namespace re {
 
 		void registerState(string name, State* state);
 
-		void requestStateChange(string name);
+		void requestStateChange(string name, StateInitializationData* data = nullptr);
 
 		void nextState();
 

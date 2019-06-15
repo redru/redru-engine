@@ -1,6 +1,6 @@
 #include "StateStatus.hpp"
 
-StateStatus::StateStatus(vector<string> playerNames) : players(playerNames.size()), currentPlayer(-1) {
+StateStatus::StateStatus(vector<string> playerNames) : players(playerNames.size()), currentPlayer(-1), rounds(1) {
 	for (int i = 0; i < playerNames.size(); i++) {
 		PlayerStatus* playerStatus = new PlayerStatus();
 		playerStatus->name = playerNames[i];

@@ -7,7 +7,7 @@ StateMainMenu::StateMainMenu(re::RedruEngine& engine) :
 	exitButton() {
 }
 
-void StateMainMenu::onInit() {
+void StateMainMenu::onInit(shared_ptr<re::StateInitializationData> data) {
 	engine.getAudioManager()->stopMusic();
 
 	mainMenuImage.reset(new re::GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_MAIN_MENU")));
@@ -46,13 +46,19 @@ void StateMainMenu::onInput(sf::Event& event) {
 			break;
 
 		case sf::Keyboard::Enter:
-			engine.changeState("LEVEL_ONE");
+			LevelOneData* data = new LevelOneData();
+			data->setPlayerNames(vector<string>{ "RedrU", "AI" });
+
+			engine.changeState("LEVEL_ONE", false, data);
 			break;
 		}
 	}
 	else if (event.type == sf::Event::MouseButtonPressed) {
 		if (startButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
-			engine.changeState("LEVEL_ONE");
+			LevelOneData* data = new LevelOneData();
+			data->setPlayerNames(vector<string>{ "RedrU", "AI" });
+
+			engine.changeState("LEVEL_ONE", false, data);
 		}
 		else if (exitButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
 			engine.stop();

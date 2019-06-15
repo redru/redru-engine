@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CardObject.cpp" />
+    <ClCompile Include="src\LevelOneData.cpp" />
     <ClCompile Include="src\LevelOneInterface.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\REDRU\AudioManager.cpp" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CardObject.hpp" />
+    <ClInclude Include="include\LevelOneData.hpp" />
     <ClInclude Include="include\LevelOneInterface.hpp" />
     <ClInclude Include="include\REDRU\Assets\FontAssets.hpp" />
     <ClInclude Include="include\REDRU\Assets\MusicAssets.hpp" />
@@ -165,6 +167,7 @@
     <ClInclude Include="include\REDRU\Components\GameObject.hpp" />
     <ClInclude Include="include\REDRU\Components\GenericGameObject.hpp" />
     <ClInclude Include="include\REDRU\Components\State.hpp" />
+    <ClInclude Include="include\REDRU\Data\StateInitializationData.hpp" />
     <ClInclude Include="include\REDRU\Managers\AudioManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\ConfigManager.hpp" />
     <ClInclude Include="include\REDRU\Managers\EventsManager.hpp" />

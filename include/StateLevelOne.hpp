@@ -10,8 +10,10 @@
 
 #include "REDRU/Components/GenericGameObject.hpp"
 #include "REDRU/Components/State.hpp"
+#include "REDRU/Data/StateInitializationData.hpp"
 #include "REDRU/RedruEngine.hpp"
 #include "CardObject.hpp"
+#include "LevelOneData.hpp"
 #include "LevelOneInterface.hpp"
 #include "StateStatus.hpp"
 
@@ -50,7 +52,7 @@ public:
 	/////////////////////////////////////////
 	// State Overrides
 	/////////////////////////////////////////
-	void onInit() override;
+	void onInit(shared_ptr<re::StateInitializationData> data) override;
 
 	void onClose() override;
 

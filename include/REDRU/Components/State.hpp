@@ -1,6 +1,8 @@
 #pragma once
+#include <memory>
 #include <SFML/Graphics.hpp>
 
+#include "REDRU/Data/StateInitializationData.hpp"
 #include "REDRU/Managers/EventsManager.hpp"
 
 namespace re {
@@ -9,7 +11,7 @@ namespace re {
 
 	public:
 
-		virtual void onInit() = 0;
+		virtual void onInit(shared_ptr<StateInitializationData> data) = 0;
 
 		virtual void onClose() = 0;
 

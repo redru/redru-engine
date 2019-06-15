@@ -7,6 +7,7 @@
 
 #include "REDRU/Components/State.hpp"
 #include "REDRU/Components/GenericGameObject.hpp"
+#include "REDRU/Data/StateInitializationData.hpp"
 #include "REDRU/RedruEngine.hpp"
 
 using namespace std;
@@ -25,7 +26,7 @@ public:
 
 	StateSplashScreen(re::RedruEngine& engine);
 
-	void onInit() override;
+	void onInit(shared_ptr<re::StateInitializationData> data) override;
 
 	void onClose() override;
 

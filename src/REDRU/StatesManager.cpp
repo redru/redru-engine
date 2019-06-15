@@ -48,7 +48,7 @@ namespace re {
 		spdlog::debug("[RedruEngine] registered state '" + name + "'");
 	}
 
-	void StatesManager::requestStateChange(string name) {
+	void StatesManager::requestStateChange(string name, StateInitializationData* data) {
 		States::iterator it = states.find(name);
 
 		if (it == states.end()) {
@@ -56,6 +56,8 @@ namespace re {
 
 			exit(1);
 		}
+
+		stateInitializationData.reset(data);
 
 		requestedState = it->second;
 	}
@@ -74,7 +76,7 @@ namespace re {
 		activeState = requestedState;
 
 		// Initialize new state
-		activeState->onInit();
+		activeState->onInit(stateInitializationData);
 
 		// Reset requestedState pointer
 		requestedState.reset();

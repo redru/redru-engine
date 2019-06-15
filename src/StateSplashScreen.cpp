@@ -6,7 +6,7 @@ StateSplashScreen::StateSplashScreen(re::RedruEngine& engine) :
 	elapsed(0) {
 }
 
-void StateSplashScreen::onInit() {
+void StateSplashScreen::onInit(shared_ptr<re::StateInitializationData> data) {
 	elapsed = 0;
 
 	splashImage = make_unique<re::GenericGameObject>(re::GenericGameObject("SPLASH", engine, engine.getTextureAssets()->loadTexture("TEX_SPLASH_IMAGE")));

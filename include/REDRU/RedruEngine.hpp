@@ -11,6 +11,7 @@
 #include "REDRU/Assets/SoundAssets.hpp"
 #include "REDRU/Assets/TextureAssets.hpp"
 #include "REDRU/Components/State.hpp"
+#include "REDRU/Data/StateInitializationData.hpp"
 #include "REDRU/Managers/AudioManager.hpp"
 #include "REDRU/Managers/EventsManager.hpp"
 #include "REDRU/Managers/GraphicsManager.hpp"
@@ -65,7 +66,7 @@ namespace re {
 
 		void registerState(string name, State* state);
 
-		void changeState(string name, bool immediate = false);
+		void changeState(string name, bool immediate = false, StateInitializationData* data = nullptr);
 
 		void registerTexture(string name, string file);
 

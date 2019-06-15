@@ -82,10 +82,10 @@ namespace re {
 		statesManager->registerState(name, state);
 	}
 
-	void RedruEngine::changeState(string name, bool immediate) {
+	void RedruEngine::changeState(string name, bool immediate, StateInitializationData* data) {
 		spdlog::debug("[RedruEngine] requested state change -> '" + name + "' / immediate (" + to_string(immediate) + ")");
 
-		statesManager->requestStateChange(name);
+		statesManager->requestStateChange(name, data);
 
 		if (immediate) statesManager->nextState();
 	}

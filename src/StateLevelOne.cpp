@@ -2,7 +2,7 @@
 
 StateLevelOne::StateLevelOne(re::RedruEngine& engine) :
 	engine(engine),
-	status(new StateStatus(vector<string>{ "RedrU", "AI" })),
+	status(),
 	ui(engine),
 	gameObjects(12),
 	flippedCards(0),
@@ -11,14 +11,19 @@ StateLevelOne::StateLevelOne(re::RedruEngine& engine) :
 	currentSelected(0),
 	firstFlippedCard(nullptr),
 	secondFlippedCard(nullptr) {
+}
+
+void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
+	// TODO not working - not polymorphic class
+	// LevelOneData* levelData = data->getData<LevelOneData>();
+	// status.reset(new StateStatus(levelData->getPlayerNames()));
+
+	status.reset(new StateStatus(vector<string>{ "RedrU", "AI" }));
 
 	ui.setStatus(status);
 	ui.initialize();
-}
-
-void StateLevelOne::onInit() {
 	// Music
-	engine.getAudioManager()->playMusic("BACKGROUND");
+	// engine.getAudioManager()->playMusic("BACKGROUND");
 
 	// Load resources
 	sf::Texture& tex1 = engine.getTextureAssets()->loadTexture("TEX_CARD_1");
