@@ -52,8 +52,7 @@ void StateMainMenu::onInput(sf::Event& event) {
 			engine.changeState("LEVEL_ONE", false, data);
 			break;
 		}
-	}
-	else if (event.type == sf::Event::MouseButtonPressed) {
+	} else if (event.type == sf::Event::MouseButtonPressed) {
 		if (startButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
 			LevelOneData* data = new LevelOneData();
 			data->setPlayerNames(vector<string>{ "RedrU", "AI" });

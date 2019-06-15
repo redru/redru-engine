@@ -19,6 +19,7 @@ void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
 
 	ui.setStatus(status);
 	ui.initialize();
+
 	// Music
 	engine.getAudioManager()->playMusic("BACKGROUND");
 
@@ -36,20 +37,20 @@ void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
 	sf::Texture& texFront6 = engine.getTextureAssets()->loadTexture("TEX_CARD_FRONT_6");
 
 	// Initialize Game Objects
-	background = make_unique<re::GenericGameObject>(re::GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_CARD_TABLE")));
+	background.reset(new re::GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_CARD_TABLE")));
 
-	gameObjects[0] = make_unique<CardObject>(CardObject("CARD_1", engine, texFront1, tex1, 1));
-	gameObjects[1] = make_unique<CardObject>(CardObject("CARD_2", engine, texFront1, tex2, 1));
-	gameObjects[2] = make_unique<CardObject>(CardObject("CARD_3", engine, texFront2, tex3, 2));
-	gameObjects[3] = make_unique<CardObject>(CardObject("CARD_4", engine, texFront2, tex4, 2));
-	gameObjects[4] = make_unique<CardObject>(CardObject("CARD_5", engine, texFront3, tex1, 3));
-	gameObjects[5] = make_unique<CardObject>(CardObject("CARD_6", engine, texFront3, tex2, 3));
-	gameObjects[6] = make_unique<CardObject>(CardObject("CARD_7", engine, texFront4, tex3, 4));
-	gameObjects[7] = make_unique<CardObject>(CardObject("CARD_8", engine, texFront4, tex4, 4));
-	gameObjects[8] = make_unique<CardObject>(CardObject("CARD_9", engine, texFront5, tex1, 5));
-	gameObjects[9] = make_unique<CardObject>(CardObject("CARD_10", engine, texFront5, tex2, 5));
-	gameObjects[10] = make_unique<CardObject>(CardObject("CARD_11", engine, texFront6, tex3, 6));
-	gameObjects[11] = make_unique<CardObject>(CardObject("CARD_12", engine, texFront6, tex4, 6));
+	gameObjects[0].reset(new CardObject("CARD_1", engine, texFront1, tex1, 1));
+	gameObjects[1].reset(new CardObject("CARD_2", engine, texFront1, tex2, 1));
+	gameObjects[2].reset(new CardObject("CARD_3", engine, texFront2, tex3, 2));
+	gameObjects[3].reset(new CardObject("CARD_4", engine, texFront2, tex4, 2));
+	gameObjects[4].reset(new CardObject("CARD_5", engine, texFront3, tex1, 3));
+	gameObjects[5].reset(new CardObject("CARD_6", engine, texFront3, tex2, 3));
+	gameObjects[6].reset(new CardObject("CARD_7", engine, texFront4, tex3, 4));
+	gameObjects[7].reset(new CardObject("CARD_8", engine, texFront4, tex4, 4));
+	gameObjects[8].reset(new CardObject("CARD_9", engine, texFront5, tex1, 5));
+	gameObjects[9].reset(new CardObject("CARD_10", engine, texFront5, tex2, 5));
+	gameObjects[10].reset(new CardObject("CARD_11", engine, texFront6, tex3, 6));
+	gameObjects[11].reset(new CardObject("CARD_12", engine, texFront6, tex4, 6));
 
 	reset();
 }
