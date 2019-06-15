@@ -12,8 +12,11 @@ StateStatus::StateStatus(vector<string> playerNames) : players(playerNames.size(
 	spdlog::debug("[StateStatus] level one initialized with " + to_string(players.size()) + " players");
 }
 
-int StateStatus::getPlayersCount() {
-	return players.size();
+// TODO Not working, fix
+int& StateStatus::getPlayersCount() {
+	int size = static_cast<int>(players.size());
+
+	return size;
 }
 
 int& StateStatus::addPoints(int pointsToAdd, int player) {

@@ -6,12 +6,11 @@
 #include "StateLevelOne.hpp"
 
 using namespace std;
-using namespace re;
 
 int main() {
 	spdlog::set_level(spdlog::level::debug);
 
-	RedruEngine* engine = new RedruEngine();
+	re::RedruEngine* engine = new re::RedruEngine();
 
 	engine->initialize();
 

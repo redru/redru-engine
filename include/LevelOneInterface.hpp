@@ -13,9 +13,11 @@ class LevelOneInterface {
 
 private:
 
-	static const int MAX_PLAYERS;
-
+	static const int SINGLE;
 	static const int DUEL;
+	static const int CAOS;
+
+	static const int ARROW_TIME;
 
 	re::RedruEngine& engine;
 

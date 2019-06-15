@@ -28,7 +28,8 @@ public:
 
 	StateStatus(vector<string> playerNames);
 
-	int getPlayersCount();
+	// TODO Not working, fix
+	int& getPlayersCount();
 
 	int& addPoints(int pointsToAdd, int player = -1);
 
