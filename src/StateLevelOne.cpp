@@ -2,7 +2,7 @@
 
 StateLevelOne::StateLevelOne(re::RedruEngine& engine) :
 	engine(engine),
-	status(new StateStatus(vector<string>{ "RedrU" })),
+	status(new StateStatus(vector<string>{ "RedrU", "AI" })),
 	ui(engine),
 	gameObjects(12),
 	flippedCards(0),
