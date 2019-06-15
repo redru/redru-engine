@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <map>
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -8,34 +9,35 @@
 
 using namespace std;
 
+struct PlayerStatus {
+	string name;
+	int points;
+};
+
+typedef vector<unique_ptr<PlayerStatus>> Players;
+
 class StateStatus {
 
 private:
+	 
+	Players players;
 
-	vector<string> players;
-
-	map<string, int> playersPoints;
-
-	string currentPlayer;
+	int currentPlayer;
 
 public:
 
-	StateStatus(vector<string> players);
+	StateStatus(vector<string> playerNames);
 
 	int getPlayersCount();
 
-	int addPoints(string playerName, int pointsToAdd);
-
-	const map<string, int>& getPoints();
-
-	int getPlayerPoints(string playerName);
-
-	vector<string>& getPlayers();
+	int& addPoints(int pointsToAdd, int player = -1);
 
 	void nextPlayer();
 
-	void setCurrentPlayer(string currentPlayer);
+	void setCurrentPlayer(int currentPlayer);
 
-	string& getCurrentPlayer();
+	int& getCurrentPlayer();
+
+	Players& getPlayers();
 
 };

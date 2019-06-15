@@ -4,7 +4,7 @@ namespace re {
 
 	StateLevelOne::StateLevelOne(RedruEngine& engine) :
 		engine(engine),
-		status(new StateStatus(vector<string>{ "Player 1", "Player 2" })),
+		status(new StateStatus(vector<string>{ "RedrU", "AI" })),
 		ui(engine),
 		gameObjects(12),
 		flippedCards(0),
@@ -27,7 +27,7 @@ namespace re {
 		firstFlippedCard = nullptr;
 		secondFlippedCard = nullptr;
 
-		status->setCurrentPlayer("Player 1");
+		status->setCurrentPlayer(0);
 
 		// Load resources
 		sf::Texture& tex1 = engine.getTextureAssets()->loadTexture("TEX_CARD_1");
@@ -67,7 +67,7 @@ namespace re {
 		locateStandardPosition(gameObjects);
 
 		// Music
-		engine.getAudioManager()->playMusic("BACKGROUND");
+		// engine.getAudioManager()->playMusic("BACKGROUND");
 	}
 
 	void StateLevelOne::onClose() {
@@ -126,8 +126,8 @@ namespace re {
 
 			flippedCards += 2;
 
-			// Add points to the game status
-			status->addPoints(status->getCurrentPlayer(), 1);
+			// Add points to the current player
+			status->addPoints(1);
 
 			if (flippedCards == gameObjects.size()) {
 				mustWait = true;
@@ -201,7 +201,7 @@ namespace re {
 			case sf::Keyboard::Enter:
 				tmp = dynamic_cast<CardObject*>(gameObjects[currentSelected].get());
 
-				if (tmp->isLocked() || mustWait) {
+				if (tmp->isLocked() || tmp->isFaceUp() || mustWait) {
 					break;
 				}
 

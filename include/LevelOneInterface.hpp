@@ -7,46 +7,42 @@
 #include "REDRU/RedruEngine.hpp"
 #include "StateStatus.hpp"
 
-namespace re {
+using namespace std;
 
-	using namespace std;
+class LevelOneInterface {
 
-	class LevelOneInterface {
+private:
 
-	private:
+	static const int MAX_PLAYERS;
 
-		static const int MAX_PLAYERS;
+	static const int DUEL;
 
-		static const int DUEL;
+	re::RedruEngine& engine;
 
-		RedruEngine& engine;
+	shared_ptr<StateStatus> status;
 
-		shared_ptr<StateStatus> status;
+	sf::Clock animationClock;
 
-		sf::Clock animationClock;
+	sf::Font font;
 
-		sf::Font font;
+	sf::Text textPlayer1;
+	sf::Text textPlayer1Points;
 
-		sf::Text textPlayer1;
-		sf::Text textPlayer1Points;
+	sf::Text textPlayer2;
+	sf::Text textPlayer2Points;
 
-		sf::Text textPlayer2;
-		sf::Text textPlayer2Points;
+	sf::Text selectionArrow;
 
-		sf::Text selectionArrow;
+public:
 
-	public:
+	LevelOneInterface(re::RedruEngine& engine);
 
-		LevelOneInterface(RedruEngine& engine);
+	void initialize();
 
-		void initialize();
+	void update();
 
-		void update();
+	void draw();
 
-		void draw();
+	void setStatus(shared_ptr<StateStatus> status);
 
-		void setStatus(shared_ptr<StateStatus> status);
-
-	};
-
-}
+};

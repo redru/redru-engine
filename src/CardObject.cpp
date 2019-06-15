@@ -33,7 +33,8 @@ namespace re {
 	void CardObject::onInput(sf::Event& event) {
 		if (event.type == sf::Event::MouseButtonReleased
 			&& frontSprite.getGlobalBounds().contains((float) event.mouseButton.x, (float) event.mouseButton.y)
-			&& !locked) {
+			&& !locked
+			&& !faceUp) {
 			faceUp = !faceUp;
 
 			GameEvent event("CARD_FLIPPED");
