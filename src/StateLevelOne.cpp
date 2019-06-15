@@ -191,7 +191,7 @@ void StateLevelOne::onInput(sf::Event& event) {
 		case sf::Keyboard::Right:
 			dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(false);
 
-			if (currentSelected + 1 >= gameObjects.size()) currentSelected = 0;
+			if (currentSelected + 1 >= (int) gameObjects.size()) currentSelected = 0;
 			else currentSelected++;
 
 			dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
@@ -199,7 +199,7 @@ void StateLevelOne::onInput(sf::Event& event) {
 		case sf::Keyboard::Down:
 			dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(false);
 
-			if (currentSelected + 6 >= gameObjects.size()) currentSelected -= 6;
+			if (currentSelected + 6 >= (int) gameObjects.size()) currentSelected -= 6;
 			else currentSelected += 6;
 
 			dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);

@@ -42,7 +42,7 @@ void StateStatus::nextPlayer() {
 }
 
 void StateStatus::setCurrentPlayer(int currentPlayer) {
-	if (currentPlayer >= players.size()) {
+	if (currentPlayer >= (int) players.size()) {
 		spdlog::error("[StateStatus] player '" + to_string(currentPlayer) + "' does not exist and could not be selected as current");
 	}
 
