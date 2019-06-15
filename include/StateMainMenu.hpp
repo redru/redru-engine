@@ -5,40 +5,38 @@
 #include "REDRU/Components/State.hpp"
 #include "REDRU/RedruEngine.hpp"
 
-namespace re {
+using namespace std;
 
-	class StateMainMenu : public State {
+class StateMainMenu : public re::State {
 
-	private:
+private:
 
-		RedruEngine& engine;
+	re::RedruEngine& engine;
 
-		unique_ptr<GameObject> mainMenuImage;
+	unique_ptr<re::GameObject> mainMenuImage;
 
-		unique_ptr<GameObject> startButton;
+	unique_ptr<re::GameObject> startButton;
 
-		unique_ptr<GameObject> exitButton;
+	unique_ptr<re::GameObject> exitButton;
 
-	public:
+public:
 
-		StateMainMenu(RedruEngine& engine);
+	StateMainMenu(re::RedruEngine& engine);
 
-		void onInit() override;
+	void onInit() override;
 
-		void onClose() override;
+	void onClose() override;
 
-		void reset() override;
+	void reset() override;
 
-		void update() override;
+	void update() override;
 
-		void fixedUpdate() override;
+	void fixedUpdate() override;
 
-		void draw() override;
+	void draw() override;
 
-		void onInput(sf::Event& event) override;
+	void onInput(sf::Event& event) override;
 
-		void onEvent(GameEvent& event) override;
+	void onEvent(re::GameEvent& event) override;
 
-	};
-
-}
+};

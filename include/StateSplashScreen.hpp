@@ -9,38 +9,36 @@
 #include "REDRU/Components/GenericGameObject.hpp"
 #include "REDRU/RedruEngine.hpp"
 
-namespace re {
+using namespace std;
 
-	class StateSplashScreen : public State {
+class StateSplashScreen : public re::State {
 
-	private:
+private:
 
-		RedruEngine& engine;
+	re::RedruEngine& engine;
 
-		unique_ptr<GameObject> splashImage;
+	unique_ptr<re::GameObject> splashImage;
 
-		int elapsed;
+	int elapsed;
 
-	public:
+public:
 
-		StateSplashScreen(RedruEngine& engine);
+	StateSplashScreen(re::RedruEngine& engine);
 
-		void onInit() override;
+	void onInit() override;
 
-		void onClose() override;
+	void onClose() override;
 
-		void reset() override;
+	void reset() override;
 
-		void update() override;
+	void update() override;
 
-		void fixedUpdate() override;
+	void fixedUpdate() override;
 
-		void draw() override;
+	void draw() override;
 
-		void onInput(sf::Event& event) override;
+	void onInput(sf::Event& event) override;
 
-		void onEvent(GameEvent& event) override;
+	void onEvent(re::GameEvent& event) override;
 
-	};
-
-}
+};

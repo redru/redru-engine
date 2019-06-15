@@ -5,88 +5,84 @@
 #include "REDRU/Managers/EventsManager.hpp"
 #include "REDRU/RedruEngine.hpp"
 
-namespace re {
+using namespace std;
 
-	using namespace std;
+class CardObject : public re::GameObject {
 
-	class CardObject : public GameObject {
+private:
 
-	private:
+	/////////////////////////////////////////////////////////////
+	// Members
+	/////////////////////////////////////////////////////////////
 
-		/////////////////////////////////////////////////////////////
-		// Members
-		/////////////////////////////////////////////////////////////
+	re::RedruEngine& engine;
 
-		RedruEngine& engine;
+	sf::Sprite frontSprite;
 
-		sf::Sprite frontSprite;
+	sf::Sprite backSprite;
 
-		sf::Sprite backSprite;
+	sf::RectangleShape selectionBorder;
 
-		sf::RectangleShape selectionBorder;
+	int group = 0;
 
-		int group = 0;
+	bool faceUp = false;
 
-		bool faceUp = false;
+	bool locked = false;
 
-		bool locked = false;
+	bool selected = false;
 
-		bool selected = false;
+public:
 
-	public:
+	//////////////////////////////////////////////////////////////
+	// Constructor
+	//////////////////////////////////////////////////////////////
 
-		//////////////////////////////////////////////////////////////
-		// Constructor
-		//////////////////////////////////////////////////////////////
+	CardObject(string id, re::RedruEngine& engine, sf::Texture& frontTexture, sf::Texture& backTexture, int group);
 
-		CardObject(string id, RedruEngine& engine, sf::Texture& frontTexture, sf::Texture& backTexture, int group);
+	//////////////////////////////////////////////////////////////
+	// GameObject
+	//////////////////////////////////////////////////////////////
 
-		//////////////////////////////////////////////////////////////
-		// GameObject
-		//////////////////////////////////////////////////////////////
+	void update() override;
 
-		void update() override;
+	void fixedUpdate() override;
 
-		void fixedUpdate() override;
+	void draw(sf::RenderWindow& window) override;
 
-		void draw(sf::RenderWindow& window) override;
+	void onInput(sf::Event& event) override;
 
-		void onInput(sf::Event& event) override;
+	void onEvent(re::GameEvent& event) override;
 
-		void onEvent(GameEvent& event) override;
+	sf::FloatRect getBoundingBox() override;
 
-		sf::FloatRect getBoundingBox() override;
+	void setPosition(float x, float y) override;
 
-		void setPosition(float x, float y) override;
+	void setColor(int r, int g, int b, int a) override;
 
-		void setColor(int r, int g, int b, int a) override;
+	///////////////////////////////////////////////////////////////
+	// CardObject
+	///////////////////////////////////////////////////////////////
 
-		///////////////////////////////////////////////////////////////
-		// CardObject
-		///////////////////////////////////////////////////////////////
+	void flip();
 
-		void flip();
+	void reset();
 
-		void reset();
+	void setFaceUp(bool faceUp);
 
-		void setFaceUp(bool faceUp);
+	bool isFaceUp();
 
-		bool isFaceUp();
+	void setGroup(int group);
 
-		void setGroup(int group);
+	int getGroup();
 
-		int getGroup();
+	void setLocked(bool locked);
 
-		void setLocked(bool locked);
+	bool isLocked();
 
-		bool isLocked();
+	void setSelected(bool selected);
 
-		void setSelected(bool selected);
+	bool isSelected();
 
-		bool isSelected();
+	bool operator==(const CardObject& that);
 
-		bool operator==(const CardObject& that);
-
-	};
-
-}
+};

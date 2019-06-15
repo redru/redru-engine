@@ -1,61 +1,59 @@
 #include "StateSplashScreen.hpp"
 
-namespace re {
+StateSplashScreen::StateSplashScreen(re::RedruEngine& engine) :
+	engine(engine),
+	splashImage(),
+	elapsed(0) {
+}
 
-	StateSplashScreen::StateSplashScreen(RedruEngine& engine) :
-		engine(engine) {
-	}
+void StateSplashScreen::onInit() {
+	elapsed = 0;
 
-	void StateSplashScreen::onInit() {
-		elapsed = 0;
+	splashImage = make_unique<re::GenericGameObject>(re::GenericGameObject("SPLASH", engine, engine.getTextureAssets()->loadTexture("TEX_SPLASH_IMAGE")));
 
-		splashImage = make_unique<GenericGameObject>(GenericGameObject("SPLASH", engine, engine.getTextureAssets()->loadTexture("TEX_SPLASH_IMAGE")));
+	splashImage->setColor(255, 255, 255, 0);
+}
 
-		splashImage->setColor(255, 255, 255, 0);
-	}
+void StateSplashScreen::onClose() {
+	splashImage.release();
+}
 
-	void StateSplashScreen::onClose() {
-		splashImage.release();
-	}
+void StateSplashScreen::reset() { }
 
-	void StateSplashScreen::reset() { }
+void StateSplashScreen::update() {
+	elapsed += engine.getElpasedFromLast();
 
-	void StateSplashScreen::update() {
-		elapsed += engine.getElpasedFromLast();
+	int alpha = elapsed >= 1000 ? 255 : (int)round(elapsed * 255 / 1000);
 
-		int alpha = elapsed >= 1000 ? 255 : (int) round(elapsed * 255 / 1000);
+	splashImage->setColor(255, 255, 255, alpha);
 
-		splashImage->setColor(255, 255, 255, alpha);
+	if (elapsed > 3000) engine.changeState("MAIN_MENU");
+}
 
-		if (elapsed > 3000) engine.changeState("MAIN_MENU");
-	}
+void StateSplashScreen::fixedUpdate() {
 
-	void StateSplashScreen::fixedUpdate() {
+}
 
-	}
+void StateSplashScreen::draw() {
+	sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
 
-	void StateSplashScreen::draw() {
-		sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
+	splashImage->draw(window);
+}
 
-		splashImage->draw(window);
-	}
+void StateSplashScreen::onInput(sf::Event& event) {
+	if (event.type == sf::Event::KeyReleased) {
+		switch (event.key.code) {
+		case sf::Keyboard::Escape:
+			engine.stop();
+			break;
 
-	void StateSplashScreen::onInput(sf::Event& event) {
-		if (event.type == sf::Event::KeyReleased) {
-			switch (event.key.code) {
-			case sf::Keyboard::Escape:
-				engine.stop();
-				break;
-
-			case sf::Keyboard::Space:
-				engine.changeState("MAIN_MENU");
-				break;
-			}
+		case sf::Keyboard::Space:
+			engine.changeState("MAIN_MENU");
+			break;
 		}
 	}
+}
 
-	void StateSplashScreen::onEvent(GameEvent& event) {
-
-	}
+void StateSplashScreen::onEvent(re::GameEvent& event) {
 
 }

@@ -15,68 +15,64 @@
 #include "LevelOneInterface.hpp"
 #include "StateStatus.hpp"
 
-namespace re {
+typedef vector<unique_ptr<re::GameObject>> GameObjects;
 
-	typedef vector<unique_ptr<GameObject>> GameObjects;
+class StateLevelOne : public re::State {
 
-	class StateLevelOne : public State {
+private:
 
-	private:
+	re::RedruEngine& engine;
 
-		RedruEngine& engine;
+	LevelOneInterface ui;
 
-		LevelOneInterface ui;
+	shared_ptr<StateStatus> status;
 
-		shared_ptr<StateStatus> status;
+	unique_ptr<re::GameObject> background;
 
-		unique_ptr<GameObject> background;
+	GameObjects gameObjects;
 
-		GameObjects gameObjects;
+	CardObject* firstFlippedCard;
 
-		CardObject* firstFlippedCard;
+	CardObject* secondFlippedCard;
 
-		CardObject* secondFlippedCard;
+	int currentSelected;
 
-		int currentSelected;
+	int flippedCards;
 
-		int flippedCards;
+	bool mustWait;
 
-		bool mustWait;
+	int mustWaitTime;
 
-		int mustWaitTime;
+public:
 
-	public:
+	StateLevelOne(re::RedruEngine& engine);
 
-		StateLevelOne(RedruEngine& engine);
+	/////////////////////////////////////////
+	// State Overrides
+	/////////////////////////////////////////
+	void onInit() override;
 
-		/////////////////////////////////////////
-		// State Overrides
-		/////////////////////////////////////////
-		void onInit() override;
+	void onClose() override;
 
-		void onClose() override;
+	void reset() override;
 
-		void reset() override;
+	void update() override;
 
-		void update() override;
+	void fixedUpdate() override;
 
-		void fixedUpdate() override;
+	void draw() override;
 
-		void draw() override;
+	void onInput(sf::Event& event) override;
 
-		void onInput(sf::Event& event) override;
+	void onEvent(re::GameEvent& event) override;
 
-		void onEvent(GameEvent& event) override;
+private:
 
-	private:
+	//////////////////////////////////////////
+	// Private functions
+	//////////////////////////////////////////
+	void shuffleCards(GameObjects& cards);
 
-		//////////////////////////////////////////
-		// Private functions
-		//////////////////////////////////////////
-		void shuffleCards(GameObjects& cards);
+	void locateStandardPosition(GameObjects& cards);
 
-		void locateStandardPosition(GameObjects& cards);
-
-	};
-
-}
+};
