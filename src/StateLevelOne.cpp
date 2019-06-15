@@ -2,7 +2,7 @@
 
 StateLevelOne::StateLevelOne(re::RedruEngine& engine) :
 	engine(engine),
-	status(new StateStatus(vector<string>{ "RedrU", "AI" })),
+	status(new StateStatus(vector<string>{ "RedrU" })),
 	ui(engine),
 	gameObjects(12),
 	flippedCards(0),
@@ -145,6 +145,7 @@ void StateLevelOne::update() {
 	}
 
 	if (flippedCards == gameObjects.size()) {
+		status->nextRound();
 		reset();
 	}
 }

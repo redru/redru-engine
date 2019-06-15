@@ -39,12 +39,21 @@ void LevelOneInterface::initialize() {
 		textPlayer2Points.setPosition(1800.f, 106.f);
 		textPlayer2Points.setCharacterSize(36);
 		textPlayer2Points.setString(to_string(players[1]->points));
-
-		selectionArrow.setFont(uiFont);
-		selectionArrow.setCharacterSize(36);
 	}
 
 	if (players.size() == CAOS) { }
+
+	selectionArrow.setFont(uiFont);
+	selectionArrow.setCharacterSize(36);
+
+	textRounds.setFont(uiFont);
+	textRounds.setCharacterSize(36);
+	textRounds.setPosition(890.f, 70.f);
+	textRounds.setString("Round ");
+
+	textRoundsCount.setFont(uiFont);
+	textRoundsCount.setCharacterSize(36);
+	textRoundsCount.setPosition(1000.f, 70.f);
 }
 
 void LevelOneInterface::update() {
@@ -71,6 +80,8 @@ void LevelOneInterface::update() {
 	}
 
 	if (elapsed >= ARROW_TIME) animationClock.restart();
+
+	textRoundsCount.setString(to_string(status->getRounds()));
 }
 
 void LevelOneInterface::draw() {
@@ -90,6 +101,9 @@ void LevelOneInterface::draw() {
 	if (players.size() >= CAOS) { }
 
 	window.draw(selectionArrow);
+
+	window.draw(textRounds);
+	window.draw(textRoundsCount);
 }
 
 void LevelOneInterface::setStatus(shared_ptr<StateStatus> status) {

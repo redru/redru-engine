@@ -12,13 +12,6 @@ StateStatus::StateStatus(vector<string> playerNames) : players(playerNames.size(
 	spdlog::debug("[StateStatus] level one initialized with " + to_string(players.size()) + " players");
 }
 
-// TODO Not working, fix
-int& StateStatus::getPlayersCount() {
-	int size = static_cast<int>(players.size());
-
-	return size;
-}
-
 int& StateStatus::addPoints(int pointsToAdd, int player) {
 	// If player is out array, log error
 	if (player >= (int) players.size()) {
@@ -41,6 +34,10 @@ void StateStatus::nextPlayer() {
 		currentPlayer + 1;
 }
 
+void StateStatus::nextRound() {
+	rounds++;
+}
+
 void StateStatus::setCurrentPlayer(int currentPlayer) {
 	if (currentPlayer >= (int) players.size()) {
 		spdlog::error("[StateStatus] player '" + to_string(currentPlayer) + "' does not exist and could not be selected as current");
@@ -55,4 +52,8 @@ int& StateStatus::getCurrentPlayer() {
 
 Players& StateStatus::getPlayers() {
 	return players;
+}
+
+int& StateStatus::getRounds() {
+	return rounds;
 }

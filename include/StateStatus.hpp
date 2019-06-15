@@ -24,21 +24,24 @@ private:
 
 	int currentPlayer;
 
+	int rounds;
+
 public:
 
 	StateStatus(vector<string> playerNames);
 
-	// TODO Not working, fix
-	int& getPlayersCount();
-
 	int& addPoints(int pointsToAdd, int player = -1);
 
 	void nextPlayer();
+
+	void nextRound();
 
 	void setCurrentPlayer(int currentPlayer);
 
 	int& getCurrentPlayer();
 
 	Players& getPlayers();
+
+	int& getRounds();
 
 };

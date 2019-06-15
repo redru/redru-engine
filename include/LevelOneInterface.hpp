@@ -33,6 +33,9 @@ private:
 	sf::Text textPlayer2;
 	sf::Text textPlayer2Points;
 
+	sf::Text textRounds;
+	sf::Text textRoundsCount;
+
 	sf::Text selectionArrow;
 
 public:
