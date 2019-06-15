@@ -19,16 +19,6 @@ namespace re {
 	}
 
 	void StateLevelOne::onInit() {
-		// State members initialization
-		flippedCards = 0;
-		mustWait = false;
-		mustWaitTime = 0;
-		currentSelected = 0;
-		firstFlippedCard = nullptr;
-		secondFlippedCard = nullptr;
-
-		status->setCurrentPlayer(0);
-
 		// Load resources
 		sf::Texture& tex1 = engine.getTextureAssets()->loadTexture("TEX_CARD_1");
 		sf::Texture& tex2 = engine.getTextureAssets()->loadTexture("TEX_CARD_2");
@@ -58,16 +48,10 @@ namespace re {
 		gameObjects[10] = make_unique<CardObject>(CardObject("CARD_11", engine, texFront6, tex3, 6));
 		gameObjects[11] = make_unique<CardObject>(CardObject("CARD_12", engine, texFront6, tex4, 6));
 
-		// Shuffle
-		shuffleCards(gameObjects);
-
-		dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
-
-		// Cards positioning
-		locateStandardPosition(gameObjects);
+		reset();
 
 		// Music
-		// engine.getAudioManager()->playMusic("BACKGROUND");
+		engine.getAudioManager()->playMusic("BACKGROUND");
 	}
 
 	void StateLevelOne::onClose() {
@@ -79,6 +63,30 @@ namespace re {
 		}
 
 		background.release();
+	}
+
+	void StateLevelOne::reset() {
+		// State members initialization
+		flippedCards = 0;
+		mustWait = false;
+		mustWaitTime = 0;
+		currentSelected = 0;
+		firstFlippedCard = nullptr;
+		secondFlippedCard = nullptr;
+
+		status->nextPlayer();
+
+		for (auto it = gameObjects.begin(); it != gameObjects.end(); it++) {
+			dynamic_cast<CardObject*>((*it).get())->reset();
+		}
+
+		// Shuffle
+		shuffleCards(gameObjects);
+
+		dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
+
+		// Cards positioning
+		locateStandardPosition(gameObjects);
 	}
 
 	void StateLevelOne::update() {
@@ -139,7 +147,7 @@ namespace re {
 		}
 
 		if (flippedCards == gameObjects.size()) {
-			engine.changeState("LEVEL_ONE");
+			reset();
 		}
 	}
 

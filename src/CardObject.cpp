@@ -65,6 +65,12 @@ namespace re {
 		faceUp = !faceUp;
 	}
 
+	void CardObject::reset() {
+		faceUp = false;
+		locked = false;
+		selected = false;
+	}
+
 	void CardObject::setFaceUp(bool faceUp) {
 		this->faceUp = faceUp;
 	}

@@ -18,6 +18,8 @@ namespace re {
 		splashImage.release();
 	}
 
+	void StateSplashScreen::reset() { }
+
 	void StateSplashScreen::update() {
 		elapsed += engine.getElpasedFromLast();
 

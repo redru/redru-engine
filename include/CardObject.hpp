@@ -67,6 +67,8 @@ namespace re {
 
 		void flip();
 
+		void reset();
+
 		void setFaceUp(bool faceUp);
 
 		bool isFaceUp();

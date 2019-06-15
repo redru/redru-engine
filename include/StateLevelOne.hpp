@@ -56,6 +56,8 @@ namespace re {
 
 		void onClose() override;
 
+		void reset() override;
+
 		void update() override;
 
 		void fixedUpdate() override;

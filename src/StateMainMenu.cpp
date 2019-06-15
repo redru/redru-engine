@@ -24,6 +24,8 @@ namespace re {
 		exitButton.release();
 	}
 
+	void StateMainMenu::reset() { }
+
 	void StateMainMenu::update() { }
 
 	void StateMainMenu::fixedUpdate() { }
