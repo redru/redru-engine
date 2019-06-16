@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <chrono>
 #include <map>
-#include <memory>
 #include <random>
 #include <string>
+#include <vector>
 
 #include <SFML/Graphics.hpp>
 #include <spdlog/spdlog.h>
@@ -43,7 +43,7 @@ private:
 	/////////////////////////////////////////
 	int aiCounter;
 
-	map<int, int> aiMemory;
+	vector<CardObject*> aiMemory;
 
 	/////////////////////////////////////////
 	// Game Dev

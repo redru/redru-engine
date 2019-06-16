@@ -10,7 +10,9 @@ StateLevelOne::StateLevelOne(re::RedruEngine& engine) :
 	mustWaitTime(0),
 	currentSelected(0),
 	firstFlippedCard(nullptr),
-	secondFlippedCard(nullptr) {
+	secondFlippedCard(nullptr),
+	aiCounter(0),
+	aiMemory(2) {
 }
 
 void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
@@ -113,12 +115,19 @@ void StateLevelOne::update() {
 		return;
 	}
 
+	// If all cards are discovered, go next round
+	if (flippedCards == gameObjects.size()) {
+		status->nextRound();
+		reset();
+	}
+
 	// If current player is AI, execute behaviour
 	if (status->isCurrentPlayerAi()) {
 		executeAI();
 	}
 
 	if (firstFlippedCard != nullptr && secondFlippedCard != nullptr) {
+
 		// Card was the same, so it returned down
 		if (*secondFlippedCard == *firstFlippedCard) {
 			firstFlippedCard = nullptr;
@@ -127,6 +136,11 @@ void StateLevelOne::update() {
 
 		// If flipped cards are different
 		if (firstFlippedCard->getGroup() != secondFlippedCard->getGroup()) {
+
+			// Update AI memory
+			aiMemory[0] = firstFlippedCard;
+			aiMemory[1] = secondFlippedCard;
+
 			// Start wait time
 			mustWait = true;
 
@@ -153,11 +167,6 @@ void StateLevelOne::update() {
 
 		firstFlippedCard = nullptr;
 		secondFlippedCard = nullptr;
-	}
-
-	if (flippedCards == gameObjects.size()) {
-		status->nextRound();
-		reset();
 	}
 }
 
@@ -273,6 +282,17 @@ void StateLevelOne::executeAI() {
 
 			if (!firstFlippedCard) {
 				firstFlippedCard = card;
+
+				// Check AI memory when first card is selected to find the pair, if present
+				for (vector<CardObject*>::iterator it = aiMemory.begin(); it != aiMemory.end(); it++) {
+					if (*it && firstFlippedCard != *it && firstFlippedCard->getGroup() == (*it)->getGroup()) {
+						secondFlippedCard = *it;
+						secondFlippedCard->flip();
+
+						aiCounter++;
+						break;
+					}
+				}
 			} else if (!secondFlippedCard) {
 				secondFlippedCard = card;
 			}
