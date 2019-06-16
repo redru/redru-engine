@@ -23,6 +23,8 @@ private:
 
 	unique_ptr<re::GenericButtonObject> onePlayerVsAiButton;
 
+	unique_ptr<re::GenericButtonObject> twoPlayersButton;
+
 	unique_ptr<re::GenericButtonObject> exitButton;
 
 public:

@@ -31,8 +31,16 @@ void StateMainMenu::onInit(shared_ptr<re::StateInitializationData> data) {
 	onePlayerVsAiButton->setFontSize(36);
 	onePlayerVsAiButton->setText("1 Player VS AI");
 
+	twoPlayersButton.reset(new re::GenericButtonObject("TWO_PLAYERS_B", engine));
+	twoPlayersButton->setPosition(200.f, 380.f);
+	twoPlayersButton->setColor(0, 0, 255, 255);
+	twoPlayersButton->setSize(230.f, 60.f);
+	twoPlayersButton->setFont(uiFont);
+	twoPlayersButton->setFontSize(36);
+	twoPlayersButton->setText("2 Players");
+
 	exitButton.reset(new re::GenericButtonObject("EXIT_B", engine));
-	exitButton->setPosition(200.f, 380.f);
+	exitButton->setPosition(200.f, 480.f);
 	exitButton->setColor(0, 0, 255, 255);
 	exitButton->setSize(230.f, 60.f);
 	exitButton->setFont(uiFont);
@@ -58,6 +66,7 @@ void StateMainMenu::draw() {
 	mainMenuImage->draw(window);
 	onePlayerButton->draw(window);
 	onePlayerVsAiButton->draw(window);
+	twoPlayersButton->draw(window);
 	exitButton->draw(window);
 }
 
@@ -78,14 +87,14 @@ void StateMainMenu::onInput(sf::Event& event) {
 	} else if (event.type == sf::Event::MouseButtonPressed) {
 		if (onePlayerButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
 			PlayerStatus* player1 = new PlayerStatus();
-			player1->name = "RedrU";
+			player1->name = "Player";
 			player1->points = 0;
 			player1->ai = false;
 
 			engine.changeState("LEVEL_ONE", false, new LevelOneData(vector<PlayerStatus*>{ player1 }, false));
 		} else if (onePlayerVsAiButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
 			PlayerStatus* player1 = new PlayerStatus();
-			player1->name = "RedrU";
+			player1->name = "Player";
 			player1->points = 0;
 			player1->ai = false;
 
@@ -93,6 +102,18 @@ void StateMainMenu::onInput(sf::Event& event) {
 			player2->name = "AI";
 			player2->points = 0;
 			player2->ai = true;
+
+			engine.changeState("LEVEL_ONE", false, new LevelOneData(vector<PlayerStatus*>{ player1, player2 }, true));
+		} else if (twoPlayersButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
+			PlayerStatus* player1 = new PlayerStatus();
+			player1->name = "Player 1";
+			player1->points = 0;
+			player1->ai = false;
+
+			PlayerStatus* player2 = new PlayerStatus();
+			player2->name = "Player 2";
+			player2->points = 0;
+			player2->ai = false;
 
 			engine.changeState("LEVEL_ONE", false, new LevelOneData(vector<PlayerStatus*>{ player1, player2 }, true));
 		} else if (exitButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
