@@ -1,9 +1,10 @@
 #pragma once
-#include <memory>
-#include <string>
 #include <algorithm>
-#include <random>
 #include <chrono>
+#include <map>
+#include <memory>
+#include <random>
+#include <string>
 
 #include <SFML/Graphics.hpp>
 #include <spdlog/spdlog.h>
@@ -37,6 +38,16 @@ private:
 
 	CardObject* secondFlippedCard;
 
+	/////////////////////////////////////////
+	// AI
+	/////////////////////////////////////////
+	int aiCounter;
+
+	map<int, int> aiMemory;
+
+	/////////////////////////////////////////
+	// Game Dev
+	/////////////////////////////////////////
 	int currentSelected;
 
 	int flippedCards;
@@ -73,6 +84,8 @@ private:
 	//////////////////////////////////////////
 	// Private functions
 	//////////////////////////////////////////
+	void executeAI();
+
 	void shuffleCards(GameObjects& cards);
 
 	void locateStandardPosition(GameObjects& cards);

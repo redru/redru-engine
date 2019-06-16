@@ -86,6 +86,9 @@ void StateLevelOne::reset() {
 
 	dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
 
+	// Set AI counter to 0
+	aiCounter = 0;
+
 	// Cards positioning
 	locateStandardPosition(gameObjects);
 }
@@ -108,6 +111,11 @@ void StateLevelOne::update() {
 		}
 
 		return;
+	}
+
+	// If current player is AI, execute behaviour
+	if (status->isCurrentPlayerAi()) {
+		executeAI();
 	}
 
 	if (firstFlippedCard != nullptr && secondFlippedCard != nullptr) {
@@ -246,10 +254,31 @@ void StateLevelOne::onEvent(re::GameEvent& event) {
 		// If first selection
 		if (firstFlippedCard == nullptr) {
 			firstFlippedCard = object;
-		}
-		else {
+		} else {
 			secondFlippedCard = object;
 		}
+	}
+}
+
+void StateLevelOne::executeAI() {
+	while (!firstFlippedCard || !secondFlippedCard) {
+		// Reset AI iterator if end has been reached
+		if (aiCounter == gameObjects.size()) aiCounter = 0;
+
+		CardObject* card = dynamic_cast<CardObject*>(gameObjects[aiCounter].get());
+
+		// Continue if card is already flipped
+		if (!card->isFaceUp() && !card->isLocked()) {
+			card->flip();
+
+			if (!firstFlippedCard) {
+				firstFlippedCard = card;
+			} else if (!secondFlippedCard) {
+				secondFlippedCard = card;
+			}
+		}
+
+		aiCounter++;
 	}
 }
 
