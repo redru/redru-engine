@@ -90,4 +90,6 @@ private:
 
 	void locateStandardPosition(GameObjects& cards);
 
+	sf::Texture& getRandomBackCardTexture(vector<sf::Texture*> textures);
+
 };

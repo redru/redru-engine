@@ -12,7 +12,7 @@ StateLevelOne::StateLevelOne(re::RedruEngine& engine) :
 	firstFlippedCard(nullptr),
 	secondFlippedCard(nullptr),
 	aiCounter(0),
-	aiMemory(2) {
+	aiMemory() {
 }
 
 void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
@@ -27,10 +27,12 @@ void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
 	engine.getAudioManager()->playMusic("BACKGROUND");
 
 	// Load resources
-	sf::Texture& tex1 = engine.getTextureAssets()->loadTexture("TEX_CARD_1");
-	sf::Texture& tex2 = engine.getTextureAssets()->loadTexture("TEX_CARD_2");
-	sf::Texture& tex3 = engine.getTextureAssets()->loadTexture("TEX_CARD_3");
-	sf::Texture& tex4 = engine.getTextureAssets()->loadTexture("TEX_CARD_4");
+	vector<sf::Texture*> backs {
+		&engine.getTextureAssets()->loadTexture("TEX_CARD_1"),
+		& engine.getTextureAssets()->loadTexture("TEX_CARD_2"),
+		& engine.getTextureAssets()->loadTexture("TEX_CARD_3"),
+		& engine.getTextureAssets()->loadTexture("TEX_CARD_4")
+	};
 
 	sf::Texture& texFront1 = engine.getTextureAssets()->loadTexture("TEX_CARD_FRONT_1");
 	sf::Texture& texFront2 = engine.getTextureAssets()->loadTexture("TEX_CARD_FRONT_2");
@@ -42,18 +44,18 @@ void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
 	// Initialize Game Objects
 	background.reset(new re::GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_CARD_TABLE")));
 
-	gameObjects[0].reset(new CardObject("CARD_1", engine, texFront1, tex1, 1));
-	gameObjects[1].reset(new CardObject("CARD_2", engine, texFront1, tex2, 1));
-	gameObjects[2].reset(new CardObject("CARD_3", engine, texFront2, tex3, 2));
-	gameObjects[3].reset(new CardObject("CARD_4", engine, texFront2, tex4, 2));
-	gameObjects[4].reset(new CardObject("CARD_5", engine, texFront3, tex1, 3));
-	gameObjects[5].reset(new CardObject("CARD_6", engine, texFront3, tex2, 3));
-	gameObjects[6].reset(new CardObject("CARD_7", engine, texFront4, tex3, 4));
-	gameObjects[7].reset(new CardObject("CARD_8", engine, texFront4, tex4, 4));
-	gameObjects[8].reset(new CardObject("CARD_9", engine, texFront5, tex1, 5));
-	gameObjects[9].reset(new CardObject("CARD_10", engine, texFront5, tex2, 5));
-	gameObjects[10].reset(new CardObject("CARD_11", engine, texFront6, tex3, 6));
-	gameObjects[11].reset(new CardObject("CARD_12", engine, texFront6, tex4, 6));
+	gameObjects[0].reset(new CardObject("CARD_1", engine, texFront1, getRandomBackCardTexture(backs), 1));
+	gameObjects[1].reset(new CardObject("CARD_2", engine, texFront1, getRandomBackCardTexture(backs), 1));
+	gameObjects[2].reset(new CardObject("CARD_3", engine, texFront2, getRandomBackCardTexture(backs), 2));
+	gameObjects[3].reset(new CardObject("CARD_4", engine, texFront2, getRandomBackCardTexture(backs), 2));
+	gameObjects[4].reset(new CardObject("CARD_5", engine, texFront3, getRandomBackCardTexture(backs), 3));
+	gameObjects[5].reset(new CardObject("CARD_6", engine, texFront3, getRandomBackCardTexture(backs), 3));
+	gameObjects[6].reset(new CardObject("CARD_7", engine, texFront4, getRandomBackCardTexture(backs), 4));
+	gameObjects[7].reset(new CardObject("CARD_8", engine, texFront4, getRandomBackCardTexture(backs), 4));
+	gameObjects[8].reset(new CardObject("CARD_9", engine, texFront5, getRandomBackCardTexture(backs), 5));
+	gameObjects[9].reset(new CardObject("CARD_10", engine, texFront5, getRandomBackCardTexture(backs), 5));
+	gameObjects[10].reset(new CardObject("CARD_11", engine, texFront6, getRandomBackCardTexture(backs), 6));
+	gameObjects[11].reset(new CardObject("CARD_12", engine, texFront6, getRandomBackCardTexture(backs), 6));
 
 	reset();
 }
@@ -76,6 +78,10 @@ void StateLevelOne::reset() {
 	currentSelected = 0;
 	firstFlippedCard = nullptr;
 	secondFlippedCard = nullptr;
+
+	for (int i = 0; i < aiMemory.size(); i++) {
+		aiMemory[i] = nullptr;
+	}
 
 	status->nextPlayer();
 
@@ -138,8 +144,8 @@ void StateLevelOne::update() {
 		if (firstFlippedCard->getGroup() != secondFlippedCard->getGroup()) {
 
 			// Update AI memory
-			aiMemory[0] = firstFlippedCard;
-			aiMemory[1] = secondFlippedCard;
+			aiMemory.push_back(firstFlippedCard);
+			aiMemory.push_back(secondFlippedCard);
 
 			// Start wait time
 			mustWait = true;
@@ -285,7 +291,7 @@ void StateLevelOne::executeAI() {
 
 				// Check AI memory when first card is selected to find the pair, if present
 				for (vector<CardObject*>::iterator it = aiMemory.begin(); it != aiMemory.end(); it++) {
-					if (*it && firstFlippedCard != *it && firstFlippedCard->getGroup() == (*it)->getGroup()) {
+					if (*it && !(*it)->isLocked() && firstFlippedCard != *it && firstFlippedCard->getGroup() == (*it)->getGroup()) {
 						secondFlippedCard = *it;
 						secondFlippedCard->flip();
 
@@ -317,4 +323,13 @@ void StateLevelOne::locateStandardPosition(GameObjects& cards) {
 			cards[objCount]->setPosition(x_OFFSET * e, Y_OFFSET * i);
 		}
 	}
+}
+
+sf::Texture& StateLevelOne::getRandomBackCardTexture(vector<sf::Texture*> textures) {
+	unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+
+	std::default_random_engine generator(seed);
+	std::uniform_int_distribution<int> distribution(0, textures.size() - 1);
+
+	return *textures[distribution(generator)];
 }
