@@ -77,15 +77,24 @@ void StateMainMenu::onInput(sf::Event& event) {
 		}
 	} else if (event.type == sf::Event::MouseButtonPressed) {
 		if (onePlayerButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
-			LevelOneData* data = new LevelOneData();
-			data->setPlayerNames(vector<string>{ "Player 1" });
+			PlayerStatus* player1 = new PlayerStatus();
+			player1->name = "RedrU";
+			player1->points = 0;
+			player1->ai = false;
 
-			engine.changeState("LEVEL_ONE", false, data);
+			engine.changeState("LEVEL_ONE", false, new LevelOneData(vector<PlayerStatus*>{ player1 }, false));
 		} else if (onePlayerVsAiButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
-			LevelOneData* data = new LevelOneData();
-			data->setPlayerNames(vector<string>{ "RedrU", "AI" });
+			PlayerStatus* player1 = new PlayerStatus();
+			player1->name = "RedrU";
+			player1->points = 0;
+			player1->ai = false;
 
-			engine.changeState("LEVEL_ONE", false, data);
+			PlayerStatus* player2 = new PlayerStatus();
+			player2->name = "AI";
+			player2->points = 0;
+			player2->ai = true;
+
+			engine.changeState("LEVEL_ONE", false, new LevelOneData(vector<PlayerStatus*>{ player1, player2 }, true));
 		} else if (exitButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
 			engine.stop();
 		}

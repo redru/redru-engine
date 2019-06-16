@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "REDRU/Data/StateInitializationData.hpp"
+#include "StateStatus.hpp"
 
 using namespace std;
 
@@ -10,12 +11,20 @@ class LevelOneData : public re::StateInitializationData {
 
 private:
 
-	vector<string> playerNames;
+	vector<PlayerStatus*> players;
+
+	bool playingVsAi;
 
 public:
 
-	void setPlayerNames(vector<string> playerNames);
+	LevelOneData(vector<PlayerStatus*> players = vector<PlayerStatus*>(0), bool playingVsAi = false);
 
-	vector<string>& getPlayerNames();
+	void setPlayers(vector<PlayerStatus*> players);
+
+	vector<PlayerStatus*>& getPlayers();
+
+	void setPlayingVsAi(bool playingVsAi);
+
+	bool& getPlayingVsAi();
 
 };

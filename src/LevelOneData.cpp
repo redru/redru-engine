@@ -1,9 +1,22 @@
 #include "LevelOneData.hpp"
 
-void LevelOneData::setPlayerNames(vector<string> playerNames) {
-	this->playerNames = playerNames;
+LevelOneData::LevelOneData(vector<PlayerStatus*> players, bool playingVsAi) :
+	players(players),
+	playingVsAi(playingVsAi) {
 }
 
-vector<string>& LevelOneData::getPlayerNames() {
-	return playerNames;
+void LevelOneData::setPlayers(vector<PlayerStatus*> players) {
+	this->players = players;
+}
+
+vector<PlayerStatus*>& LevelOneData::getPlayers() {
+	return players;
+}
+
+void LevelOneData::setPlayingVsAi(bool playingVsAi) {
+	this->playingVsAi = playingVsAi;
+}
+
+bool& LevelOneData::getPlayingVsAi() {
+	return playingVsAi;
 }

@@ -76,12 +76,6 @@
     <Filter Include="Archivos de encabezado\Engine\Data">
       <UniqueIdentifier>{895a0329-ceb3-4724-a45d-285677889500}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\Game\Data">
-      <UniqueIdentifier>{f78c699d-c828-404b-89a9-de58e0a23554}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Game\Data">
-      <UniqueIdentifier>{5397381f-b7a7-4a50-8b49-14e633c930d9}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore">
@@ -143,11 +137,11 @@
     <ClCompile Include="src\StateStatus.cpp">
       <Filter>Archivos de origen\Game\States</Filter>
     </ClCompile>
-    <ClCompile Include="src\LevelOneData.cpp">
-      <Filter>Archivos de origen\Game\Data</Filter>
-    </ClCompile>
     <ClCompile Include="src\REDRU\GenericButtonObject.cpp">
       <Filter>Archivos de origen\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LevelOneData.cpp">
+      <Filter>Archivos de origen\Game\States\LevelOne</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,14 +205,14 @@
     <ClInclude Include="include\StateStatus.hpp">
       <Filter>Archivos de encabezado\Game\States</Filter>
     </ClInclude>
-    <ClInclude Include="include\LevelOneData.hpp">
-      <Filter>Archivos de encabezado\Game\Data</Filter>
-    </ClInclude>
     <ClInclude Include="include\REDRU\Data\StateInitializationData.hpp">
       <Filter>Archivos de encabezado\Engine\Data</Filter>
     </ClInclude>
     <ClInclude Include="include\REDRU\Components\GenericButtonObject.hpp">
       <Filter>Archivos de encabezado\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LevelOneData.hpp">
+      <Filter>Archivos de encabezado\Game\States\LevelOne</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -15,7 +15,8 @@ StateLevelOne::StateLevelOne(re::RedruEngine& engine) :
 
 void StateLevelOne::onInit(shared_ptr<re::StateInitializationData> data) {
 	LevelOneData* levelData = data->getData<LevelOneData>();
-	status.reset(new StateStatus(levelData->getPlayerNames()));
+	status.reset(new StateStatus(levelData->getPlayers()));
+	status->setPlayingVsAi(levelData->getPlayingVsAi());
 
 	ui.setStatus(status);
 	ui.initialize();
@@ -208,6 +209,8 @@ void StateLevelOne::onInput(sf::Event& event) {
 			dynamic_cast<CardObject*>(gameObjects[currentSelected].get())->setSelected(true);
 			break;
 		case sf::Keyboard::Enter:
+			if (status->isCurrentPlayerAi()) return;
+
 			tmp = dynamic_cast<CardObject*>(gameObjects[currentSelected].get());
 
 			if (tmp->isLocked() || tmp->isFaceUp() || mustWait) {
@@ -226,13 +229,13 @@ void StateLevelOne::onInput(sf::Event& event) {
 		}
 	}
 
-	if (mustWait) {
-		return;
+	// If is AI turn or must wait, don't handle input on cards
+	if (!mustWait && !status->isCurrentPlayerAi()) {
+		for (GameObjects::iterator it = gameObjects.begin(); it < gameObjects.end(); it++) {
+			(*it)->onInput(event);
+		}
 	}
-
-	for (GameObjects::iterator it = gameObjects.begin(); it < gameObjects.end(); it++) {
-		(*it)->onInput(event);
-	}
+	
 }
 
 void StateLevelOne::onEvent(re::GameEvent& event) {

@@ -1,12 +1,13 @@
 #include "StateStatus.hpp"
 
-StateStatus::StateStatus(vector<string> playerNames) : players(playerNames.size()), currentPlayer(-1), rounds(1) {
-	for (int i = 0; i < playerNames.size(); i++) {
-		PlayerStatus* playerStatus = new PlayerStatus();
-		playerStatus->name = playerNames[i];
-		playerStatus->points = 0;
+StateStatus::StateStatus(vector<PlayerStatus*> players) :
+	players(players.size()),
+	currentPlayer(-1),
+	rounds(1),
+	playingVsAi(false) {
 
-		players[i].reset(playerStatus);
+	for (int i = 0; i < players.size(); i++) {
+		this->players[i].reset(players[i]);
 	}
 
 	spdlog::debug("[StateStatus] level one initialized with " + to_string(players.size()) + " players");
@@ -38,6 +39,10 @@ void StateStatus::nextRound() {
 	rounds++;
 }
 
+bool StateStatus::isCurrentPlayerAi() {
+	return players[currentPlayer]->ai;
+}
+
 void StateStatus::setCurrentPlayer(int currentPlayer) {
 	if (currentPlayer >= (int) players.size()) {
 		spdlog::error("[StateStatus] player '" + to_string(currentPlayer) + "' does not exist and could not be selected as current");
@@ -56,4 +61,12 @@ Players& StateStatus::getPlayers() {
 
 int& StateStatus::getRounds() {
 	return rounds;
+}
+
+void StateStatus::setPlayingVsAi(bool playingVsAi) {
+	this->playingVsAi = playingVsAi;
+}
+
+bool& StateStatus::getPlayingVsAi() {
+	return playingVsAi;
 }

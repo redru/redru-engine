@@ -7,6 +7,7 @@
 #include "REDRU/Components/State.hpp"
 #include "REDRU/Data/StateInitializationData.hpp"
 #include "REDRU/RedruEngine.hpp"
+#include "StateStatus.hpp"
 
 using namespace std;
 

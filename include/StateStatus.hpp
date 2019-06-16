@@ -11,6 +11,7 @@ using namespace std;
 
 struct PlayerStatus {
 	string name;
+	bool ai;
 	int points;
 };
 
@@ -26,15 +27,19 @@ private:
 
 	int rounds;
 
+	bool playingVsAi;
+
 public:
 
-	StateStatus(vector<string> playerNames);
+	StateStatus(vector<PlayerStatus*> players);
 
 	int& addPoints(int pointsToAdd, int player = -1);
 
 	void nextPlayer();
 
 	void nextRound();
+
+	bool isCurrentPlayerAi();
 
 	void setCurrentPlayer(int currentPlayer);
 
@@ -43,5 +48,9 @@ public:
 	Players& getPlayers();
 
 	int& getRounds();
+
+	void setPlayingVsAi(bool playingVsAi);
+
+	bool& getPlayingVsAi();
 
 };
