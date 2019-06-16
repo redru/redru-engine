@@ -3,24 +3,46 @@
 StateMainMenu::StateMainMenu(re::RedruEngine& engine) :
 	engine(engine),
 	mainMenuImage(),
-	startButton(),
+	onePlayerButton(),
+	onePlayerVsAiButton(),
 	exitButton() {
 }
 
 void StateMainMenu::onInit(shared_ptr<re::StateInitializationData> data) {
 	engine.getAudioManager()->stopMusic();
 
-	mainMenuImage.reset(new re::GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_MAIN_MENU")));
-	startButton.reset(new re::GenericGameObject("START_B", engine, engine.getTextureAssets()->loadTexture("TEX_START_BUTTON")));
-	exitButton.reset(new re::GenericGameObject("EXIT_B", engine, engine.getTextureAssets()->loadTexture("TEX_EXIT_BUTTON")));
+	sf::Font& uiFont = engine.getFontAssets()->getFont("UI_FONT");
 
-	startButton->setPosition(200.f, 180.f);
-	exitButton->setPosition(200.f, 240.f);
+	mainMenuImage.reset(new re::GenericGameObject("BACKGROUND", engine, engine.getTextureAssets()->loadTexture("TEX_MAIN_MENU")));
+
+	onePlayerButton.reset(new re::GenericButtonObject("ONE_PLAYER_B", engine));
+	onePlayerButton->setPosition(200.f, 180.f);
+	onePlayerButton->setColor(0, 0, 255, 255);
+	onePlayerButton->setSize(230.f, 60.f);
+	onePlayerButton->setFont(uiFont);
+	onePlayerButton->setFontSize(36);
+	onePlayerButton->setText("1 Player");
+
+	onePlayerVsAiButton.reset(new re::GenericButtonObject("ONE_PLAYER_AI_B", engine));
+	onePlayerVsAiButton->setPosition(200.f, 280.f);
+	onePlayerVsAiButton->setColor(0, 0, 255, 255);
+	onePlayerVsAiButton->setSize(230.f, 60.f);
+	onePlayerVsAiButton->setFont(uiFont);
+	onePlayerVsAiButton->setFontSize(36);
+	onePlayerVsAiButton->setText("1 Player VS AI");
+
+	exitButton.reset(new re::GenericButtonObject("EXIT_B", engine));
+	exitButton->setPosition(200.f, 380.f);
+	exitButton->setColor(0, 0, 255, 255);
+	exitButton->setSize(230.f, 60.f);
+	exitButton->setFont(uiFont);
+	exitButton->setFontSize(36);
+	exitButton->setText("Exit");
 }
 
 void StateMainMenu::onClose() {
 	mainMenuImage.release();
-	startButton.release();
+	onePlayerButton.release();
 	exitButton.release();
 }
 
@@ -34,7 +56,8 @@ void StateMainMenu::draw() {
 	sf::RenderWindow& window = engine.getGraphicsManager()->getWindow();
 
 	mainMenuImage->draw(window);
-	startButton->draw(window);
+	onePlayerButton->draw(window);
+	onePlayerVsAiButton->draw(window);
 	exitButton->draw(window);
 }
 
@@ -45,21 +68,25 @@ void StateMainMenu::onInput(sf::Event& event) {
 			engine.stop();
 			break;
 
-		case sf::Keyboard::Enter:
+		/* case sf::Keyboard::Enter:
 			LevelOneData* data = new LevelOneData();
 			data->setPlayerNames(vector<string>{ "RedrU", "AI" });
 
 			engine.changeState("LEVEL_ONE", false, data);
-			break;
+			break; */
 		}
 	} else if (event.type == sf::Event::MouseButtonPressed) {
-		if (startButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
+		if (onePlayerButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
+			LevelOneData* data = new LevelOneData();
+			data->setPlayerNames(vector<string>{ "Player 1" });
+
+			engine.changeState("LEVEL_ONE", false, data);
+		} else if (onePlayerVsAiButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
 			LevelOneData* data = new LevelOneData();
 			data->setPlayerNames(vector<string>{ "RedrU", "AI" });
 
 			engine.changeState("LEVEL_ONE", false, data);
-		}
-		else if (exitButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
+		} else if (exitButton->getBoundingBox().contains((float)event.mouseButton.x, (float)event.mouseButton.y)) {
 			engine.stop();
 		}
 	}

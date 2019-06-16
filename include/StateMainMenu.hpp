@@ -3,6 +3,7 @@
 
 #include "LevelOneData.hpp"
 #include "REDRU/Components/GenericGameObject.hpp"
+#include "REDRU/Components/GenericButtonObject.hpp"
 #include "REDRU/Components/State.hpp"
 #include "REDRU/Data/StateInitializationData.hpp"
 #include "REDRU/RedruEngine.hpp"
@@ -17,9 +18,11 @@ private:
 
 	unique_ptr<re::GameObject> mainMenuImage;
 
-	unique_ptr<re::GameObject> startButton;
+	unique_ptr<re::GenericButtonObject> onePlayerButton;
 
-	unique_ptr<re::GameObject> exitButton;
+	unique_ptr<re::GenericButtonObject> onePlayerVsAiButton;
+
+	unique_ptr<re::GenericButtonObject> exitButton;
 
 public:
 

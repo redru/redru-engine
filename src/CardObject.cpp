@@ -54,6 +54,9 @@ void CardObject::setPosition(float x, float y) {
 	selectionBorder.setPosition(x, y);
 }
 
+void CardObject::setSize(float x, float y) {
+}
+
 void CardObject::setColor(int r, int g, int b, int a) {
 	frontSprite.setColor(sf::Color(r, g, b, a));
 	backSprite.setColor(sf::Color(r, g, b, a));

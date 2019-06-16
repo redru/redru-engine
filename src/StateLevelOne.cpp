@@ -67,7 +67,6 @@ void StateLevelOne::onClose() {
 }
 
 void StateLevelOne::reset() {
-	// State members initialization
 	flippedCards = 0;
 	mustWait = false;
 	mustWaitTime = 0;

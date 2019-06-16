@@ -146,6 +146,9 @@
     <ClCompile Include="src\LevelOneData.cpp">
       <Filter>Archivos de origen\Game\Data</Filter>
     </ClCompile>
+    <ClCompile Include="src\REDRU\GenericButtonObject.cpp">
+      <Filter>Archivos de origen\Engine\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\REDRU\RedruEngine.hpp">
@@ -213,6 +216,9 @@
     </ClInclude>
     <ClInclude Include="include\REDRU\Data\StateInitializationData.hpp">
       <Filter>Archivos de encabezado\Engine\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\REDRU\Components\GenericButtonObject.hpp">
+      <Filter>Archivos de encabezado\Engine\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

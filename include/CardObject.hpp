@@ -57,6 +57,8 @@ public:
 
 	void setPosition(float x, float y) override;
 
+	void setSize(float x, float y) override;
+
 	void setColor(int r, int g, int b, int a) override;
 
 	///////////////////////////////////////////////////////////////

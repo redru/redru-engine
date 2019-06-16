@@ -143,6 +143,7 @@
     <ClCompile Include="src\REDRU\AudioManager.cpp" />
     <ClCompile Include="src\REDRU\EventsManager.cpp" />
     <ClCompile Include="src\REDRU\FontAssets.cpp" />
+    <ClCompile Include="src\REDRU\GenericButtonObject.cpp" />
     <ClCompile Include="src\REDRU\GenericGameObject.cpp" />
     <ClCompile Include="src\REDRU\GraphicsManager.cpp" />
     <ClCompile Include="src\REDRU\InputManager.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="include\REDRU\Assets\SoundAssets.hpp" />
     <ClInclude Include="include\REDRU\Assets\TextureAssets.hpp" />
     <ClInclude Include="include\REDRU\Components\GameObject.hpp" />
+    <ClInclude Include="include\REDRU\Components\GenericButtonObject.hpp" />
     <ClInclude Include="include\REDRU\Components\GenericGameObject.hpp" />
     <ClInclude Include="include\REDRU\Components\State.hpp" />
     <ClInclude Include="include\REDRU\Data\StateInitializationData.hpp" />

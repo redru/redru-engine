@@ -28,6 +28,9 @@ namespace re {
 		sprite.setPosition(x, y);
 	}
 
+	void GenericGameObject::setSize(float x, float y) {
+	}
+
 	void GenericGameObject::setColor(int r, int g, int b, int a) {
 		sprite.setColor(sf::Color(r, g, b, a));
 	}

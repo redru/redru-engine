@@ -40,6 +40,8 @@ namespace re {
 
 		virtual void setPosition(float x, float y) = 0;
 
+		virtual void setSize(float x, float y) = 0;
+
 		virtual void setColor(int r, int g, int b, int a) = 0;
 
 	};
