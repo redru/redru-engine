@@ -83,6 +83,8 @@ void StateLevelOne::reset() {
 		aiMemory[i] = nullptr;
 	}
 
+	aiMemory.resize(0);
+
 	status->nextPlayer();
 
 	for (auto it = gameObjects.begin(); it != gameObjects.end(); it++) {
@@ -278,7 +280,7 @@ void StateLevelOne::onEvent(re::GameEvent& event) {
 void StateLevelOne::executeAI() {
 	while (!firstFlippedCard || !secondFlippedCard) {
 		// Reset AI iterator if end has been reached
-		if (aiCounter == gameObjects.size()) aiCounter = 0;
+		if (aiCounter >= gameObjects.size()) aiCounter = 0;
 
 		CardObject* card = dynamic_cast<CardObject*>(gameObjects[aiCounter].get());
 
